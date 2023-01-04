@@ -6,5 +6,5 @@ export interface iButton {
 
 
 export interface iButtonStyles {
-variant: string;
+  variant: string;
 }
