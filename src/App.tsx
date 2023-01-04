@@ -1,13 +1,12 @@
 import React from "react";
+import { GlobalStyles } from "./styles/globalStyles";
 
 const App = () => {
-  const person = {
-    name: "Leandro",
-    age: 27
-  }
-
-  console.log(person)
-  return <></>;
+  return (
+    <>
+      <GlobalStyles />
+    </>
+  );
 };
 
 export default App;
