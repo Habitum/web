@@ -5,6 +5,7 @@ export interface iUserProviderProps {
   children: React.ReactNode;
 }
 
+
 export interface iUserContext {
   globalLoading: boolean;
   setGlobalLoading: React.Dispatch<React.SetStateAction<boolean>>;
