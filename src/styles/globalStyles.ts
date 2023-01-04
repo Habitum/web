@@ -6,7 +6,7 @@ export const GlobalStyles = createGlobalStyle`
     margin: 0;
     box-sizing: border-box;
     list-style: none;
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-family-inter)
   }
 
   :root {
@@ -21,6 +21,11 @@ export const GlobalStyles = createGlobalStyle`
     --color-okay: #45FF26;
     --color-alert: #FF3838;
     --radius: 0.5rem;
+  
+    --font-family-inter: 'Inter', sans-serif;
+    --font-family-montserrat: 'Montserrat', sans-serif;
+    --font-family-racing-sans-one: 'Racing Sans One', cursive;
+
   }
 
   body {
