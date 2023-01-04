@@ -6,19 +6,14 @@ import Register from "../pages/Register";
 import Dashboard from "../pages/Dashboard";
 import ProtectedRoutes from "./ProtectedRoutes";
 
-
 const RoutesMain = () => {
   return (
     <Routes>
       <Route path="/" element={<LandingPage />} />
       <Route path="/login" element={<Login />} />
-      <Route path="/register" element={<Register/>} />
-      <Route path="/" element={<ProtectedRoutes/>}>
-        <Route
-          index
-          path="/dashboard"
-          element={<Dashboard/>}
-        />
+      <Route path="/register" element={<Register />} />
+      <Route path="/" element={<ProtectedRoutes />}>
+        <Route index path="/dashboard" element={<Dashboard />} />
       </Route>
     </Routes>
   );
