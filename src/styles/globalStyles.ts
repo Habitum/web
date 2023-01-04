@@ -20,6 +20,7 @@ export const GlobalStyles = createGlobalStyle`
     --color-white: #FFFFFF;
     --color-okay: #45FF26;
     --color-alert: #FF3838;
+    --radius: 0.5rem;
   }
 
   body {
