@@ -1,10 +1,36 @@
-import React from 'react'
+import React, { useContext, useEffect } from "react";
+
+import { Outlet, useNavigate } from "react-router-dom";
+
+import { ImSpinner6 } from "react-icons/im";
+import { StyledLoading } from "../../styles/loading";
+
+import { UserContext } from "../../contexts/UserContext";
+
+
 
 const ProtectedRoutes = () => {
+  const navigate = useNavigate();
 
+  const { user } = useContext(UserContext);
+
+  useEffect(() => {
+    if (!user) {
+      navigate("/");
+    }
+  }, []);
   return (
-    <div>ProtectedRoutes provisória, impedimento: em userContext não há state de user</div>
-  )
-}
+    <>
+      {user ? (
+        <Outlet />
+      ) : (
+        
+        <StyledLoading>
+          <ImSpinner6 className="loading" />
+        </StyledLoading>
+      )}
+    </>
+  );
+};
 
-export default ProtectedRoutes
+export default ProtectedRoutes;
