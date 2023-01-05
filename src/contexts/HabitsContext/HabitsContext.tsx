@@ -9,7 +9,6 @@ import { createHabit } from "../../services/createHabit";
 import { editHabit } from "../../services/editHabit";
 
 
-import { addUserBits } from "../../services/addUserBits";
 import { UserContext } from "../UserContext/UserContext";
 
 
@@ -25,22 +24,7 @@ export const HabitsProvider = ({ children }: iHabitsProviderProps) => {
   const [habit, setHabit] = useState([] as iHabits[]);
 
   useEffect(()=>  {
-    (async () => {
-      const token = localStorage.getItem("@TOKEN");
-      if(token){
-        if (!user) {
-          const userId = localStorage.getItem("@USER_ID");
-      
-          const updateUser = await addUserBits(Number(userId));
-          
-          if(updateUser !== undefined){
-            console.log(updateUser);
-            setUser(updateUser);
-          };
-        };
-      }
-    })();
-      console.log(user)
+  
   },[user,setUser]);
 
   const habitCreate = async (body: iHabits) => {
