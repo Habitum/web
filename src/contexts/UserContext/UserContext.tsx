@@ -5,10 +5,11 @@ import { toast } from "react-toastify";
 
 import { iLoginFormValues } from "../../components/LoginForm/types";
 import { iRegisterFormValues } from "../../components/RegisterForm/types";
-import { ILoginResponse, iUser, iUserContext, iUserProviderProps } from "./types";
+import { iUser, iUserContext, iUserProviderProps } from "./types";
 
-import { api } from "../../services/api";
 import { getUser } from "../../services/getUser";
+import { loginUser } from "../../services/loginUser";
+import { registerUser } from "../../services/registerUser";
 
 export const UserContext = createContext({} as iUserContext);
 
@@ -41,15 +42,13 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
   const userLogin = async (userLoginData: iLoginFormValues) => {
     try {
       setGlobalLoading(true);
-      toast.success("Logado com sucesso");
-      console.log(userLoginData);
 
-      const response = await api.post<ILoginResponse>("/login", userLoginData);
+      const response = await loginUser(userLoginData);
 
-      localStorage.setItem("@TOKEN", response.data.accessToken);
-      localStorage.setItem("@USER_ID", response.data.user.id + "");
+      localStorage.setItem("@TOKEN", response.accessToken);
+      localStorage.setItem("@USER_ID", response.user.id + "");
 
-      setUser(response.data.user);
+      setUser(response.user);
 
       navigate("/dashboard");
     } catch (error) {
@@ -64,8 +63,11 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
     try {
       setGlobalLoading(true);
       delete userRegisterData.confirmPassword;
-      console.log(userRegisterData);
+
+      await registerUser(userRegisterData);
+
       toast.success("Conta criada com sucesso!");
+      navigate("/login");
     } catch (error) {
       toast.error("Ops, deu algo errado");
     } finally {
@@ -75,7 +77,7 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
 
   const userLogout = () => {
     window.localStorage.clear();
-    navigate("/login");
+    navigate("/");
   };
 
   return <UserContext.Provider value={{ globalLoading, setGlobalLoading, userLogin, userLogout, userRegister, user }}>{children}</UserContext.Provider>;
