@@ -13,6 +13,7 @@ export interface iUserContext {
   userRegister: (userData: iRegisterFormValues) => Promise<void>;
   userLogout: () => void;
   user: iUser | null;
+  setUser: React.Dispatch<React.SetStateAction<iUser | null>>
 }
 
 export interface iUser {
@@ -21,6 +22,8 @@ export interface iUser {
   name: string;
   userName: string;
   id: string;
+  bits?: number;
+  star?:number;
 }
 
 export interface ILoginResponse {

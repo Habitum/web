@@ -78,5 +78,5 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
     navigate("/login");
   };
 
-  return <UserContext.Provider value={{ globalLoading, setGlobalLoading, userLogin, userLogout, userRegister, user }}>{children}</UserContext.Provider>;
+  return <UserContext.Provider value={{ globalLoading, setGlobalLoading, userLogin, userLogout, userRegister, user,setUser }}>{children}</UserContext.Provider>;
 };
