@@ -26,13 +26,14 @@ export const HabitsProvider = ({ children }: iHabitsProviderProps) => {
         const userId = localStorage.getItem("@USER_ID");
     
         const updateUser = await addUserBits(Number(userId));
-        setUser(updateUser);
-
-      }
+        if(updateUser !== undefined){
+          setUser(updateUser);
+        };
+      };
     })();
     
       
-  },[user,setUser])
+  },[user,setUser]);
 
   const CreateHabit = async (body: iHabits) => {
     try {
