@@ -22,8 +22,6 @@ export interface iUser {
   name: string;
   userName: string;
   id: string;
-  bits?: number;
-  star?:number;
 }
 
 export interface ILoginResponse {

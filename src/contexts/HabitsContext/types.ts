@@ -26,3 +26,13 @@ export interface iHabits {
 export interface iBody {
   userId: string | null;
 }
+
+export interface iUserUpdate {
+  email: string;
+  img: string;
+  name: string;
+  userName: string;
+  id: string;
+  bits: number;
+  star:number;
+}

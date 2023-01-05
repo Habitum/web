@@ -26,17 +26,21 @@ export const HabitsProvider = ({ children }: iHabitsProviderProps) => {
 
   useEffect(()=>  {
     (async () => {
-      if (!user?.bits) {
-        const userId = localStorage.getItem("@USER_ID");
-    
-        const updateUser = await addUserBits(Number(userId));
-        if(updateUser !== undefined){
-          setUser(updateUser);
-        };
-      };
-    })();
-    
+      const token = localStorage.getItem("@TOKEN");
+      if(token){
+        if (!user) {
+          const userId = localStorage.getItem("@USER_ID");
       
+          const updateUser = await addUserBits(Number(userId));
+          
+          if(updateUser !== undefined){
+            console.log(updateUser);
+            setUser(updateUser);
+          };
+        };
+      }
+    })();
+      console.log(user)
   },[user,setUser]);
 
   const habitCreate = async (body: iHabits) => {
