@@ -15,10 +15,11 @@ export const ModalWrapper = styled.div`
 `
 
 export const ModalBox = styled.div`
-    width: 100%;
-    max-width: 400px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
+  width: 100%;
+  max-width: 700px;
+  
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 `
