@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 
 import { BrowserRouter } from "react-router-dom";
 
-import { UserProvider } from "./contexts/UserContext";
+import { UserProvider } from "./contexts/UserContext/UserContext";
 
 import App from "./App";
 
