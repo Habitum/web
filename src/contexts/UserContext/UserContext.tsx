@@ -1,14 +1,14 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
-import { iLoginFormValues } from "../components/LoginForm/types";
-import { iRegisterFormValues } from "../components/RegisterForm/types";
-import { iUserContext, iUserProviderProps } from "./UserContextTypes";
+import { iLoginFormValues } from "../../components/LoginForm/types";
+import { iRegisterFormValues } from "../../components/RegisterForm/types";
+import { ILoginResponse, iUser, iUserContext, iUserProviderProps } from "./types";
 
-import { api } from "../services/api";
-import { getUser } from "../services/getUser";
+import { api } from "../../services/api";
+import { getUser } from "../../services/getUser";
 
 export const UserContext = createContext({} as iUserContext);
 
@@ -17,19 +17,16 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
   const [user, setUser] = useState<iUser | null>(null);
 
   const token = localStorage.getItem("@TOKEN");
-  
+
   const navigate = useNavigate();
 
   useEffect(() => {
     (async () => {
-
       if (token) {
         try {
           setGlobalLoading(true);
           const response = await getUser();
-
           setUser(response);
-
           navigate("/dashboard");
         } catch (error) {
           console.log(error);
@@ -38,6 +35,7 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
         }
       }
     })();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [token]);
 
   const userLogin = async (userLoginData: iLoginFormValues) => {
@@ -46,15 +44,14 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
       toast.success("Logado com sucesso");
       console.log(userLoginData);
 
-      const response = await api.post<iLoginResponse>("/login", userLoginData);
+      const response = await api.post<ILoginResponse>("/login", userLoginData);
 
       localStorage.setItem("@TOKEN", response.data.accessToken);
       localStorage.setItem("@USER_ID", response.data.user.id + "");
-    
+
       setUser(response.data.user);
 
       navigate("/dashboard");
-      
     } catch (error) {
       toast.error("Usuário ou senha incorretos!");
       console.error(error);
@@ -83,7 +80,3 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
 
   return <UserContext.Provider value={{ globalLoading, setGlobalLoading, userLogin, userLogout, userRegister, user }}>{children}</UserContext.Provider>;
 };
-function useEffect(arg0: () => void, arg1: (string | null)[]) {
-  throw new Error("Function not implemented.");
-}
-
