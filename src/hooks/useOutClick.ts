@@ -1,12 +1,12 @@
-import React, { useRef, useEffect} from "react";
+import React, { useRef, useEffect, SetStateAction} from "react";
 
-export const useOutClick = (callback) => {
+export const useOutClick = (callback : {(): void}) => {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() =>{
     function modalOutClick(event : MouseEvent) {
         const target = event.target as HTMLDivElement;
-        const element = ref.current;
+        const element = ref.current as HTMLDivElement;
 
         if(!element.contains(target)){
             callback();
