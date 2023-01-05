@@ -1,10 +1,12 @@
 import { createContext, useState } from "react";
-import { api } from "../../services/api";
-import {
-  iHabits,
-  iHabitsProviderProps,
-  iHabitsProviderValue,
-} from "./HabitsContextTypes";
+
+import { toast } from "react-toastify";
+
+import { iHabits, iHabitsProviderProps, iHabitsProviderValue } from "./types";
+
+import { deleteHabit } from "../../services/deleteHabit";
+import { createHabit } from "../../services/createHabit";
+import { editHabit } from "../../services/editHabit";
 
 export const HabitsContext = createContext({} as iHabitsProviderValue);
 
@@ -15,14 +17,7 @@ export const HabitsProvider = ({ children }: iHabitsProviderProps) => {
 
   const [habit, setHabit] = useState([] as iHabits[]);
 
-  const CreateHabit = async (body: iHabits) => {
-    try {
-      await api.post("/habits", body);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
+ 
   return (
     <HabitsContext.Provider
       value={{
@@ -32,7 +27,9 @@ export const HabitsProvider = ({ children }: iHabitsProviderProps) => {
         setBit,
         habit,
         setHabit,
-        CreateHabit,
+        habitCreate,
+        habitEdit,
+        habitDelete,
       }}
     >
       {children}
