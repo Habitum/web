@@ -21,7 +21,7 @@ export const GlobalStyles = createGlobalStyle`
     --color-okay: #45FF26;
     --color-alert: #FF3838;
 
-    --radius: 8px;
+    --radius: 0.5rem;
   
     --font-family-inter: 'Inter', sans-serif;
     --font-family-montserrat: 'Montserrat', sans-serif;
@@ -45,7 +45,7 @@ export const GlobalStyles = createGlobalStyle`
     --text-status-size: 1.5rem;
     --text-placeholder-size: 1rem;
 
-    --text-weight-100: 700;
+    --text-weight-100: 900;
     --text-weight-200: 700;
     --text-weight-300: 500;
     --text-weight-400: 400;
