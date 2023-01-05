@@ -15,5 +15,12 @@ export const HabitsProvider = ({ children }: iHabitsProviderProps) => {
 
   const [habit, setHabit] = useState([] as iHabits[]);
 
-  return <HabitsContext.Provider value={{}}>{children}</HabitsContext.Provider>;
+  return <HabitsContext.Provider value={{
+    star,
+    setStar,
+    bit,
+    setBit,
+    habit,
+    setHabit
+  }}>{children}</HabitsContext.Provider>;
 };
