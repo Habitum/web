@@ -1,7 +1,6 @@
 import { iLoginFormValues } from "../../components/LoginForm/types";
 import { iRegisterFormValues } from "../../components/RegisterForm/types";
 
-
 export interface iUserProviderProps {
   children: React.ReactNode;
 }
@@ -25,6 +24,11 @@ export interface iUser {
 }
 
 export interface ILoginResponse {
+  accessToken: string;
+  user: iUser;
+}
+
+export interface IRegisterResponse {
   accessToken: string;
   user: iUser;
 }

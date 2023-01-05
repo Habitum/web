@@ -22,30 +22,24 @@ const RegisterForm = () => {
 
   const { userRegister, globalLoading } = useContext(UserContext);
 
-  const submit: SubmitHandler<iRegisterFormValues> = async (data) => {
-    await userRegister(data);
+  const submit: SubmitHandler<iRegisterFormValues> = (data) => {
+    userRegister(data);
   };
 
   return (
     <>
       <StyledRegisterForm onSubmit={handleSubmit(submit)}>
         <RegisterFormHeader />
-        <Input name="avatar" type="url" label="Avatar" placeholder="Insira o link do seu avatar" register={register("avatar")} />
-        {errors.avatar && (
-          <p className="FormError">
-            <>{errors.avatar.message}</>
-          </p>
-        )}
         <Input name="name" type="text" label="Nome" placeholder="Digite seu nome" register={register("name")} />
         {errors.name && (
           <p className="FormError">
             <>{errors.name.message}</>
           </p>
         )}
-        <Input name="username" type="text" label="Username" placeholder="Digite seu nome de usuário" register={register("username")} />
-        {errors.username && (
+        <Input name="userName" type="text" label="Username" placeholder="Digite seu nome de usuário" register={register("userName")} />
+        {errors.userName && (
           <p className="FormError">
-            <>{errors.username.message}</>
+            <>{errors.userName.message}</>
           </p>
         )}
         <Input name="email" type="email" label="Email" placeholder="Digite seu email" register={register("email")} />
@@ -54,13 +48,13 @@ const RegisterForm = () => {
             <>{errors.email.message}</>
           </p>
         )}
-        <Input name="password" type="password" placeholder="Senha" register={register("password")} />
+        <Input name="password" type="password" label="Senha" placeholder="Senha" register={register("password")} />
         {errors.password && (
           <p className="FormError">
             <>{errors.password.message}</>
           </p>
         )}
-        <Input name="confirmPassword" type="password" placeholder="Confirmar senha" register={register("confirmPassword")} />
+        <Input name="confirmPassword" type="password" label="Confirmar Senha" placeholder="Confirmar senha" register={register("confirmPassword")} />
         {errors.confirmPassword && (
           <p className="FormError">
             <>{errors.confirmPassword.message}</>
