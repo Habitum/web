@@ -1,7 +1,6 @@
 export interface iRegisterFormValues {
-  avatar: string;
   name: string;
-  username: string;
+  userName: string;
   email: string;
   password: string;
   confirmPassword?: string;
