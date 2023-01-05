@@ -1,4 +1,5 @@
 import { createContext, useState } from "react";
+import { api } from "../../services/api";
 import {
     iHabits,
   iHabitsProviderProps,
@@ -15,12 +16,23 @@ export const HabitsProvider = ({ children }: iHabitsProviderProps) => {
 
   const [habit, setHabit] = useState([] as iHabits[]);
 
+  const CreateHabit = async (body: iHabits) => {
+
+    try {
+      await api.post("/habits", body);
+
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return <HabitsContext.Provider value={{
     star,
     setStar,
     bit,
     setBit,
     habit,
-    setHabit
+    setHabit,
+    CreateHabit,
   }}>{children}</HabitsContext.Provider>;
 };
