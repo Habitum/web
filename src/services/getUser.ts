@@ -1,3 +1,4 @@
+import { iUser } from "../contexts/UserContext/types";
 
 import { api } from "./api";
 
