@@ -1,5 +1,6 @@
 import { iLoginFormValues } from "../../components/LoginForm/types";
 import { iRegisterFormValues } from "../../components/RegisterForm/types";
+import { iHabits } from "../HabitsContext/types";
 
 export interface iUserProviderProps {
   children: React.ReactNode;
@@ -20,6 +21,7 @@ export interface iUser {
   name: string;
   userName: string;
   id: string;
+  habits: iHabits[]
 }
 
 export interface ILoginResponse {

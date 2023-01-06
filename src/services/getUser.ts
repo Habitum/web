@@ -6,7 +6,7 @@ const token = localStorage.getItem("@TOKEN");
 const userID = localStorage.getItem("@USER_ID");
 
 export async function getUser() {
-  const response = await api.get<iUser>("/users/" + userID, {
+  const response = await api.get<iUser>("/users/" + userID + "?_embed=habits", {
     headers: {
       Authorization: `Bearer ${token}`,
     },
