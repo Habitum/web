@@ -3,7 +3,6 @@ import { iButtonStyles } from "./types";
 import styled, { css } from "styled-components";
 
 export const StyledButton = styled.button`
-
   border-radius: var(--radius);
   display: flex;
   flex-direction: row;
@@ -17,6 +16,7 @@ export const StyledButton = styled.button`
   font-size: var(--text-button-size-200);
   font-weight: var(--text-weight-200);
   cursor: pointer;
+  transition: ease 0.3s;
 
   ${({ variant }: iButtonStyles) => {
     switch (variant) {
@@ -37,6 +37,18 @@ export const StyledButton = styled.button`
           :hover {
             background-color: var(--color-brand-100);
             color: var(--color-white);
+          }
+        `;
+      case "forms":
+        return css`
+          color: var(--color-white);
+          background-color: var(--color-brand-100);
+          width: 100%;
+          height: 3.75rem;
+          margin-top: 1rem;
+          border: none;
+          :hover {
+            background-color: var(--color-brand-200);
           }
         `;
     }
