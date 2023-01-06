@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import { DefaultContainer } from "../../styles/container";
 
+
+
 export const StyledHero = styled(DefaultContainer)`
   display: flex;
   align-items: center;
@@ -37,3 +39,26 @@ export const StyledHero = styled(DefaultContainer)`
     }
   }
 `;
+
+export const StyledSectionRanking = styled.section`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  background-color: var(--color-brand-200);
+`
+
+export const StyledDescription = styled.div`
+  font-size: var(--text-size-200);
+  font-weight: var(--text-weight-200);
+  color: var(--color-white);
+  display: flex;
+  flex-direction: column;
+  gap: 1.875rem;
+  max-width: 31.25rem;
+  
+  @media (min-width: 700px) {
+    gap: 2.375rem;
+  }
+
+`

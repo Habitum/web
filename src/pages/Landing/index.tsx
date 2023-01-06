@@ -5,9 +5,9 @@ import { FaUserAlt } from "react-icons/fa";
 import Header from "../../components/Header";
 
 import { StyledLink } from "../../styles/StyledLink";
-import { StyledHero } from "./styles";
+import { StyledDescription, StyledHero, StyledSectionRanking } from "./styles";
 
-import imageHero from '../../assets/images/image-hero.svg' 
+import imageHero from "../../assets/images/image-hero.svg";
 
 const LandingPage = () => {
   return (
@@ -36,6 +36,23 @@ const LandingPage = () => {
           </h2>
         </StyledHero>
       </section>
+
+      <StyledSectionRanking>
+        <StyledDescription>
+          <p>
+            Crie e alcance metas para este ano de forma fácil, gerenciável e
+            produtiva, do seu próprio jeito.
+          </p>
+          <p>
+            Torne a questão de abdicar ou cumprir hábitos uma tarefa gameficada,
+            divertida e motivacional.
+          </p>
+          <p>
+            A cada hábito realizado com sucesso, você acumula bits que poderão
+            fazer com que você entre no ranking
+          </p>
+        </StyledDescription>
+      </StyledSectionRanking>
     </>
   );
 };
