@@ -42,7 +42,7 @@ export const StyledLink = styled(Link)`
 
           :hover {
             color: var(--color-brand-200);
-            border-bottom: 0.0625rem solid var(--color-brand-200);
+            border-bottom: 0.0938rem solid var(--color-brand-200);
 
             svg {
               color: var(--color-brand-200);

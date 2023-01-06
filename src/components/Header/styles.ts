@@ -12,8 +12,22 @@ export const StyledHeader = styled.header`
 
 export const Container = styled(DefaultContainer)`
   padding: 1.875rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+
+  @media (min-width: 510px) {
+    justify-content: space-between;
+  }
 `;
 
 export const Nav = styled.nav`
-
+  > ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2.125rem;
+  }
 `

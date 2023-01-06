@@ -5,4 +5,5 @@ export const Container = styled.h1`
   font-size: var(--text-logo-size);
   color: var(--color-brand-100);
   font-weight: var(--text-weight-400);
+  line-height: 1;
 `

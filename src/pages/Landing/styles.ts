@@ -7,7 +7,3 @@ export const StyledLandingPage = styled.main`
   justify-content: center;
   align-items: center;
 `;
-
-export const ListMenu = styled.ul`
-
-`

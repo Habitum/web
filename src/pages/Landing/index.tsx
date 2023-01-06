@@ -5,13 +5,13 @@ import { FaUserAlt } from "react-icons/fa";
 import Header from "../../components/Header";
 import { StyledLink } from "../../styles/StyledLink";
 
-import { ListMenu, StyledLandingPage } from "./styles";
+import { StyledLandingPage } from "./styles";
 
 const LandingPage = () => {
   return (
     <StyledLandingPage>
       <Header>
-        <ListMenu>
+        <ul>
           <li>
             <StyledLink to={"/login"} variant="icon-text">
               <FaUserAlt /> Login
@@ -22,7 +22,7 @@ const LandingPage = () => {
               Criar Conta
             </StyledLink>
           </li>
-        </ListMenu>
+        </ul>
       </Header>
     </StyledLandingPage>
   );
