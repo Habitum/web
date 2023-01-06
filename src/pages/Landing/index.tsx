@@ -1,20 +1,29 @@
 import React from "react";
 
-import { Link } from "react-router-dom";
+import { FaUserAlt } from "react-icons/fa";
 
 import Header from "../../components/Header";
+import { StyledLink } from "../../styles/StyledLink";
 
-import { StyledLandingPage } from "./styles";
+import { ListMenu, StyledLandingPage } from "./styles";
 
 const LandingPage = () => {
   return (
     <StyledLandingPage>
-      <Header />
-      <h1>LandingPage provisória</h1>
-      {/* Provisório para testes */}
-      <Link to="/login">Login</Link>
-      <Link to="/register">Cadastro</Link>
-      {/* Provisório para testes */}
+      <Header>
+        <ListMenu>
+          <li>
+            <StyledLink to={"/login"} variant="icon-text">
+              <FaUserAlt /> Login
+            </StyledLink>
+          </li>
+          <li>
+            <StyledLink to={"/register"} variant="button">
+              Criar Conta
+            </StyledLink>
+          </li>
+        </ListMenu>
+      </Header>
     </StyledLandingPage>
   );
 };

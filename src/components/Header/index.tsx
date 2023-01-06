@@ -1,10 +1,20 @@
 import React from "react";
+
 import Logo from "../Logo";
 
-import { Container } from "./styles";
+import { iHeaderProps } from "./types";
 
-const Header = () => {
-  return <Container><Logo /></Container>;
+import { Container, Nav, StyledHeader } from "./styles";
+
+const Header = ({ children }: iHeaderProps) => {
+  return (
+    <StyledHeader>
+      <Container>
+        <Logo />
+        <Nav>{children}</Nav>
+      </Container>
+    </StyledHeader>
+  );
 };
 
 export default Header;

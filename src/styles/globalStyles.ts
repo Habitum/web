@@ -1,4 +1,4 @@
-import styled, { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
   * {
@@ -53,6 +53,8 @@ export const GlobalStyles = createGlobalStyle`
     --text-weight-300: 500;
     --text-weight-400: 400;
     --text-weight-500: 300;
+
+    --transition: .3s ease;
 
   }
 
