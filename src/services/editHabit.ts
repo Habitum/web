@@ -1,5 +1,6 @@
-import { iHabits } from "../contexts/HabitsContext/types";
 import { api } from "./api";
+
+import { iHabits } from "../contexts/HabitsContext/types";
 
 export const editHabit = async (id: number, data: iHabits) => {
 
