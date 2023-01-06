@@ -65,10 +65,5 @@ export const GlobalStyles = createGlobalStyle`
     --text-weight-500: 300;
 
     --transition: .3s ease;
-
-  }
-
-  body {
-    padding: 0 20px;
   }
 `;

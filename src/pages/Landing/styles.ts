@@ -1,13 +1,13 @@
 import styled from "styled-components";
 import { DefaultContainer } from "../../styles/container";
 
-
-
 export const StyledHero = styled(DefaultContainer)`
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-top: 10.5rem;
+  padding: 0 1.25rem;
+  padding-bottom: 1.5rem;
 
   @media (min-width: 510px) {
     margin-top: 8.25rem;
@@ -45,8 +45,13 @@ export const StyledSectionRanking = styled.section`
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  background-color: var(--color-brand-200);
-`
+  background: var(--color-brand-200);
+  padding: 8rem 0;
+`;
+
+export const StyledContainer = styled(DefaultContainer)`
+  padding: 0 1.25rem;
+`;
 
 export const StyledDescription = styled.div`
   font-size: var(--text-size-200);
@@ -56,9 +61,14 @@ export const StyledDescription = styled.div`
   flex-direction: column;
   gap: 1.875rem;
   max-width: 31.25rem;
-  
+
   @media (min-width: 700px) {
     gap: 2.375rem;
   }
+`;
 
-`
+export const Teste = styled.div`
+  width: 100px;
+  height: 500px;
+  background-color: #fff;
+`;
