@@ -1,12 +1,19 @@
 import React, { useContext } from "react";
+import { Navigate } from "react-router-dom";
 import { UserContext } from "../../contexts/UserContext/UserContext";
 
 import { StyledDashboardPage } from "./styles";
 
-const Dashboard = () => {
-  const { userLogout } = useContext(UserContext);
+  const Dashboard = () => {
+  const { userLogout, user } = useContext(UserContext);
 
-  return (
+  const todayDate = new Intl.DateTimeFormat('pt-BR', {
+    month:'long',
+    day:'2-digit',
+    year:'numeric',
+  }).format(new Date())
+
+  return user ? (
     <StyledDashboardPage>
       <header className="flex between">
         <h2>habitum</h2>
@@ -17,8 +24,8 @@ const Dashboard = () => {
         </nav>
       </header>
       <section className="hello">
-        <h1>Bem vindo de volta, Felipe!</h1>
-        <p>Terça-feira, 15 de novembro | 2023</p>
+        <h1>{user.userName}</h1>
+        <p>Terça-feira, {todayDate}</p>
       </section>
       <main className="flex between gap-125">
         <section className="status-section flex column gap-125">
@@ -83,6 +90,8 @@ const Dashboard = () => {
         </section>
       </main>
     </StyledDashboardPage>
+  ):(
+    <Navigate to="/"/>
   );
 };
 
