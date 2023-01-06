@@ -9,6 +9,6 @@ export const createHabit = async (body: iHabits) => {
       return true
 
     } catch (err) {
-    console.error(err)
+      console.error(err)
     }
   };
