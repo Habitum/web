@@ -8,6 +8,7 @@ import { StyledDashboardPage } from "./styles";
   const { userLogout, user } = useContext(UserContext);
 
   const todayDate = new Intl.DateTimeFormat('pt-BR', {
+    weekday: 'long',
     month:'long',
     day:'2-digit',
     year:'numeric',
@@ -25,7 +26,7 @@ import { StyledDashboardPage } from "./styles";
       </header>
       <section className="hello">
         <h1>{user.userName}</h1>
-        <p>Terça-feira, {todayDate}</p>
+        <p>{todayDate}</p>
       </section>
       <main className="flex between gap-125">
         <section className="status-section flex column gap-125">
