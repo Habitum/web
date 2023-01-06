@@ -8,10 +8,11 @@ export const StyledHeader = styled.header`
   width: 100%;
   top: 0;
   left: 0;
+  padding: 0 1rem;
 `;
 
 export const Container = styled(DefaultContainer)`
-  padding: 1.875rem 1rem;
+  padding: 1.875rem 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -30,4 +31,4 @@ export const Nav = styled.nav`
     justify-content: center;
     gap: 2.125rem;
   }
-`
+`;

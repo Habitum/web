@@ -3,13 +3,20 @@ import React from "react";
 import { FaUserAlt } from "react-icons/fa";
 
 import Header from "../../components/Header";
-import { StyledLink } from "../../styles/StyledLink";
 
-import { StyledLandingPage } from "./styles";
+import { StyledLink } from "../../styles/StyledLink";
+import {
+  StyledContainer,
+  StyledDescription,
+  StyledHero,
+  StyledSectionRanking,
+} from "./styles";
+
+import imageHero from "../../assets/img/image-hero.svg";
 
 const LandingPage = () => {
   return (
-    <StyledLandingPage>
+    <>
       <Header>
         <ul>
           <li>
@@ -24,7 +31,36 @@ const LandingPage = () => {
           </li>
         </ul>
       </Header>
-    </StyledLandingPage>
+
+      <section>
+        <StyledHero>
+          <img src={imageHero} alt="Criando Hábitos" />
+          <h2>
+            Completar <strong>tarefas</strong> e <strong>hábitos</strong> será
+            ainda mais divertido
+          </h2>
+        </StyledHero>
+      </section>
+
+      <StyledSectionRanking>
+        <StyledContainer>
+          <StyledDescription>
+            <p>
+              Crie e alcance metas para este ano de forma fácil, gerenciável e
+              produtiva, do seu próprio jeito.
+            </p>
+            <p>
+              Torne a questão de abdicar ou cumprir hábitos uma tarefa
+              gameficada, divertida e motivacional.
+            </p>
+            <p>
+              A cada hábito realizado com sucesso, você acumula bits que poderão
+              fazer com que você entre no ranking
+            </p>
+          </StyledDescription>
+        </StyledContainer>
+      </StyledSectionRanking>
+    </>
   );
 };
 
