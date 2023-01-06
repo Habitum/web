@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Link } from "react-router-dom";
+import { StyledLink } from "../../../styles/StyledLink";
 
 import { StyledRegisterFormHeader } from "./styles";
 
@@ -9,7 +9,9 @@ const RegisterFormHeader = () => {
     <>
       <StyledRegisterFormHeader>
         <h3>Cadastro</h3>
-        <Link to="/login">Voltar para o login</Link>
+        <StyledLink to="/login" variant="default">
+          Ir para o Login
+        </StyledLink>
       </StyledRegisterFormHeader>
     </>
   );
