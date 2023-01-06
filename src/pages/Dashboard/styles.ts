@@ -7,8 +7,8 @@ export const StyledDashboardPage = styled.main`
  
   header {
     width: 100%;
-    height: 6rem;
-    padding: 1.5rem 1rem;  
+    height: 96px;
+    padding: 24px 16px;  
   }
  
   h2{
@@ -24,9 +24,69 @@ export const StyledDashboardPage = styled.main`
     font-size: var( --text-size-200);
   }
 
+  .dropdown-menu{
+    position: relative;
+  }
+
+  .dropdown-menu label{
+    text-align: center;
+    position: relative;
+    display: block;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .dropdown-menu label i{
+    position: absolute;
+  }
+
+  .dropdown-menu [type="radio"]{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    margin: 0;
+    z-index: 1;
+  }
+
+  .status-info{
+    position: absolute;
+    top:100%;
+    opacity: 0;
+    left:0;
+    padding: 1.25rem;
+  }
+
+  .close-tab{
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  [type='radio']:checked ~ label{
+    z-index: 1;
+    opacity: 0;
+  }
+
+  [type='radio']:checked ~ label ~ .status-info{
+    z-index: 1;
+    opacity: 1;
+  }
+
+  [type='radio']:checked ~ label ~ .close-tab{
+    z-index: 3;
+    opacity: 1;
+  }
+
   .hello{
     text-align: end;
-    padding: 1.5rem 1rem;
+    padding: 24px 16px;
   }
  
   .username{
@@ -40,11 +100,11 @@ export const StyledDashboardPage = styled.main`
   }
 
   .status-item{
-    border: 1px solid #000;
+    border: .0625rem solid #000;
     border-radius: var(--radius);
     width: max-content;
-    padding: 1.5rem 1rem 1rem 1rem;
-    min-width: 5rem;
+    padding: 24px 16px 16px 16px;
+    min-width: 80px;
     position: relative;
   }
 
@@ -53,7 +113,7 @@ export const StyledDashboardPage = styled.main`
     background-color: #fff;
     top: 1;
     z-index: 1;
-    padding: 0 0.5rem;      
+    padding: 0 8px;      
   }
 
   .quote{
@@ -77,7 +137,7 @@ export const StyledDashboardPage = styled.main`
   }
 
    .gap-125{
-    gap:1.25rem;
+    gap:20px;
    }
  
 `

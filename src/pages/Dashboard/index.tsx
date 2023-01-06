@@ -4,6 +4,8 @@ import { UserContext } from "../../contexts/UserContext/UserContext";
 
 import { StyledDashboardPage } from "./styles";
 
+import { FiChevronDown, FiChevronUp } from "react-icons/fi"
+
   const Dashboard = () => {
   const { userLogout, user } = useContext(UserContext);
 
@@ -30,33 +32,46 @@ import { StyledDashboardPage } from "./styles";
       </section>
       <main className="flex between gap-125">
         <section className="status-section flex column gap-125">
-          <h4>status geral</h4>
-          <ul className="flex column gap-125">
-            <li>
-              <h5>Estrelas</h5>
-              <div className="status-item">
-                <span>3</span>
-              </div>
-            </li>
-            <li>
-              <h5>Bits</h5>
-              <div className="status-item">
-                <span>615</span>
-              </div>
-            </li>
-            <li>
-              <h5>Constância</h5>
-              <div className="status-item">
-                <span>11 dias</span>
-              </div>
-            </li>
-            <li>
-              <h5>Ranking Geral</h5>
-              <div className="status-item">
-                <span>8ª posição</span>
-              </div>
-            </li>
-          </ul>
+
+          <div className="dropdown-menu">
+              <input type='radio' id='status' name="status"/>
+              <label htmlFor="status">Ver status <i><FiChevronDown/></i></label>
+            <div className="dropdown-menu close-tab">
+              <input type="radio" id='close-tab' name="status"/>
+              <label htmlFor="close-tab">Fechar status <i><FiChevronUp/></i></label>
+            </div>
+
+          <div className="status-info">
+            <h4>status geral</h4>
+              <ul className="flex column gap-125">
+                <li>
+                  <h5>Estrelas</h5>
+                  <div className="status-item">
+                    <span>3</span>
+                  </div>
+                </li>
+                <li>
+                  <h5>Bits</h5>
+                  <div className="status-item">
+                    <span>615</span>
+                  </div>
+                </li>
+                <li>
+                  <h5>Constância</h5>
+                  <div className="status-item">
+                    <span>11 dias</span>
+                  </div>
+                </li>
+                <li>
+                  <h5>Ranking Geral</h5>
+                  <div className="status-item">
+                    <span>8ª posição</span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+      
 
           <p className="quote">
             <q>
