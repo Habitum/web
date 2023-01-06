@@ -4,4 +4,6 @@ export interface iRegisterFormValues {
   email: string;
   password: string;
   confirmPassword?: string;
+  stars: number;
+  bits: number;
 }

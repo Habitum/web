@@ -48,6 +48,16 @@ export const GlobalStyles = createGlobalStyle`
     --text-status-size: 1.5rem;
     --text-placeholder-size: 1rem;
 
+    --toastify-color-success: var(--color-okay);
+    --toastify-color-error: var(--color-alert);
+
+    --toastify-icon-color-success: var(--toastify-color-success);
+    --toastify-icon-color-error: var(--toastify-color-error);
+
+    --toastify-text-color-light: var(--color-grey-100);
+
+    --toastify-font-family: var(--font-family-inter);
+
     --text-weight-100: 900;
     --text-weight-200: 700;
     --text-weight-300: 500;

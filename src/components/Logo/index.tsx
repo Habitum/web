@@ -2,12 +2,12 @@ import React from "react";
 
 import { Container } from "./styles";
 
-import { tLogo } from "./types";
+import { iLogoStyles, tLogo } from "./types";
 
-const Logo = () => {
+const Logo = ({ variant }: iLogoStyles) => {
   const name: tLogo = "habitum";
 
-  return <Container>{name}</Container>;
+  return <Container variant={variant}>{name}</Container>;
 };
 
 export default Logo;
