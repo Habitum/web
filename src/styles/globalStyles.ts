@@ -1,4 +1,4 @@
-import styled, { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
   * {
@@ -12,12 +12,15 @@ export const GlobalStyles = createGlobalStyle`
   :root {
     --color-brand-100: #5B21FF;
     --color-brand-200: #242345;
+
     --color-grey-100: #333333;
     --color-grey-200: #555555;
     --color-grey-300: #DDDDDD;
     --color-grey-400: #EEEEEE;
+
     --color-black: #000000;
     --color-white: #FFFFFF;
+    
     --color-okay: #45FF26;
     --color-alert: #FF3838;
 
@@ -51,15 +54,11 @@ export const GlobalStyles = createGlobalStyle`
     --text-weight-400: 400;
     --text-weight-500: 300;
 
+    --transition: .3s ease;
+
   }
 
   body {
     padding: 0 20px;
   }
-`;
-
-export const MainContainer = styled.div`
-  max-width: 1200px;
-  width: 100%;
-  margin: 0 auto;
 `;
