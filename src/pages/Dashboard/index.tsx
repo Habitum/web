@@ -2,14 +2,14 @@ import React, { useContext } from "react";
 import { Navigate } from "react-router-dom";
 import { UserContext } from "../../contexts/UserContext/UserContext";
 
-import { StyledDashboardPage } from "./styles";
+import { StyledDashboardPage, StyledHeader } from "./styles";
 
 import { FiChevronDown, FiChevronUp } from "react-icons/fi"
 import { BsFillPeopleFill, BsPencilSquare, BsPencilFill, BsFillStarFill } from "react-icons/bs"
 import { RiHistoryFill } from "react-icons/ri"
 import { HiOutlineLogout, HiFire } from "react-icons/hi"
 
-  const Dashboard = () => {
+const Dashboard = () => {
   const { userLogout, user } = useContext(UserContext);
 
   const todayDate = new Intl.DateTimeFormat('pt-BR', {
@@ -21,16 +21,17 @@ import { HiOutlineLogout, HiFire } from "react-icons/hi"
 
   return user ? (
     <StyledDashboardPage>
-      <header className="flex between">
+      <StyledHeader>
         <h2>habitum</h2>
-        <nav className="flex gap-125">
-          <h3 className="username">username</h3>
-          <button>avatar</button>
-          <button onClick={() => userLogout()}>Sair</button>
-        </nav>
-      </header>
-      <section className="hello">
-        <h1>{user.userName}</h1>
+          <nav>
+            <h3 className="username">{user.name}</h3>
+            <button type="button" className="user-img">{user.img}<i className="edit-user"><BsPencilSquare/></i></button>
+            <button className="logout-btn" onClick={() => userLogout()}><i><HiOutlineLogout/></i></button>
+          </nav>
+      </StyledHeader>
+      
+      <section className="user-welcome">
+        <h1>Bem vindo de volta, {user.userName}</h1>
         <p>{todayDate}</p>
       </section>
       <main className="flex between gap-125">
@@ -50,19 +51,19 @@ import { HiOutlineLogout, HiFire } from "react-icons/hi"
                 <li>
                   <h5>Estrelas</h5>
                   <div className="status-item">
-                    <span>3</span>
+                    <span>3 <i><BsFillStarFill/></i></span>
                   </div>
                 </li>
                 <li>
                   <h5>Bits</h5>
                   <div className="status-item">
-                    <span>615</span>
+                    <span>615 <img src="./icons/favicon-32x32.png" alt="bit icon" /></span>
                   </div>
                 </li>
                 <li>
                   <h5>Constância</h5>
                   <div className="status-item">
-                    <span>11 dias</span>
+                    <span>11 dias <i><HiFire/></i></span>
                   </div>
                 </li>
                 <li>
@@ -101,7 +102,7 @@ import { HiOutlineLogout, HiFire } from "react-icons/hi"
               </div>
 
               <div className="flex between">
-                <button>editar</button>
+                <button><i><BsPencilFill/></i></button>
                   <input type="checkbox" name="check" id="check"/>
               </div>
             </li>

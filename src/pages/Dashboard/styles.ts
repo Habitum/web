@@ -4,13 +4,11 @@ export const StyledDashboardPage = styled.main`
 
   height: 100vh;
   width: 100%;
- 
-  header {
-    width: 100%;
-    height: 96px;
-    padding: 24px 16px;  
+
+  button, label{
+    cursor: pointer;
   }
- 
+
   h2{
     color: var(--color-brand-100);
     font-family: var(--font-family-racing-sans-one);
@@ -32,8 +30,6 @@ export const StyledDashboardPage = styled.main`
     text-align: center;
     position: relative;
     display: block;
-    position: relative;
-    cursor: pointer;
   }
 
   .dropdown-menu label i{
@@ -47,16 +43,13 @@ export const StyledDashboardPage = styled.main`
     width: 100%;
     height: 100%;
     opacity: 0;
-    margin: 0;
-    z-index: 1;
   }
 
   .status-info{
     position: absolute;
-    top:100%;
     opacity: 0;
-    left:0;
     padding: 1.25rem;
+    transition: 0.4s ease;
   }
 
   .close-tab{
@@ -84,9 +77,9 @@ export const StyledDashboardPage = styled.main`
     opacity: 1;
   }
 
-  .hello{
+  .user-welcome{
     text-align: end;
-    padding: 24px 16px;
+    padding: 1.5rem 1rem;
   }
  
   .username{
@@ -140,4 +133,54 @@ export const StyledDashboardPage = styled.main`
     gap:20px;
    }
  
+`
+export const StyledHeader = styled.header`
+  width: 100%;
+  height: 6rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 1rem;
+
+  nav{
+    display: flex;
+    gap: 1.25rem;
+  }
+
+  .username{
+    font-family: var(--font-family-inter);
+    font-weight: var(--text-weight-200);
+    font-size: var(--text-size-300);
+    display: none;
+  }
+
+  .user-img{
+    width: 2.375rem;
+    height: 2.375rem;
+    border-radius: 11.25rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .edit-user{
+    opacity: 0;
+  }
+  
+  .edit-user:hover{
+    opacity: 1;
+  }
+
+  .logout-btn{
+    display: flex;
+    align-items: center;
+    background: transparent;
+    border: none;
+  }
+
+  @media (min-width: 650px){
+    .username{
+      display: block;
+    }
+  }
 `
