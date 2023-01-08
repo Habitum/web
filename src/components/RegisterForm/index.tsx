@@ -12,6 +12,8 @@ import { iRegisterFormValues } from "./types";
 import { formSchema } from "./schema";
 
 import { StyledRegisterForm } from "./styles";
+import Button from "../Button";
+import Spinner from "../Spinner";
 
 const RegisterForm = () => {
   const {
@@ -60,9 +62,7 @@ const RegisterForm = () => {
             <>{errors.confirmPassword.message}</>
           </p>
         )}
-        <button className="RegisterSubmitBtn" type="submit">
-          {globalLoading ? "Cadastrando..." : "Cadastrar"}
-        </button>
+        <Button name={globalLoading ? <Spinner /> : "CRIAR CONTA"} variant="forms" />
       </StyledRegisterForm>
     </>
   );

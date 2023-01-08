@@ -64,6 +64,9 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
       setGlobalLoading(true);
       delete userRegisterData.confirmPassword;
 
+      userRegisterData.stars = 0;
+      userRegisterData.bits = 0;
+
       await registerUser(userRegisterData);
 
       toast.success("Conta criada com sucesso!");
