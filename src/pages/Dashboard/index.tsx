@@ -99,7 +99,11 @@ import { FiChevronDown, FiChevronUp } from "react-icons/fi"
 
               <div className="flex between">
                 <button>editar</button>
-                <input type="checkbox" name="check" id="check" />
+                <div className="checkbox">
+                  <input type="checkbox" name="check" id="check"/>
+                  <span className="checkmark"></span>
+                </div>
+                
               </div>
             </li>
           </ul>
