@@ -5,6 +5,9 @@ import { UserContext } from "../../contexts/UserContext/UserContext";
 import { StyledDashboardPage } from "./styles";
 
 import { FiChevronDown, FiChevronUp } from "react-icons/fi"
+import { BsFillPeopleFill, BsPencilSquare, BsPencilFill, BsFillStarFill } from "react-icons/bs"
+import { RiHistoryFill } from "react-icons/ri"
+import { HiOutlineLogout, HiFire } from "react-icons/hi"
 
   const Dashboard = () => {
   const { userLogout, user } = useContext(UserContext);
@@ -65,7 +68,7 @@ import { FiChevronDown, FiChevronUp } from "react-icons/fi"
                 <li>
                   <h5>Ranking Geral</h5>
                   <div className="status-item">
-                    <span>8ª posição</span>
+                    <span>8ª posição <i><BsFillPeopleFill/></i></span>
                   </div>
                 </li>
               </ul>
@@ -99,11 +102,7 @@ import { FiChevronDown, FiChevronUp } from "react-icons/fi"
 
               <div className="flex between">
                 <button>editar</button>
-                <div className="checkbox">
                   <input type="checkbox" name="check" id="check"/>
-                  <span className="checkmark"></span>
-                </div>
-                
               </div>
             </li>
           </ul>
