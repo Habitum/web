@@ -237,9 +237,8 @@ export const StyledHabitsSection = styled.section`
 
   .habits-list-title{
     display: flex;
-    flex-direction: row-reverse;
     justify-content: space-between;
-    align-items: center;
+    
   }
 
   .habits-list-title button{
