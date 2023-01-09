@@ -20,7 +20,7 @@ export const Container = styled.h1`
         return css`
           color: var(--color-grey-400);
 
-          @media (width<=750px) {
+          @media (width < 750px) {
             display: none;
           }
         `;
