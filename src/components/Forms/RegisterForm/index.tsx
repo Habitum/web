@@ -1,19 +1,19 @@
 import React, { useContext } from "react";
-import { UserContext } from "../../contexts/UserContext/UserContext";
+import { UserContext } from "../../../contexts/UserContext/UserContext";
 
 import { SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
-import Input from "../Input";
-import RegisterFormHeader from "./RegisterFormHeader";
+import Input from "../../Input";
+import FormHeader from "../FormHeader";
 
 import { iRegisterFormValues } from "./types";
 
 import { formSchema } from "./schema";
 
 import { StyledRegisterForm } from "./styles";
-import Button from "../Button";
-import Spinner from "../Spinner";
+import Button from "../../Button";
+import Spinner from "../../Spinner";
 
 const RegisterForm = () => {
   const {
@@ -31,7 +31,7 @@ const RegisterForm = () => {
   return (
     <>
       <StyledRegisterForm onSubmit={handleSubmit(submit)}>
-        <RegisterFormHeader />
+        <FormHeader name="Cadastro" linkname="Ir para o login" linkto="/login" />
         <Input name="name" type="text" label="Nome" placeholder="Digite seu nome" register={register("name")} />
         {errors.name && (
           <p className="FormError">
@@ -62,7 +62,7 @@ const RegisterForm = () => {
             <>{errors.confirmPassword.message}</>
           </p>
         )}
-        <Button name={globalLoading ? <Spinner /> : "CRIAR CONTA"} variant="forms" />
+        <Button name={globalLoading ? <Spinner /> : "CRIAR CONTA"} variant={globalLoading ? "forms-disabled" : "forms"} />
       </StyledRegisterForm>
     </>
   );

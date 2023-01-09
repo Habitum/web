@@ -1,8 +1,9 @@
 import styled from "styled-components";
 
-export const StyledLoginFormHeader = styled.span`
+export const StyledFormHeader = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
   font-size: var(--text-title-size-300);
   color: var(--color-brand-200);
   font-weight: var(--text-weight-200);

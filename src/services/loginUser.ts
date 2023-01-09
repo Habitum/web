@@ -1,4 +1,4 @@
-import { iLoginFormValues } from "../components/LoginForm/types";
+import { iLoginFormValues } from "../components/Forms/LoginForm/types";
 import { ILoginResponse } from "../contexts/UserContext/types";
 
 import { api } from "./api";

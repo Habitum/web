@@ -3,8 +3,8 @@ import React, { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
-import { iLoginFormValues } from "../../components/LoginForm/types";
-import { iRegisterFormValues } from "../../components/RegisterForm/types";
+import { iLoginFormValues } from "../../components/Forms/LoginForm/types";
+import { iRegisterFormValues } from "../../components/Forms/RegisterForm/types";
 import { iUser, iUserContext, iUserProviderProps } from "./types";
 
 import { getUser } from "../../services/getUser";
