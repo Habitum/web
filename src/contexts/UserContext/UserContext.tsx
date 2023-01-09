@@ -66,6 +66,7 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
 
       userRegisterData.stars = 0;
       userRegisterData.bits = 0;
+      userRegisterData.sequence = 0;
 
       await registerUser(userRegisterData);
 
