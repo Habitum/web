@@ -47,6 +47,7 @@ export const StyledSectionRanking = styled.section`
   flex-wrap: wrap;
   background: var(--color-brand-200);
   padding: 8rem 0;
+  position: relative;
 `;
 
 export const StyledContainer = styled(DefaultContainer)`

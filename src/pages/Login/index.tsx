@@ -11,7 +11,9 @@ const Login = () => {
     <StyledLoginPage>
       <Logo variant="primary" />
       <LoginForm />
-      <Wave />
+      <div className="wave-container">
+        <Wave />
+      </div>
     </StyledLoginPage>
   );
 };
