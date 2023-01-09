@@ -14,6 +14,7 @@ import {
 } from "./styles";
 
 import imageHero from "../../assets/img/image-hero.svg";
+import Ranking from "../../components/Ranking";
 
 const LandingPage = () => {
   return (
@@ -61,6 +62,7 @@ const LandingPage = () => {
               fazer com que você entre no ranking
             </p>
           </StyledDescription>
+          <Ranking />
         </StyledContainer>
       </StyledSectionRanking>
     </>

@@ -12,6 +12,7 @@ export interface iUserContext {
   userLogin: (userData: iLoginFormValues) => Promise<void>;
   userRegister: (userData: iRegisterFormValues) => Promise<void>;
   userLogout: () => void;
+  getUsersList: () => Promise<void>
   user: iUser | null;
 }
 
