@@ -3,6 +3,7 @@ import React from "react";
 import { FaUserAlt } from "react-icons/fa";
 
 import Header from "../../components/Header";
+import Wave from "../../components/Wave";
 
 import { StyledLink } from "../../styles/StyledLink";
 import {
@@ -43,6 +44,8 @@ const LandingPage = () => {
       </section>
 
       <StyledSectionRanking>
+        <Wave />
+
         <StyledContainer>
           <StyledDescription>
             <p>

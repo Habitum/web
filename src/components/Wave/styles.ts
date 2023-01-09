@@ -1,12 +1,21 @@
 import styled from "styled-components";
 
-import Wave from "../../assets/img/background_wave.png";
-
 export const StyledWave = styled.div`
-  position: absolute;
-  bottom: 0;
-  height: 60%;
-  width: 100%;
-  background: url(${Wave});
-  background-size: cover;
+position: absolute;
+top: -1px;
+left: 0;
+width: 100%;
+overflow: hidden;
+line-height: 0;
+
+svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 100px;
+  
+  .shape-fill {
+    fill: var(--color-white);
+  }
+}
 `;

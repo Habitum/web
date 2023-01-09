@@ -12,7 +12,9 @@ const Register = () => {
       <Logo variant="special" />
       <RegisterForm />
       <Logo variant="secondary" />
-      <Wave />
+      <div className="wave-container">
+        <Wave />
+      </div>
     </StyledRegisterPage>
   );
 };
