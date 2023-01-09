@@ -3,6 +3,7 @@ import { Navigate } from "react-router-dom";
 import { UserContext } from "../../contexts/UserContext/UserContext";
 
 import { StyledDashboardPage, StyledHeader, StyledUserInfo, StyledHabitsSection, StylesHabitsList } from "./styles";
+import { HabitsCard } from "../../components/HabitCard";
 import Button from "../../components/Button";
 
 import { FiChevronDown, FiChevronUp } from "react-icons/fi"
@@ -95,19 +96,8 @@ const Dashboard = () => {
 
           <StylesHabitsList>
 
-            <li>
-              <div>
-                <p>title</p>
-                <p>
-                  Constância: <span></span>
-                </p>
-              </div>
+            <HabitsCard/>
 
-              <div>
-                <button><i><BsPencilFill/></i></button>
-                  <input type="checkbox" name="check" id="check"/>
-              </div>
-            </li>
           </StylesHabitsList>
           </StyledHabitsSection>
 
