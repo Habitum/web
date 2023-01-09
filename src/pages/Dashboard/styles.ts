@@ -1,5 +1,5 @@
 import styled from "styled-components";
- 
+
 export const StyledDashboardPage = styled.main`
 
   height: 100vh;
@@ -18,87 +18,9 @@ export const StyledDashboardPage = styled.main`
  
   h4{
     font-family: var(----font-family-inter);
-    font-weight: var(--text-weight-700);
-    font-size: var( --text-size-200);
-  }
-
-  .dropdown-menu{
-    position: relative;
-  }
-
-  .dropdown-menu label{
-    text-align: center;
-    position: relative;
-    display: block;
-  }
-
-  .dropdown-menu label i{
-    position: absolute;
-  }
-
-  .dropdown-menu [type="radio"]{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-  }
-
-  .status-info{
-    position: absolute;
-    opacity: 0;
-    padding: 1.25rem;
-    transition: 0.4s ease;
-  }
-
-  .close-tab{
-    position: absolute;
-    z-index: -1;
-    top: 0;
-    left: 0;
-    opacity: 0;
-    width: 100%;
-    height: 100%;
-  }
-
-  [type='radio']:checked ~ label{
-    z-index: 1;
-    opacity: 0;
-  }
-
-  [type='radio']:checked ~ label ~ .status-info{
-    z-index: 1;
-    opacity: 1;
-  }
-
-  [type='radio']:checked ~ label ~ .close-tab{
-    z-index: 3;
-    opacity: 1;
-  }
-
-  .user-welcome{
-    text-align: end;
-    padding: 1.5rem 1rem;
-  }
- 
-  .username{
-    font-family: var(----font-family-inter);
-    font-weight: var(--text-weight-700);
+    font-weight: var(--text-weight-200);
     font-size: var( --text-size-300);
-  }
-
-  .status-section{
-    width: 50%;
-  }
-
-  .status-item{
-    border: .0625rem solid #000;
-    border-radius: var(--radius);
-    width: max-content;
-    padding: 24px 16px 16px 16px;
-    min-width: 80px;
-    position: relative;
+    margin-bottom: 1rem;
   }
 
   h5{
@@ -109,7 +31,34 @@ export const StyledDashboardPage = styled.main`
     padding: 0 8px;      
   }
 
+  .username{
+    font-family: var(----font-family-inter);
+    font-weight: var(--text-weight-700);
+    font-size: var( --text-size-300);
+  }
+
+  .user-welcome{
+    padding: .5rem 1rem;
+  }
+
+  .date{
+    color: var(--color-grey-200);
+    font-size: var(--text-size-100);
+    font-weight: var(--text-weight-200);
+    margin: .5rem 0;
+  }
+ 
+  main{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.6rem;
+  }
+
   .quote{
+    display: none;
     font-family: var(----font-family-inter);
     font-weight: var(--text-weight-400);
     font-size: var( --text-size-400);
@@ -117,21 +66,19 @@ export const StyledDashboardPage = styled.main`
     font-style: italic;
   }
 
-  .flex{
-    display: flex;
+  @media (min-width: 500px){
+    main{
+      flex-direction: row;
+    }
+
+    .user-welcome{
+      text-align: end;
+    }
+
+    .quote{
+      display: block;
+    }
   }
-
-  .column{
-    flex-direction: column;
-   }
-
-  .between{
-    justify-content: space-between;
-  }
-
-   .gap-125{
-    gap:20px;
-   }
  
 `
 export const StyledHeader = styled.header`
@@ -178,9 +125,141 @@ export const StyledHeader = styled.header`
     border: none;
   }
 
-  @media (min-width: 650px){
+  @media (min-width: 550px){
     .username{
       display: block;
     }
   }
+`
+
+export const StyledUserInfo = styled.section`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  gap: 1.25rem;
+
+  .dropdown-menu{
+    position: relative;
+  }
+
+  .dropdown-menu label{
+    font-size: var(--text-size-400);
+    font-weight: var(--text-weight-200);
+    color: var(--color-brand-100);
+    position: relative;
+    display: inline-block;
+    margin: 1% 30%;
+  }
+
+  .dropdown-menu i{
+    color: var(--color-brand-100);
+  }
+
+  .dropdown-menu [type="radio"]{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+  }
+
+  .status-info{
+    position: absolute;
+    opacity: 0;
+    margin-top: 2rem;
+    transition: 0.4s ease;
+  }
+
+  .close-tab{
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  [type='radio']:checked ~ label{
+    z-index: 1;
+    opacity: 0;
+  }
+
+  [type='radio']:checked ~ i{
+    z-index: 1;
+    opacity: 0;
+  }
+
+  [type='radio']:checked ~ label ~ .status-info{
+    position: relative;
+    z-index: 1;
+    opacity: 1;
+  }
+
+  [type='radio']:checked ~ label ~ .close-tab{
+    z-index: 3;
+    opacity: 1;
+  }
+
+  ul{
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  li div{
+    border: .0625rem solid #000;
+    border-radius: var(--radius);
+    width: max-content;
+    padding: 24px 16px 16px 16px;
+    min-width: 80px;
+    position: relative;
+  }
+
+  li div span{
+    display: flex;
+    align-items: center;
+    font-size: var(--text-size-200);
+    font-weight: var(--text-weight-100);
+    color: var(--color-brand-100);
+    gap: .5rem;
+  }
+`
+
+export const StyledHabitsSection = styled.section`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0 .5rem;
+
+  .habits-list-title{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .habits-list-title button{
+    font-size: .75rem;
+    padding: .5rem;
+  }
+`
+
+export const StylesHabitsList = styled.ul`
+  width: 100%;
+  height: fit-content;
+  max-height: 25rem;
+  background-color: var(--color-grey-400);
+
+  display: flex;
+  flex-direction: column;
+  gap: .7rem;
+
+  margin-top: 1rem;
+  padding: .7rem;
+  border-radius: var(--radius);
+  overflow: auto;
 `

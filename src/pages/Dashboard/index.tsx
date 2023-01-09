@@ -2,10 +2,11 @@ import React, { useContext } from "react";
 import { Navigate } from "react-router-dom";
 import { UserContext } from "../../contexts/UserContext/UserContext";
 
-import { StyledDashboardPage, StyledHeader } from "./styles";
+import { StyledDashboardPage, StyledHeader, StyledUserInfo, StyledHabitsSection, StylesHabitsList } from "./styles";
+import Button from "../../components/Button";
 
 import { FiChevronDown, FiChevronUp } from "react-icons/fi"
-import { BsFillPeopleFill, BsPencilSquare, BsPencilFill, BsFillStarFill } from "react-icons/bs"
+import { BsFillPeopleFill, BsPencilSquare, BsPencilFill, BsFillStarFill, BsPlusLg } from "react-icons/bs"
 import { RiHistoryFill } from "react-icons/ri"
 import { HiOutlineLogout, HiFire } from "react-icons/hi"
 
@@ -32,50 +33,50 @@ const Dashboard = () => {
       
       <section className="user-welcome">
         <h1>Bem vindo de volta, {user.userName}</h1>
-        <p>{todayDate}</p>
+        <p className="date">{todayDate}</p>
       </section>
-      <main className="flex between gap-125">
-        <section className="status-section flex column gap-125">
 
+      <main>
+
+        <StyledUserInfo>
           <div className="dropdown-menu">
               <input type='radio' id='status' name="status"/>
-              <label htmlFor="status">Ver status <i><FiChevronDown/></i></label>
+              <i><FiChevronDown/></i><label htmlFor="status">Ver status</label>
             <div className="dropdown-menu close-tab">
               <input type="radio" id='close-tab' name="status"/>
-              <label htmlFor="close-tab">Fechar status <i><FiChevronUp/></i></label>
+              <i><FiChevronUp/></i><label htmlFor="close-tab">Fechar status</label>
             </div>
-
           <div className="status-info">
             <h4>status geral</h4>
-              <ul className="flex column gap-125">
+
+              <ul>
                 <li>
                   <h5>Estrelas</h5>
-                  <div className="status-item">
+                  <div>
                     <span>3 <i><BsFillStarFill/></i></span>
                   </div>
                 </li>
                 <li>
                   <h5>Bits</h5>
-                  <div className="status-item">
+                  <div>
                     <span>615 <img src="./icons/favicon-32x32.png" alt="bit icon" /></span>
                   </div>
                 </li>
                 <li>
                   <h5>Constância</h5>
-                  <div className="status-item">
+                  <div>
                     <span>11 dias <i><HiFire/></i></span>
                   </div>
                 </li>
                 <li>
                   <h5>Ranking Geral</h5>
-                  <div className="status-item">
+                  <div>
                     <span>8ª posição <i><BsFillPeopleFill/></i></span>
                   </div>
                 </li>
               </ul>
             </div>
           </div>
-      
 
           <p className="quote">
             <q>
@@ -84,16 +85,17 @@ const Dashboard = () => {
             </q>
             Martin L. King
           </p>
-        </section>
+        </StyledUserInfo>
 
-        <section>
-          <div className="flex between">
+        <StyledHabitsSection>
+          <div className="habits-list-title">
             <h4>hábitos</h4>
-            <button>Criar</button>
+            <Button variant="primary" name={"+ CRIAR"} />
           </div>
 
-          <ul>
-            <li className="flex between">
+          <StylesHabitsList>
+
+            <li>
               <div>
                 <p>title</p>
                 <p>
@@ -101,13 +103,14 @@ const Dashboard = () => {
                 </p>
               </div>
 
-              <div className="flex between">
+              <div>
                 <button><i><BsPencilFill/></i></button>
                   <input type="checkbox" name="check" id="check"/>
               </div>
             </li>
-          </ul>
-        </section>
+          </StylesHabitsList>
+          </StyledHabitsSection>
+
       </main>
     </StyledDashboardPage>
   ):(
