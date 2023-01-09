@@ -26,7 +26,6 @@ export const StyledInput = styled.input<iInput>`
 
   ${({ variant }) => {
     switch (variant) {
-      default:
       case "primary":
         return css`
           margin-top: 1rem;
