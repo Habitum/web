@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 
 import { FiChevronDown, FiChevronUp } from "react-icons/fi";
 import { HiOutlineLogout, HiFire } from "react-icons/hi";
@@ -15,7 +15,6 @@ import { HabitsContext } from "../../contexts/HabitsContext/HabitsContext";
 import Button from "../../components/Button";
 import Logo from "../../components/Logo";
 
-import { DefaultContainer } from "../../styles/container";
 import { HabitsCard } from "../../components/HabitCard";
 import {
   StyledDashboardPage,
@@ -24,19 +23,8 @@ import {
   StyledHabitsSection,
   StyledHabitsList,
 } from "./styles";
-import Button from "../../components/Button";
-import Logo from "../../components/Logo";
 import { DefaultContainer } from "../../styles/container";
 
-import { FiChevronDown, FiChevronUp } from "react-icons/fi";
-import {
-  BsFillPeopleFill,
-  BsPencilSquare,
-  BsPencilFill,
-  BsFillStarFill,
-} from "react-icons/bs";
-
-import { HiOutlineLogout, HiFire } from "react-icons/hi";
 import ModalCreateHabit from "../../components/ModalCreate";
 
 import avatar from "../../assets/img/avatar.svg";
@@ -64,7 +52,7 @@ const Dashboard = () => {
           <nav>
             <h3 className="username">{user.name}</h3>
             <button type="button" className="user-img">
-              <img src="" alt="avatar" />
+              <img src={avatar} alt="avatar" />
               <i className="edit-user">
                 <BsPencilSquare className="nav-icon" />
               </i>
@@ -159,7 +147,7 @@ const Dashboard = () => {
           <StyledHabitsSection>
             <div className="habits-list-title">
               <h4>hábitos</h4>
-              <Button variant="primary" name={"+ CRIAR"} onClick={handleModalCreate} />
+              <Button variant="primary" name={"+ CRIAR"} />
             </div>
             <StyledHabitsList>
               {habit && habit.length > 0 ? (
