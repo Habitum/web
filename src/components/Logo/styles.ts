@@ -7,7 +7,7 @@ export const Container = styled.h1`
   font-size: var(--text-logo-size);
   font-weight: var(--text-weight-400);
   line-height: 1;
-  z-index: 999;
+  z-index: 1;
 
   ${({ variant }: iLogoStyles) => {
     switch (variant) {

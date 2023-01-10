@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
 import { UserContext } from "../../contexts/UserContext/UserContext";
 
@@ -23,9 +23,15 @@ import {
 } from "react-icons/bs";
 import { RiHistoryFill } from "react-icons/ri";
 import { HiOutlineLogout, HiFire } from "react-icons/hi";
+import ModalProfileEdit from "../../components/ModalEditUser";
 
 const Dashboard = () => {
   const { userLogout, user } = useContext(UserContext);
+  const [modalOn, setModalOn ] = useState(false)
+
+  useEffect(()=> {
+
+  },[user])
 
   const todayDate = new Intl.DateTimeFormat("pt-BR", {
     weekday: "long",
@@ -37,11 +43,12 @@ const Dashboard = () => {
   return user ? (
     <StyledDashboardPage>
       <DefaultContainer>
+      {modalOn && <ModalProfileEdit setModal={setModalOn}/>}
         <StyledHeader>
           <Logo variant={"primary"} />
           <nav>
             <h3 className="username">{user.name}</h3>
-            <button type="button" className="user-img">
+            <button type="button" className="user-img" onClick={()=> setModalOn(true)}>
               {user.img}
               <i className="edit-user">
                 <BsPencilSquare />
