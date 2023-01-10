@@ -15,7 +15,7 @@ export const ModalBaseStyled = styled(ModalBox)`
   }
   form{
     width: 100%;
-    margin-top: 70px;
+    margin-top: 90px;
     @media(min-width: 700px){
     margin-top: 0px;
   }
@@ -29,26 +29,37 @@ export const ModalBaseStyled = styled(ModalBox)`
     input{
       margin: 0 auto;
       width: 60%;
-      margin-bottom: 30px;
+      margin-bottom: 40px;
       @media(min-width: 700px){
+        margin-bottom: 20px;
         width: 80%;
       }
     }
+     .FormError {
+    font-size: var(--text-size-500);
+    color: var(--color-alert);
+    width: 60%;
+    margin: 0 auto;
+    @media(min-width: 700px){
+      width: 80%;
+    }
   }
+  }
+ 
 
   .button-div{
     width: 100%;
     height: 138px;
-    margin-top: 75px;
+    margin-top: 105px;
     padding: 43px;
     background-color: var(--color-grey-400);
     display: flex;
     justify-content: center;
     gap: 35px;
-    /* margin-bottom: 50px; */
+ 
     @media(min-width: 700px){
       height: 100px;
-      margin-top: 0px;
+      margin-top: 16px;
       padding: 24px;
     }
     button:first-child{
@@ -61,7 +72,6 @@ export const ModalBaseStyled = styled(ModalBox)`
   }
  
 `
-
 
 export const EditIcon = styled(FaUserEdit)`
   background-color: var(--color-brand-200);
@@ -82,11 +92,12 @@ export const EditUser = styled.div`
   width: 180px;
   border-bottom: 2px solid var(--color-brand-200);
   padding-bottom: 25px;
+  margin-top: 25px;
   @media(min-width: 700px){
     margin-top: 0px;
   }
 
-  div{
+  div:first-child{
     position: relative;
     width: 100px;
     margin: 0 auto;
@@ -99,4 +110,15 @@ export const EditUser = styled.div`
   }
   }
  
+`
+
+
+export const SelectPic = styled.div`
+  background-color: var(--color-brand-200);
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  left: 75px;
+  bottom: -148px;
+  z-index: 3;
 `
