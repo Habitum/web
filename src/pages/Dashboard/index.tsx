@@ -1,7 +1,22 @@
 import React, { useContext } from "react";
-import { Navigate } from "react-router-dom";
-import { UserContext } from "../../contexts/UserContext/UserContext";
 
+import { FiChevronDown, FiChevronUp } from "react-icons/fi";
+import { HiOutlineLogout, HiFire } from "react-icons/hi";
+import {
+  BsFillPeopleFill,
+  BsPencilSquare,
+  BsFillStarFill,
+} from "react-icons/bs";
+import { Navigate } from "react-router-dom";
+
+import { UserContext } from "../../contexts/UserContext/UserContext";
+import { HabitsContext } from "../../contexts/HabitsContext/HabitsContext";
+
+import Button from "../../components/Button";
+import Logo from "../../components/Logo";
+
+import { DefaultContainer } from "../../styles/container";
+import { HabitsCard } from "../../components/HabitCard";
 import {
   StyledDashboardPage,
   StyledHeader,
@@ -9,20 +24,6 @@ import {
   StyledHabitsSection,
   StyledHabitsList,
 } from "./styles";
-import Button from "../../components/Button";
-import Logo from "../../components/Logo";
-import { DefaultContainer } from "../../styles/container";
-import { HabitsCard } from "../../components/HabitCard";
-
-import { FiChevronDown, FiChevronUp } from "react-icons/fi";
-import {
-  BsFillPeopleFill,
-  BsPencilSquare,
-  BsFillStarFill,
-} from "react-icons/bs";
-
-import { HiOutlineLogout, HiFire } from "react-icons/hi";
-import { HabitsContext } from "../../contexts/HabitsContext/HabitsContext";
 
 const Dashboard = () => {
   const { userLogout, user } = useContext(UserContext);
@@ -138,12 +139,10 @@ const Dashboard = () => {
           </StyledUserInfo>
 
           <StyledHabitsSection>
-            
             <div className="habits-list-title">
                 <h4>hábitos</h4>
                 <Button variant="primary" name={"+ CRIAR"} />
             </div>
-
             <StyledHabitsList>
               {habit && habit.length > 0 ? (
                 habit.map((goal) => (
