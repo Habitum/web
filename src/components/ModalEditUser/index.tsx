@@ -1,20 +1,51 @@
-import { ModalWrapper } from "../../styles/modal";
+import { useContext,useState } from "react";
 
-import ProfilePicture from "../../assets/img/male_2 6.svg";
-import Input from "../Input";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
-import { formEditSchema } from "./schema";
 import Button from "../Button";
-import { HabitsContext } from "../../contexts/HabitsContext/HabitsContext";
-import { useContext,useState } from "react";
-import { ModalBaseStyled, EditUser, EditIcon, SelectPic } from "./styles";
+import { ModalWrapper } from "../../styles/modal";
+import Input from "../Input";
+
 import { iModalBaseProps, iEditForm } from "./types";
 
-const ModalProfileEdit = ({ setModal, profilePic }: iModalBaseProps) => {
-  const { userEdit } = useContext(HabitsContext);
+import { formEditSchema } from "./schema";
+
+import { HabitsContext } from "../../contexts/HabitsContext/HabitsContext";
+
+import { ModalBaseStyled, EditUser, EditIcon, SelectPic } from "./styles";
+
+import female1 from "../../assets/profilePics/female_1 1.svg";
+import female2 from "../../assets/profilePics/female_1 2.svg";
+import female3 from "../../assets/profilePics/female_1 3.svg";
+import female4 from "../../assets/profilePics/female_1 4.svg";
+import female5 from "../../assets/profilePics/female_1 5.svg";
+import female6 from "../../assets/profilePics/female_1 6.svg";
+import female7 from "../../assets/profilePics/female_2 1.svg";
+import female8 from "../../assets/profilePics/female_2 2.svg";
+import female9 from "../../assets/profilePics/female_2 3.svg";
+import female10 from "../../assets/profilePics/female_2 4.svg";
+import female11 from "../../assets/profilePics/female_2 5.svg";
+import female12 from "../../assets/profilePics/female_2 6.svg";
+import male1 from "../../assets/profilePics/male_1 1.svg";
+import male2 from "../../assets/profilePics/male_1 2.svg";
+import male3 from "../../assets/profilePics/male_1 3.svg";
+import male4 from "../../assets/profilePics/male_1 4.svg";
+import male5 from "../../assets/profilePics/male_1 5.svg";
+import male6 from "../../assets/profilePics/male_1 6.svg";
+import male7 from "../../assets/profilePics/male_2 1.svg";
+import male8 from "../../assets/profilePics/male_2 2.svg";
+import male9 from "../../assets/profilePics/male_2 3.svg";
+import male10 from "../../assets/profilePics/male_2 4.svg";
+import male11 from "../../assets/profilePics/male_2 5.svg";
+import male12 from "../../assets/img/male_2 6.svg";
+
+const ModalProfileEdit = ({ setModal, profilePic,setProfile }: iModalBaseProps) => {
+
   const [openPic, setOpenPic] = useState(false);
+
+  const { userEdit } = useContext(HabitsContext);
+
   const {
     handleSubmit,
     register,
@@ -26,12 +57,20 @@ const ModalProfileEdit = ({ setModal, profilePic }: iModalBaseProps) => {
     setModal(false);
   };
 
+  const changePicture = (img : string) => {
+      setProfile(img);
+      setOpenPic(false);
+      const body ={
+        img: img
+      }
+      userEdit(body);
+  }
   const openPictureSelection = () => {
      if(!openPic){
-       setOpenPic(true)
+       setOpenPic(true);
      }
      if(openPic){
-      setOpenPic(false)
+      setOpenPic(false);
      }
   }
 
@@ -40,10 +79,33 @@ const ModalProfileEdit = ({ setModal, profilePic }: iModalBaseProps) => {
       <ModalBaseStyled>
         <EditUser>
           <div>
-            <img src={profilePic} alt="imagem de perfil" />
+            <img className="profile-img" src={profilePic} alt="imagem de perfil" />
             <EditIcon onClick={openPictureSelection}/>
             {openPic && <SelectPic>
-               
+               <img src={female1} alt="" onClick={()=> changePicture(female1)}/>
+               <img src={female2} alt="" onClick={()=> changePicture(female2)}/>
+               <img src={female3} alt="" onClick={()=> changePicture(female3)}/>
+               <img src={female4} alt="" onClick={()=> changePicture(female4)}/>
+               <img src={female5} alt="" onClick={()=> changePicture(female5)}/>
+               <img src={male6} alt="" onClick={()=> changePicture(male6)}/>
+               <img src={male7} alt="" onClick={()=> changePicture(male7)}/>
+               <img src={male8} alt="" onClick={()=> changePicture(male8)}/>
+               <img src={male9} alt="" onClick={()=> changePicture(male9)}/>
+               <img src={male10} alt="" onClick={()=> changePicture(male10)}/>
+               <img src={male11} alt="" onClick={()=> changePicture(male11)}/>
+               <img src={female6} alt="" onClick={()=> changePicture(female6)}/>
+               <img src={female7} alt="" onClick={()=> changePicture(female7)}/>
+               <img src={female8} alt="" onClick={()=> changePicture(female8)}/>
+               <img src={female9} alt="" onClick={()=> changePicture(female9)}/>
+               <img src={female10} alt="" onClick={()=> changePicture(female10)}/>
+               <img src={female11} alt="" onClick={()=> changePicture(female11)}/>
+               <img src={female12} alt="" onClick={()=> changePicture(female12)}/>
+               <img src={male1} alt="" onClick={()=> changePicture(male1)}/>
+               <img src={male2} alt="" onClick={()=> changePicture(male2)}/>
+               <img src={male3} alt="" onClick={()=> changePicture(male3)}/>
+               <img src={male4} alt="" onClick={()=> changePicture(male4)}/>
+               <img src={male5} alt="" onClick={()=> changePicture(male5)}/>
+               <img src={male12} alt="" onClick={()=> changePicture(male12)}/>
             </SelectPic>}
           </div>
         </EditUser>

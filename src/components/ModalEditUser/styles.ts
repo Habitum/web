@@ -1,5 +1,7 @@
 import styled from "styled-components";
+
 import { FaUserEdit } from "react-icons/fa";
+
 import { ModalBox } from "../../styles/modal";
 
 export const ModalBaseStyled = styled(ModalBox)`
@@ -7,6 +9,7 @@ export const ModalBaseStyled = styled(ModalBox)`
   padding-top: 25px;
   max-width: 100%;
   height: 100%;
+  border-radius: 16px;
   
   @media(min-width: 700px){
     padding-top: 25px;
@@ -56,7 +59,8 @@ export const ModalBaseStyled = styled(ModalBox)`
     display: flex;
     justify-content: center;
     gap: 35px;
- 
+    border-radius: 16px;
+
     @media(min-width: 700px){
       height: 100px;
       margin-top: 16px;
@@ -104,9 +108,10 @@ export const EditUser = styled.div`
     display: flex;
     justify-content: center;
 
-    img{
+    .profile-img{
      background-color: var(--color-grey-300);
      border-radius: 100%;
+     width: 150px;
   }
   }
  
@@ -114,11 +119,36 @@ export const EditUser = styled.div`
 
 
 export const SelectPic = styled.div`
-  background-color: var(--color-brand-200);
-  width: 150px;
-  height: 150px;
   position: absolute;
-  left: 75px;
+  background-color: var(--color-brand-200);
+  width: 260px;
+  height: 150px;
+  left: 50%;
+  transform: translateX(-50%);
   bottom: -148px;
   z-index: 3;
+  border-radius: 16px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 8px;
+  overflow: auto;
+  @media(min-width: 700px){
+    left: 75px;
+    bottom: -148px;
+    transform: translateX(0);
+  }
+
+  img{
+    background-color: var(--color-grey-300);
+    border-radius: 100%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    transition: .5s;
+
+    :hover{
+      transform: scale(1.05);
+    }
+  }
 `

@@ -15,7 +15,7 @@ export const HabitsContext = createContext({} as iHabitsProviderValue);
 
 export const HabitsProvider = ({ children }: iHabitsProviderProps) => {
 
-  const { user } = useContext(UserContext);
+  const { user,setUser } = useContext(UserContext);
   const [star, setStar] = useState(0);
 
   const [bit, setBit] = useState(0);
@@ -33,7 +33,7 @@ export const HabitsProvider = ({ children }: iHabitsProviderProps) => {
 
     if(response){
       toast.success("Usuário editado com sucesso!");
-      // setUser(response)
+      setUser(response)
     }else{
       toast.error("Algo deu errado");
     }

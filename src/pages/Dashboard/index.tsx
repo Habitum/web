@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext,useEffect,useState } from "react";
 import { Navigate } from "react-router-dom";
 import { UserContext } from "../../contexts/UserContext/UserContext";
 
@@ -24,12 +24,16 @@ import {
 
 import { HiOutlineLogout, HiFire } from "react-icons/hi";
 import ModalCreateHabit from "../../components/ModalCreate";
+import ModalProfileEdit from "../../components/ModalEditUser";
 
-import avatar from "../../assets/img/avatar.svg";
+
 
 
 const Dashboard = () => {
   const { userLogout, user } = useContext(UserContext);  const [isOpenModalCreate, setIsOpenModalCreate] = useState(false);
+  
+  const [modalOn, setModalOn ] = useState(false)
+  const [profilePic, setProfilePic ] = useState(user?.img)
 
   const todayDate = new Intl.DateTimeFormat("pt-BR", {
     weekday: "long",
@@ -43,17 +47,17 @@ const Dashboard = () => {
   return user ? (
     <StyledDashboardPage>
       <DefaultContainer>
-      
+      {modalOn && <ModalProfileEdit setModal={setModalOn} profilePic={profilePic} setProfile={setProfilePic}/>}
         <StyledHeader>
           <Logo variant={"primary"} />
           <nav>
             <h3 className="username">{user.name}</h3>
             <button type="button" className="user-img">
 
-              <img src={avatar} alt="avatar" />
+              <img src={user.img} alt="avatar" />
 
               <i className="edit-user">
-                <BsPencilSquare className="nav-icon" />
+                <BsPencilSquare className="nav-icon" onClick={()=> setModalOn(true)}/>
               </i>
             </button>
             <button className="logout-btn" onClick={() => userLogout()}>

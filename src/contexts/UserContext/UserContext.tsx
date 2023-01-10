@@ -12,6 +12,8 @@ import { loginUser } from "../../services/loginUser";
 import { registerUser } from "../../services/registerUser";
 import { getUsers } from "../../services/getUsers";
 
+import avatar from "../../assets/img/male_2 6.svg"
+
 export const UserContext = createContext({} as iUserContext);
 
 export const UserProvider = ({ children }: iUserProviderProps) => {
@@ -68,6 +70,7 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
       userRegisterData.stars = 0;
       userRegisterData.bits = 0;
       userRegisterData.sequence = 0;
+      userRegisterData.img = avatar
 
       await registerUser(userRegisterData);
 
@@ -105,6 +108,7 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
         getUsersList,
         userRegister,
         user,
+        setUser
       }}
     >
       {children}

@@ -43,13 +43,8 @@ export interface iUserUpdate {
 }
 
 export interface iUserEdit{
-  name?: string,
-  userName?:string,
-  email?:string
-}
-
-export interface iUserEdit{
-  name?: string,
-  userName?:string,
-  email?:string
+  name?: string;
+  userName?:string;
+  email?:string;
+  img?: string;
 }
