@@ -45,7 +45,7 @@ const Dashboard = () => {
           <nav>
             <h3 className="username">{user.name}</h3>
             <button type="button" className="user-img">
-              <img src={avatar} alt="avatar" />
+              <img src="" alt="avatar" />
               <i className="edit-user">
                 <BsPencilSquare className="nav-icon" />
               </i>
@@ -106,7 +106,7 @@ const Dashboard = () => {
                     <h5>Constância</h5>
                     <div>
                       <span>
-                        {user.sequence}
+                        11 dias{" "}
                         <i>
                           <HiFire />
                         </i>
@@ -117,7 +117,7 @@ const Dashboard = () => {
                     <h5>Ranking Geral</h5>
                     <div>
                       <span>
-                        8ª posição
+                        8ª posição{" "}
                         <i>
                           <BsFillPeopleFill />
                         </i>
