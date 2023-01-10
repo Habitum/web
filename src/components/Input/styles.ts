@@ -49,3 +49,7 @@ export const StyledInput = styled.input<iInput>`
     }
   }}
 `;
+
+export const StyledTextArea = styled.textarea`
+  resize: none;
+`;
