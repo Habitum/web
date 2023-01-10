@@ -1,10 +1,14 @@
 import { api } from "./api";
 
-import { iHabits } from "../contexts/HabitsContext/types";
+import { iHabitData } from "../contexts/HabitsContext/types";
 
-export const createHabit = async (body: iHabits) => {
+export const createHabit = async (body: iHabitData) => {
   try {
-    await api.post("/habits", body);
+    await api.post("/habits", body, {
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("@TOKEN")}`
+      }
+    });
 
     return true;
   } catch (err) {

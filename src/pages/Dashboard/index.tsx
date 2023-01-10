@@ -24,10 +24,26 @@ import {
   StyledHabitsSection,
   StyledHabitsList,
 } from "./styles";
+import Button from "../../components/Button";
+import Logo from "../../components/Logo";
+import { DefaultContainer } from "../../styles/container";
+
+import { FiChevronDown, FiChevronUp } from "react-icons/fi";
+import {
+  BsFillPeopleFill,
+  BsPencilSquare,
+  BsPencilFill,
+  BsFillStarFill,
+} from "react-icons/bs";
+
+import { HiOutlineLogout, HiFire } from "react-icons/hi";
+import ModalCreateHabit from "../../components/ModalCreate";
+
+import avatar from "../../assets/img/avatar.svg";
 
 const Dashboard = () => {
   const { userLogout, user } = useContext(UserContext);
-  const { habit } = useContext(HabitsContext);
+  const [isOpenModalCreate, setIsOpenModalCreate] = useState(false);
 
   const todayDate = new Intl.DateTimeFormat("pt-BR", {
     weekday: "long",
@@ -35,6 +51,8 @@ const Dashboard = () => {
     day: "2-digit",
     year: "numeric",
   }).format(new Date());
+
+  const handleModalCreate = () => setIsOpenModalCreate(!isOpenModalCreate);
 
   const fixedDate = todayDate.charAt(0).toUpperCase() + todayDate.slice(1);
 
@@ -140,8 +158,8 @@ const Dashboard = () => {
 
           <StyledHabitsSection>
             <div className="habits-list-title">
-                <h4>hábitos</h4>
-                <Button variant="primary" name={"+ CRIAR"} />
+              <h4>hábitos</h4>
+              <Button variant="primary" name={"+ CRIAR"} onClick={handleModalCreate} />
             </div>
             <StyledHabitsList>
               {habit && habit.length > 0 ? (
@@ -157,6 +175,8 @@ const Dashboard = () => {
           </StyledHabitsSection>
         </main>
       </DefaultContainer>
+
+      {isOpenModalCreate && <ModalCreateHabit handleModal={handleModalCreate} />}
     </StyledDashboardPage>
   ) : (
     <Navigate to="/" />
