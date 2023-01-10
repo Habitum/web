@@ -24,7 +24,7 @@ export const GlobalStyles = createGlobalStyle`
     --color-okay: #45FF26;
     --color-alert: #FF3838;
 
-    --radius: 0.5rem;
+    --radius: .5rem;
   
     --font-family-inter: 'Inter', sans-serif;
     --font-family-montserrat: 'Montserrat', sans-serif;
@@ -65,5 +65,16 @@ export const GlobalStyles = createGlobalStyle`
     --text-weight-500: 300;
 
     --transition: .3s ease;
+  }
+
+  ::-webkit-scrollbar {
+    height: var(--radius);
+    width: var(--radius);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--color-brand-100);
+    border-radius: var(--radius);
+    cursor: pointer;
   }
 `;

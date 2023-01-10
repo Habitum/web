@@ -8,6 +8,7 @@ export const StyledLoginPage = styled.main`
   flex-direction: column;
   gap: 3.75rem;
   position: relative;
+  min-height: 700px;
 
   .wave-container {
     width: 100%;

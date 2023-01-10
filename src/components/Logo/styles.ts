@@ -2,7 +2,7 @@ import { iLogoStyles } from "./types";
 
 import styled, { css } from "styled-components";
 
-export const Container = styled.h1`
+export const Container = styled.p`
   font-family: var(--font-family-racing-sans-one);
   font-size: var(--text-logo-size);
   font-weight: var(--text-weight-400);
@@ -20,7 +20,7 @@ export const Container = styled.h1`
         return css`
           color: var(--color-grey-400);
 
-          @media (width<=750px) {
+          @media (width < 750px) {
             display: none;
           }
         `;
