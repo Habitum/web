@@ -12,7 +12,6 @@ import ModalConfirmDelete from "../ModalDelete";
 import { modalSchema } from "./schema";
 
 export const ModalEditHabit = () => {
-
   const [open, setOpen] = useState(false);
 
   const { habitEdit } = useContext(HabitsContext);
@@ -26,9 +25,7 @@ export const ModalEditHabit = () => {
     resolver: yupResolver(modalSchema),
   });
 
-  const submitEdit: SubmitHandler<iEditForm> = (data) => {
-    
-  };
+  const submitEdit: SubmitHandler<iEditForm> = (data) => {};
 
   return (
     <ModalWrapper>
@@ -52,11 +49,13 @@ export const ModalEditHabit = () => {
                 )}
 
                 <Input
-                  type="text"
+                  type="textarea"
                   name="description"
                   variant="secondary"
                   label="Descrição (opcional)"
                   register={register("description")}
+                  rows={8}
+                  cols={5}
                 />
 
                 <Input

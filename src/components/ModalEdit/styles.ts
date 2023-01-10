@@ -4,7 +4,6 @@ import { MdDelete } from "react-icons/md";
 
 export const StyledModalEdit = styled(ModalBox)`
   border-radius: 0.5rem;
-
   background-color: var(--color-white);
   overflow: hidden;
 
@@ -52,7 +51,7 @@ export const StyledModalEdit = styled(ModalBox)`
   .formContent {
     display: flex;
     justify-content: space-between;
-    padding: 4px 40px 20px 40px;
+    padding: 0.25rem 2.5rem 1.25rem 2.5rem;
   }
 
   .divSelect {
@@ -74,9 +73,9 @@ export const StyledModalEdit = styled(ModalBox)`
   }
 
   select {
-    padding: 10px 16px;
+    padding: 0.625rem 1rem;
     font-weight: var(--text-weight-300);
-    border: 1.6px solid var(--color-brand-200);
+    border: 0.1rem solid var(--color-brand-200);
     border-radius: var(--radius);
     color: var(--color-brand-200);
     outline-color: var(--color-brand-100);
@@ -90,7 +89,7 @@ export const StyledModalEdit = styled(ModalBox)`
   }
 
   .bottomModal {
-    padding: 20px;
+    padding: 1.25rem;
     background: var(--color-grey-400);
   }
 
@@ -98,18 +97,18 @@ export const StyledModalEdit = styled(ModalBox)`
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    gap: 10px;
+    gap: 0.625rem;
   }
 
   @media screen and (max-width: 700px) {
     display: flex;
     flex-direction: column;
-    max-width: 370px;
+    max-width: 23.125rem;
 
     .headerModal {
       display: flex;
       justify-content: center;
-      max-width: 370px;
+      max-width: 23.125rem;
     }
 
     form {
@@ -122,28 +121,27 @@ export const StyledModalEdit = styled(ModalBox)`
     .formContent {
       display: flex;
       flex-direction: column;
-      padding: 0px 40px;
+      padding: 0rem 2.5rem;
     }
 
     .divSelect {
       flex-direction: column;
       align-items: flex-start;
-      margin-bottom: 10px;
+      margin-bottom: 0.625rem;
       width: 100%;
     }
 
-    .divIconDelete{
+    .divIconDelete {
       align-self: center;
-
     }
 
     .labelSelect {
-      margin: 0px 0px 10px 0px;
+      margin: 0rem 0rem 0.625rem 0rem;
     }
 
     .divButton {
       justify-content: center;
-      gap: 36px;
+      gap: 2.25rem;
     }
 
     .bottomModal {

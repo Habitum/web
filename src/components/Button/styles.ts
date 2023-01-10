@@ -24,6 +24,7 @@ export const StyledButton = styled.button`
       case "primary":
         return css`
           color: var(--color-white);
+          border: none;
           background-color: var(--color-brand-100);
           :hover {
             background-color: var(--color-brand-200);
