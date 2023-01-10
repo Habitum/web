@@ -5,7 +5,7 @@ export const StyledLoginForm = styled.form`
   flex-direction: column;
   width: 23.4375rem;
   max-width: 90%;
-  gap: 4px;
+  gap: .25rem;
   position: relative;
   z-index: 99;
   background-color: var(--color-grey-400);

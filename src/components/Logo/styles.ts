@@ -20,7 +20,7 @@ export const Container = styled.p`
         return css`
           color: var(--color-grey-400);
 
-          @media (width<=750px) {
+          @media (width < 750px) {
             display: none;
           }
         `;

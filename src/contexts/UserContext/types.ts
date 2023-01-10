@@ -1,5 +1,5 @@
-import { iLoginFormValues } from "../../components/LoginForm/types";
-import { iRegisterFormValues } from "../../components/RegisterForm/types";
+import { iLoginFormValues } from "../../components/Forms/LoginForm/types";
+import { iRegisterFormValues } from "../../components/Forms/RegisterForm/types";
 import { iHabits } from "../HabitsContext/types";
 
 export interface iUserProviderProps {
@@ -24,7 +24,6 @@ export interface iUser {
   id: string;
   habits: iHabits[]
   bits: number
-}
 
 export interface ILoginResponse {
   accessToken: string;
