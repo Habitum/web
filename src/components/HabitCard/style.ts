@@ -144,6 +144,7 @@ export const StyledHabitCard = styled.li`
 
           .card-edit-box:nth-child(2){
             color: var(--color-alert);
+            cursor: pointer;
           }
           
         `;

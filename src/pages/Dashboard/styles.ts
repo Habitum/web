@@ -66,7 +66,7 @@ export const StyledDashboardPage = styled.main`
     font-style: italic;
   }
 
-  @media (min-width: 500px){
+  @media (min-width: 600px){
     main{
       flex-direction: row;
     }

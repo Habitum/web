@@ -21,9 +21,11 @@ import {
   BsFillStarFill,
 } from "react-icons/bs";
 import { HiOutlineLogout, HiFire } from "react-icons/hi";
+import { HabitsContext } from "../../contexts/HabitsContext/HabitsContext";
 
 const Dashboard = () => {
   const { userLogout, user } = useContext(UserContext);
+  const { habit } = useContext(HabitsContext);
 
   const todayDate = new Intl.DateTimeFormat("pt-BR", {
     weekday: "long",
@@ -133,13 +135,21 @@ const Dashboard = () => {
           </StyledUserInfo>
 
           <StyledHabitsSection>
+            
             <div className="habits-list-title">
               <h4>hábitos</h4>
               <Button variant="primary" name={"+ CRIAR"} />
             </div>
-
             <StyledHabitsList>
-              <HabitsCard/>
+              {habit && habit.length > 0 ? (
+                habit.map((goal) => (
+                  <HabitsCard key={goal.id} {...goal}/>
+                ))
+              ) : (
+                <>
+                  <h4>Você ainda não possui nenhum hábito</h4>
+                </>
+              )}
             </StyledHabitsList>
           </StyledHabitsSection>
         </main>

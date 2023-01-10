@@ -1,5 +1,9 @@
 type variant = "to-do" | "done";
 
 export interface iStyledHabitProps{
-    variant: variant;
-  }
+  variant: variant;
+}
+
+export interface iHabitCardProps{
+  id: number;
+}
