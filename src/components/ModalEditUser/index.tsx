@@ -58,13 +58,15 @@ const ModalProfileEdit = ({ setModal, profilePic,setProfile }: iModalBaseProps) 
   };
 
   const changePicture = (img : string) => {
+
       setProfile(img);
       setOpenPic(false);
       const body ={
         img: img
-      }
+      };
       userEdit(body);
-  }
+      
+  };
   const openPictureSelection = () => {
      if(!openPic){
        setOpenPic(true);
@@ -72,7 +74,7 @@ const ModalProfileEdit = ({ setModal, profilePic,setProfile }: iModalBaseProps) 
      if(openPic){
       setOpenPic(false);
      }
-  }
+  };
 
   return (
     <ModalWrapper>
