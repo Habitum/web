@@ -49,14 +49,11 @@ export const StyledTextArea = styled.textarea`
   resize: none;
   border: 0.0938rem solid var(--color-brand-200);
   border-radius: var(--radius);
-  width: 18.75rem;
+  width: 100%;
   height: 9.375rem;
   padding: 0.625rem;
+  outline-color: var(--color-brand-100);
   :focus {
     border: 1.6px solid var(--color-brand-100);
-  }
-
-  @media screen and (max-width: 700px) {
-    width: 18.125rem;
   }
 `;
