@@ -1,7 +1,7 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm, SubmitHandler } from "react-hook-form";
 import * as yup from "yup";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
 import { ModalWrapper } from "../../styles/modal";
 import { HabitsContext } from "../../contexts/HabitsContext/HabitsContext";
@@ -9,9 +9,13 @@ import { iEditForm } from "./types";
 import { IconDelete, StyledModalEdit } from "./styles";
 import Button from "../Button";
 import Input from "../Input";
+import ModalConfirmDelete from "../ModalConfirmDelete";
 
 export const ModalEditHabit = () => {
-  const { habitDelete, habitEdit } = useContext(HabitsContext);
+
+  const [open, setOpen] = useState(false)
+
+  const { habitEdit } = useContext(HabitsContext);
 
   const modalSchema = yup.object().shape({
     title: yup.string().required("Escolha um título"),
@@ -85,7 +89,7 @@ export const ModalEditHabit = () => {
                   <p className="FormError">{errors.difficulty.message}</p>
                 )}
 
-                <div className="divIconDelete" onClick={() => habitDelete}>
+                <div className="divIconDelete" onClick={() => setOpen(true)}>
                   <IconDelete />
                   <p>Excluir hábito</p>
                 </div>
@@ -99,6 +103,7 @@ export const ModalEditHabit = () => {
             </div>
           </div>
         </form>
+        {open && <ModalConfirmDelete setOpen={setOpen}/>}
       </StyledModalEdit>
     </ModalWrapper>
   );

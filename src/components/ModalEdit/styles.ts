@@ -3,16 +3,7 @@ import { ModalBox } from "../../styles/modal";
 import { MdDelete } from "react-icons/md";
 
 export const StyledModalEdit = styled(ModalBox)`
-  /* max-width: 700px;
-  height: 550px;
 
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-
-  justify-content: unset;
-  align-items: unset;
-*/
   border-radius: 0.5rem;
 
   background-color: var(--color-white);
