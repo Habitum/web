@@ -22,8 +22,10 @@ export interface iUser {
   name: string;
   userName: string;
   id: string;
-  habits: iHabits[];
+  habits: iHabits[]
   bits: number;
+  stars: number;
+  sequence: number;
 }
 
 export interface ILoginResponse {
