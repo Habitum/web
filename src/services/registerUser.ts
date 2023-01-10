@@ -1,4 +1,4 @@
-import { iRegisterFormValues } from "../components/RegisterForm/types";
+import { iRegisterFormValues } from "../components/Forms/RegisterForm/types";
 import { IRegisterResponse } from "../contexts/UserContext/types";
 
 import { api } from "./api";

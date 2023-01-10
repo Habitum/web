@@ -1,7 +1,7 @@
 import React from "react";
 import Logo from "../../components/Logo";
 
-import RegisterForm from "../../components/RegisterForm";
+import RegisterForm from "../../components/Forms/RegisterForm";
 import Wave from "../../components/Wave";
 
 import { StyledRegisterPage } from "./styles";

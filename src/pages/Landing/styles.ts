@@ -46,12 +46,28 @@ export const StyledSectionRanking = styled.section`
   justify-content: space-between;
   flex-wrap: wrap;
   background: var(--color-brand-200);
-  padding: 8rem 0;
+  padding: 8rem 0 3.75rem;
   position: relative;
+
+  @media (min-width: 850px) {
+    padding: 8rem 0;
+  }
 `;
 
 export const StyledContainer = styled(DefaultContainer)`
   padding: 0 1.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 3.75rem;
+
+  @media (min-width: 850px) {
+    gap: 3rem;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-direction: row;
+  }
 `;
 
 export const StyledDescription = styled.div`
@@ -66,10 +82,4 @@ export const StyledDescription = styled.div`
   @media (min-width: 700px) {
     gap: 2.375rem;
   }
-`;
-
-export const Teste = styled.div`
-  width: 100px;
-  height: 500px;
-  background-color: #fff;
 `;

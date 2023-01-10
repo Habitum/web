@@ -10,7 +10,9 @@ const Header = ({ children }: iHeaderProps) => {
   return (
     <StyledHeader>
       <Container>
-        <Logo variant="primary" />
+        <h1>
+          <Logo variant="primary" />
+        </h1>
         <Nav>{children}</Nav>
       </Container>
     </StyledHeader>

@@ -14,8 +14,7 @@ export const deleteHabit = async (id: number) => {
 
     await api.delete(`/habits/${id}`, { data: body });
 
-    return true
-    
+    return true;
   } catch (err) {
     console.error(err);
   }

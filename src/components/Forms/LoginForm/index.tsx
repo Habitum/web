@@ -1,20 +1,20 @@
 import React, { useContext } from "react";
-import { UserContext } from "../../contexts/UserContext/UserContext";
+import { UserContext } from "../../../contexts/UserContext/UserContext";
 
 import { SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
-import Input from "../Input";
+import Input from "../../Input";
 
 import { iLoginFormValues } from "./types";
 
 import { formSchema } from "./schema";
 
 import { StyledLoginForm } from "./styles";
-import LoginFormHeader from "./LoginFormHeader";
-import { StyledLink } from "../../styles/StyledLink";
-import Button from "../Button";
-import Spinner from "../Spinner";
+import FormHeader from "../FormHeader";
+import { StyledLink } from "../../../styles/StyledLink";
+import Button from "../../Button";
+import Spinner from "../../Spinner";
 
 const LoginForm = () => {
   const { userLogin, globalLoading } = useContext(UserContext);
@@ -32,7 +32,7 @@ const LoginForm = () => {
   return (
     <>
       <StyledLoginForm onSubmit={handleSubmit(submit)}>
-        <LoginFormHeader />
+        <FormHeader name="Login" linkname="Voltar" linkto="/" />
         <Input placeholder="Digite seu email" name="email" label="Email" type="email" register={register("email")} />
         {errors.email && (
           <p className="FormError">
@@ -45,7 +45,7 @@ const LoginForm = () => {
             <>{errors.password?.message}</>
           </p>
         )}
-        <Button name={globalLoading ? <Spinner /> : "Entrar"} variant="forms" />
+        <Button name={globalLoading ? <Spinner /> : "Entrar"} variant={globalLoading ? "forms-disabled" : "forms"} />
         <p className="FormQuestion">Ainda não tem conta? Crie uma conta</p>
         <StyledLink to="/register" variant="default">
           CRIAR CONTA

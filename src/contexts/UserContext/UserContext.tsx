@@ -3,13 +3,14 @@ import React, { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
-import { iLoginFormValues } from "../../components/LoginForm/types";
-import { iRegisterFormValues } from "../../components/RegisterForm/types";
+import { iLoginFormValues } from "../../components/Forms/LoginForm/types";
+import { iRegisterFormValues } from "../../components/Forms/RegisterForm/types";
 import { iUser, iUserContext, iUserProviderProps } from "./types";
 
 import { getUser } from "../../services/getUser";
 import { loginUser } from "../../services/loginUser";
 import { registerUser } from "../../services/registerUser";
+import { getUsers } from "../../services/getUsers";
 
 export const UserContext = createContext({} as iUserContext);
 
@@ -66,6 +67,7 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
 
       userRegisterData.stars = 0;
       userRegisterData.bits = 0;
+      userRegisterData.sequence = 0;
 
       await registerUser(userRegisterData);
 
@@ -83,5 +85,32 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
     navigate("/");
   };
 
-  return <UserContext.Provider value={{ globalLoading, setGlobalLoading, userLogin, userLogout, userRegister, user,setUser }}>{children}</UserContext.Provider>;
+
+
+  const getUsersList = async () => {
+    try {
+      const data = await getUsers();
+
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  return (
+    <UserContext.Provider
+      value={{
+        globalLoading,
+        setGlobalLoading,
+        userLogin,
+        userLogout,
+        getUsersList,
+        userRegister,
+        user 
+      }}
+    >
+      {children}
+    </UserContext.Provider>
+  );
+
 };

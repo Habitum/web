@@ -2,17 +2,13 @@ import React from "react";
 
 import { iInput } from "./types";
 
-import { StyledInputDiv } from "./styles";
+import { StyledInput, StyledInputDiv } from "./styles";
 
-const Input = ({ type, label, name, placeholder, register }: iInput) => {
+const Input = ({ type, label, name, placeholder, register, variant }: iInput) => {
   return (
     <StyledInputDiv>
-      {label && (
-        <label className="FormLabel" htmlFor={name}>
-          {label}
-        </label>
-      )}
-      <input className="FormInput" placeholder={placeholder} id={name} type={type} {...register} />
+      {label && <label htmlFor={name}>{label}</label>}
+      <StyledInput placeholder={placeholder} type={type} name={name} {...register} variant={variant} label={label} />
     </StyledInputDiv>
   );
 };

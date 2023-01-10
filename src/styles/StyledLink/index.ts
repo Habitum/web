@@ -67,6 +67,18 @@ export const StyledLink = styled(Link)`
             color: var(--color-white);
           }
         `;
+
+      case "link-footer":
+        return css`
+          text-decoration: none;
+          color: var(--color-grey-300);
+          font-weight: var(--text-weight-500);
+          text-align: left;
+
+          :hover {
+            color: var(--color-brand-100);
+          }
+        `;
     }
   }}
 `;
