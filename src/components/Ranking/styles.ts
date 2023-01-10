@@ -45,10 +45,6 @@ export const StyledRanking = styled.div`
     width: 100%;
     border-radius: var(--radius);
 
-    @media (min-width: 370px) {
-      /* width: 140%; */
-    }
-
     li {
       display: flex;
       align-items: center;
