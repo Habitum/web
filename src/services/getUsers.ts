@@ -6,8 +6,8 @@ import { loginUser } from "./loginUser";
 
 export async function getUsers() {
   const { accessToken } = await loginUser({
-    email: "getusers@email.com",
-    password: "Get123,",
+    email: "leandro@mail.com",
+    password: "123456",
   });
 
   const response = await api.get<iUser[]>("/users/", {
