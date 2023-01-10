@@ -2,7 +2,7 @@ import { createContext, useState, useContext, useEffect } from "react";
 
 import { toast } from "react-toastify";
 
-import { iHabits, iHabitsProviderProps, iHabitsProviderValue, iUserEdit } from "./types";
+import { iHabits, iHabitData, iHabitsProviderProps, iHabitsProviderValue, iUserEdit } from "./types";
 
 import { deleteHabit } from "../../services/deleteHabit";
 import { createHabit } from "../../services/createHabit";
@@ -38,7 +38,7 @@ export const HabitsProvider = ({ children }: iHabitsProviderProps) => {
       toast.error("Algo deu errado");
     }
   }
-  const habitCreate = async (body: iHabits) => {
+  const habitCreate = async (body: iHabitData) => {
     const response = await createHabit(body);
 
     if (response) {
@@ -46,6 +46,8 @@ export const HabitsProvider = ({ children }: iHabitsProviderProps) => {
     } else {
       toast.error("Algo deu errado");
     }
+
+    return response;
   };
 
   const habitEdit = async (id: number, data: iHabits) => {
