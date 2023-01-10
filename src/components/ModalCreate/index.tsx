@@ -4,7 +4,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 import Input from "../Input";
-import InputSpecial from "../InputSpecial";
+import Select from "../Select";
 import Button from "../Button";
 
 import { iModalForm, iModalProps } from "./types";
@@ -21,20 +21,17 @@ const ModalCreateHabit = ({ handleModal }: iModalProps) => {
   const { habitCreate } = useContext(HabitsContext);
   const { user } = useContext(UserContext);
 
+  const dificulties = ["fácil", "médio", "difícil"];
+  const constancies = ["7 dias seguidos", "14 dias seguidos", "21 dias seguidos"];
+
   const { handleSubmit, register, formState: { errors } } = useForm<iModalForm>({
     mode: "onChange",
     resolver: yupResolver(formModalSchema)
   })
 
-  const dificulties = ["fácil", "médio", "difícil"];
-  const constancies = ["7 dias seguidos", "14 dias seguidos", "21 dias seguidos"];
-
   const submit: SubmitHandler<iModalForm> = async (data) => {
     if (user) {
-      const body: iHabitData = {
-        ...data,
-        userId: +user.id
-      }
+      const body: iHabitData = { ...data, userId: +user.id };
 
       await habitCreate(body) && handleModal();
     }
@@ -59,7 +56,7 @@ const ModalCreateHabit = ({ handleModal }: iModalProps) => {
             <p className="FormError">
               <>{errors.title?.message}</>
             </p>
-            <InputSpecial
+            <Input
               label="Descrição (opcional)"
               name="description"
               type="textarea"
@@ -79,17 +76,15 @@ const ModalCreateHabit = ({ handleModal }: iModalProps) => {
           </div>
 
           <div className="side-right">
-            <InputSpecial
+            <Select
               label="Dificuldade"
               name="dificulty"
-              type="select"
               options={dificulties}
               register={register("dificulty")}
             />
-            <InputSpecial
+            <Select
               label="Meta de constância"
               name="constancy"
-              type="select"
               options={constancies}
               register={register("constancy")}
             />

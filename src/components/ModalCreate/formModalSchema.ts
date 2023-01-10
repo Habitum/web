@@ -6,4 +6,4 @@ export const formModalSchema = yup.object().shape({
   personal_reward: yup.string().required("É preciso haver uma recompensa"),
   dificulty: yup.string().required("É preciso medir uma dificuldade"),
   constancy: yup.string().required("É preciso uma meta de constância")
-})
+});
