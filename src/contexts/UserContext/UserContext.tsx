@@ -86,8 +86,11 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
   };
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> e10300265fe46e698661658ffa5ccecb5b0d540e
 =======
 >>>>>>> e10300265fe46e698661658ffa5ccecb5b0d540e
   const getUsersList = async () => {
@@ -110,7 +113,11 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
         getUsersList,
         userRegister,
 <<<<<<< HEAD
+<<<<<<< HEAD
         user 
+=======
+        user,
+>>>>>>> e10300265fe46e698661658ffa5ccecb5b0d540e
 =======
         user,
 >>>>>>> e10300265fe46e698661658ffa5ccecb5b0d540e
@@ -120,7 +127,10 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
     </UserContext.Provider>
   );
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+>>>>>>> e10300265fe46e698661658ffa5ccecb5b0d540e
 =======
 >>>>>>> e10300265fe46e698661658ffa5ccecb5b0d540e
 };

@@ -13,8 +13,7 @@ export interface iUserContext {
   userRegister: (userData: iRegisterFormValues) => Promise<void>;
   userLogout: () => void;
   getUsersList: () => Promise<iUser[] | undefined>
-  user: iUser | null
-  
+  user: iUser | null;
 }
 
 export interface iUser {
