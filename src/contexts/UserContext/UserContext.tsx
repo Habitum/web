@@ -85,8 +85,11 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
     navigate("/");
   };
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> e10300265fe46e698661658ffa5ccecb5b0d540e
   const getUsersList = async () => {
     try {
       const data = await getUsers();
@@ -106,11 +109,18 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
         userLogout,
         getUsersList,
         userRegister,
+<<<<<<< HEAD
         user 
+=======
+        user,
+>>>>>>> e10300265fe46e698661658ffa5ccecb5b0d540e
       }}
     >
       {children}
     </UserContext.Provider>
   );
+<<<<<<< HEAD
 
+=======
+>>>>>>> e10300265fe46e698661658ffa5ccecb5b0d540e
 };
