@@ -3,18 +3,23 @@ import { iButtonStyles } from "./types";
 import styled, { css } from "styled-components";
 
 export const StyledButton = styled.button`
-  border-radius: var(--radius);
+  width: 7.25rem;
+  height: 2.5rem;
+
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 0px 1.5rem;
+
+  padding: 0 1.5rem;
   gap: 0.625rem;
-  width: 7.25rem;
-  height: 2.5rem;
+  
   font-family: var(--font-family-inter);
   font-size: var(--text-button-size-200);
   font-weight: var(--text-weight-200);
+  border-radius: var(--radius);
+  border: none;
+
   cursor: pointer;
   transition: ease 0.3s;
 

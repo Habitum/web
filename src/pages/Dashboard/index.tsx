@@ -1,33 +1,37 @@
 import React, { useContext, useState } from "react";
-import { Navigate } from "react-router-dom";
-import { UserContext } from "../../contexts/UserContext/UserContext";
 
+import { FiChevronDown, FiChevronUp } from "react-icons/fi";
+import { HiOutlineLogout, HiFire } from "react-icons/hi";
+import {
+  BsFillPeopleFill,
+  BsPencilSquare,
+  BsFillStarFill,
+} from "react-icons/bs";
+import { Navigate } from "react-router-dom";
+
+import { UserContext } from "../../contexts/UserContext/UserContext";
+import { HabitsContext } from "../../contexts/HabitsContext/HabitsContext";
+
+import Button from "../../components/Button";
+import Logo from "../../components/Logo";
+
+import { HabitsCard } from "../../components/HabitCard";
 import {
   StyledDashboardPage,
   StyledHeader,
   StyledUserInfo,
   StyledHabitsSection,
-  StylesHabitsList,
+  StyledHabitsList,
 } from "./styles";
-import Button from "../../components/Button";
-import Logo from "../../components/Logo";
 import { DefaultContainer } from "../../styles/container";
 
-import { FiChevronDown, FiChevronUp } from "react-icons/fi";
-import {
-  BsFillPeopleFill,
-  BsPencilSquare,
-  BsPencilFill,
-  BsFillStarFill,
-} from "react-icons/bs";
-
-import { HiOutlineLogout, HiFire } from "react-icons/hi";
 import ModalCreateHabit from "../../components/ModalCreate";
 
 import avatar from "../../assets/img/avatar.svg";
 
 const Dashboard = () => {
   const { userLogout, user } = useContext(UserContext);
+  const { habit } = useContext(HabitsContext)
   const [isOpenModalCreate, setIsOpenModalCreate] = useState(false);
 
   const todayDate = new Intl.DateTimeFormat("pt-BR", {
@@ -38,6 +42,8 @@ const Dashboard = () => {
   }).format(new Date());
 
   const handleModalCreate = () => setIsOpenModalCreate(!isOpenModalCreate);
+
+  const fixedDate = todayDate.charAt(0).toUpperCase() + todayDate.slice(1);
 
   return user ? (
     <StyledDashboardPage>
@@ -62,7 +68,7 @@ const Dashboard = () => {
 
         <section className="user-welcome">
           <h1>Bem vindo de volta, {user.userName}</h1>
-          <p className="date">{todayDate}</p>
+          <p className="date">{fixedDate}</p>
         </section>
 
         <main>
@@ -108,7 +114,7 @@ const Dashboard = () => {
                     <h5>Constância</h5>
                     <div>
                       <span>
-                        {user.sequence}
+                        11 dias{" "}
                         <i>
                           <HiFire />
                         </i>
@@ -119,7 +125,7 @@ const Dashboard = () => {
                     <h5>Ranking Geral</h5>
                     <div>
                       <span>
-                        8ª posição
+                        8ª posição{" "}
                         <i>
                           <BsFillPeopleFill />
                         </i>
@@ -142,28 +148,19 @@ const Dashboard = () => {
           <StyledHabitsSection>
             <div className="habits-list-title">
               <h4>hábitos</h4>
-              <Button variant="primary" name={"+ CRIAR"} onClick={handleModalCreate} />
+              <Button variant="primary" name={"+ CRIAR"} />
             </div>
-
-            <StylesHabitsList>
-              <li>
-                <div>
-                  <p>title</p>
-                  <p>
-                    Constância: <span></span>
-                  </p>
-                </div>
-
-                <div>
-                  <button>
-                    <i>
-                      <BsPencilFill />
-                    </i>
-                  </button>
-                  <input type="checkbox" name="check" id="check" />
-                </div>
-              </li>
-            </StylesHabitsList>
+            <StyledHabitsList>
+              {habit && habit.length > 0 ? (
+                habit.map((goal) => (
+                  <HabitsCard key={goal.id} {...goal}/>
+                ))
+              ) : (
+                <>
+                  <h4>Você ainda não possui nenhum hábito</h4>
+                </>
+              )}
+            </StyledHabitsList>
           </StyledHabitsSection>
         </main>
       </DefaultContainer>
