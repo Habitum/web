@@ -20,7 +20,6 @@ export const StyledDashboardPage = styled.main`
     font-family: var(----font-family-inter);
     font-weight: var(--text-weight-200);
     font-size: var( --text-size-300);
-    margin-bottom: 1rem;
   }
 
   h5{
@@ -172,6 +171,10 @@ export const StyledUserInfo = styled.section`
     transition: 0.4s ease;
   }
 
+  .status-info h4{
+    margin-bottom: 1rem;
+  }
+
   .close-tab{
     position: absolute;
     z-index: -1;
@@ -236,9 +239,11 @@ export const StyledHabitsSection = styled.section`
   padding: 0 .5rem;
 
   .habits-list-title{
+    width: 100%;
     display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
     justify-content: space-between;
-    
   }
 
   .habits-list-title button{
@@ -247,13 +252,9 @@ export const StyledHabitsSection = styled.section`
   }
 
   @media (min-width: 600px){
-    .habits-list-title div{
-      width: 100%;
-      display: flex;
-      flex-direction: row-reverse;
-      justify-content: space-between;
-      align-items: center;
-  }
+    .habits-list-title{
+      flex-direction: row;
+    }
   }
 `
 

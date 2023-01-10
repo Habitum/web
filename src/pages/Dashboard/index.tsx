@@ -122,9 +122,8 @@ const Dashboard = () => {
           <StyledHabitsSection>
             
             <div className="habits-list-title">
-              <div>
                 <h4>hábitos</h4>
-                <Button variant="primary" name={"+ CRIAR"} /></div>
+                <Button variant="primary" name={"+ CRIAR"} />
             </div>
 
             <StyledHabitsList>
