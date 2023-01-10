@@ -7,4 +7,5 @@ export interface iRegisterFormValues {
   stars: number;
   bits: number;
   sequence: number;
+  img: string;
 }

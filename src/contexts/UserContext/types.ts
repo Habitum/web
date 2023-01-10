@@ -14,11 +14,11 @@ export interface iUserContext {
   userLogout: () => void;
   getUsersList: () => Promise<iUser[] | undefined>
   user: iUser | null;
+  setUser: React.Dispatch<React.SetStateAction<iUser | null>>;
 }
 
 export interface iUser {
   email: string;
-  img: string;
   name: string;
   userName: string;
   id: string;
@@ -26,6 +26,7 @@ export interface iUser {
   bits: number;
   stars: number;
   sequence: number;
+  img:string;
 }
 
 export interface ILoginResponse {

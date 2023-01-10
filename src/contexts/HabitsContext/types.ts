@@ -12,6 +12,7 @@ export interface iHabitsProviderValue {
   habitCreate: (body: iHabitData) => Promise<boolean | undefined>;
   habitEdit: (id: number, data: iHabits) => void;
   habitDelete: (id: number) => void;
+  userEdit: (body: iUserEdit) => void;
 }
 
 export interface iHabitData {
@@ -39,4 +40,11 @@ export interface iUserUpdate {
   id: string;
   bits: number;
   star: number;
+}
+
+export interface iUserEdit{
+  name?: string;
+  userName?:string;
+  email?:string;
+  img?: string;
 }

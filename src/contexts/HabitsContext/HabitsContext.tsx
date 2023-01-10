@@ -2,19 +2,20 @@ import { createContext, useState, useContext, useEffect } from "react";
 
 import { toast } from "react-toastify";
 
-import { iHabits, iHabitData, iHabitsProviderProps, iHabitsProviderValue } from "./types";
+import { iHabits, iHabitData, iHabitsProviderProps, iHabitsProviderValue, iUserEdit } from "./types";
 
 import { deleteHabit } from "../../services/deleteHabit";
 import { createHabit } from "../../services/createHabit";
 import { editHabit } from "../../services/editHabit";
 
 import { UserContext } from "../UserContext/UserContext";
+import { editUser } from "../../services/editUser";
 
 export const HabitsContext = createContext({} as iHabitsProviderValue);
 
 export const HabitsProvider = ({ children }: iHabitsProviderProps) => {
 
-  const { user } = useContext(UserContext);
+  const { user,setUser } = useContext(UserContext);
   const [star, setStar] = useState(0);
 
   const [bit, setBit] = useState(0);
@@ -27,6 +28,16 @@ export const HabitsProvider = ({ children }: iHabitsProviderProps) => {
     };
   }, [user, habit]);
 
+  const userEdit = async (body: iUserEdit) => {
+    const response = await editUser(body)
+
+    if(response){
+      toast.success("Usuário editado com sucesso!");
+      setUser(response)
+    }else{
+      toast.error("Algo deu errado");
+    }
+  }
   const habitCreate = async (body: iHabitData) => {
     const response = await createHabit(body);
 
@@ -71,6 +82,7 @@ export const HabitsProvider = ({ children }: iHabitsProviderProps) => {
         habitCreate,
         habitEdit,
         habitDelete,
+        userEdit
       }}
     >
       {children}
