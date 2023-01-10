@@ -6,7 +6,7 @@ import RoutesMain from "./routes";
 
 import "react-toastify/dist/ReactToastify.css";
 import { GlobalStyles } from "./styles/globalStyles";
-import { ModalEditHabit } from "./components/ModalEdit";
+
 
 const App = () => {
   return (
