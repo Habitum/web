@@ -1,12 +1,15 @@
 import { useContext } from "react";
+
 import { HabitsContext } from "../../contexts/HabitsContext/HabitsContext";
+
 import { ModalWrapper } from "../../styles/modal";
 import Button from "../Button";
 
-import { IconDeleteModal, StyledModalConfirmDelete } from "./styles";
 import { iDeleteModal } from "./types";
 
-const ModalConfirmDelete = ({ setOpen }: iDeleteModal) => {
+import { IconDeleteModal, StyledModalConfirmDelete } from "./styles";
+
+const ModalDelete = ({ setOpen }: iDeleteModal) => {
   const { habitDelete } = useContext(HabitsContext);
 
   return (
@@ -32,4 +35,4 @@ const ModalConfirmDelete = ({ setOpen }: iDeleteModal) => {
   );
 };
 
-export default ModalConfirmDelete;
+export default ModalDelete;

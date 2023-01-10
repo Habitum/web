@@ -1,15 +1,19 @@
-import { yupResolver } from "@hookform/resolvers/yup";
-import { useForm, SubmitHandler } from "react-hook-form";
 import { useContext, useState } from "react";
 
-import { ModalWrapper } from "../../styles/modal";
-import { HabitsContext } from "../../contexts/HabitsContext/HabitsContext";
-import { iEditForm } from "./types";
-import { IconDelete, StyledModalEdit } from "./styles";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useForm, SubmitHandler } from "react-hook-form";
+
 import Button from "../Button";
 import Input from "../Input";
-import ModalConfirmDelete from "../ModalDelete";
+import { ModalWrapper } from "../../styles/modal";
+import ModalDelete from "../ModalDelete";
+import { HabitsContext } from "../../contexts/HabitsContext/HabitsContext";
+
+import { iEditForm } from "./types";
+
 import { modalSchema } from "./schema";
+
+import { IconDelete, StyledModalEdit } from "./styles";
 
 export const ModalEditHabit = () => {
   const [open, setOpen] = useState(false);
@@ -97,7 +101,7 @@ export const ModalEditHabit = () => {
             </div>
           </div>
         </form>
-        {open && <ModalConfirmDelete setOpen={setOpen} />}
+        {open && <ModalDelete setOpen={setOpen} />}
       </StyledModalEdit>
     </ModalWrapper>
   );
