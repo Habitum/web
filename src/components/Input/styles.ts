@@ -34,7 +34,7 @@ export const StyledInput = styled.input<iInput>`
         `;
       case "secondary":
         return css`
-          border:  1.5px solid var(--color-brand-200);
+          border: 1.5px solid var(--color-brand-200);
           width: 300px;
           height: 150px;
           :focus {
@@ -47,18 +47,16 @@ export const StyledInput = styled.input<iInput>`
 
 export const StyledTextArea = styled.textarea`
   resize: none;
-  border:  0.0938rem solid var(--color-brand-200);
+  border: 0.0938rem solid var(--color-brand-200);
   border-radius: var(--radius);
   width: 300px;
   height: 9.375rem;
   padding: 0.625rem;
   :focus {
     border: 1.6px solid var(--color-brand-100);
-  } 
-
-  @media screen and (max-width: 700px){
-    width: 290px;
   }
 
-
+  @media screen and (max-width: 700px) {
+    width: 290px;
+  }
 `;
