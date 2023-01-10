@@ -187,7 +187,15 @@ export const StyledUserInfo = styled.section`
     transition: 0.4s ease;
   }
 
-  .close-tab {
+  .status-info h4{
+    margin-bottom: 1rem;
+  }
+
+  .status-info h4{
+    margin-bottom: 1rem;
+  }
+
+  .close-tab{
     position: absolute;
     z-index: -1;
     top: 0;
@@ -250,8 +258,11 @@ export const StyledHabitsSection = styled.section`
   justify-content: space-between;
   padding: 0 0.5rem;
 
-  .habits-list-title {
+  .habits-list-title{
+    width: 100%;
     display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
     justify-content: space-between;
   }
 
@@ -259,9 +270,15 @@ export const StyledHabitsSection = styled.section`
     font-size: 0.75rem;
     padding: 0.5rem;
   }
-`;
 
-export const StylesHabitsList = styled.ul`
+  @media (min-width: 600px){
+    .habits-list-title{
+      flex-direction: row;
+    }
+  }
+`
+
+export const StyledHabitsList = styled.ul`
   width: 100%;
   height: fit-content;
   max-height: 25rem;
