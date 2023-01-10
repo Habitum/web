@@ -10,14 +10,14 @@ export const Modal = styled(ModalBox)`
   position: relative;
 
   @media (min-width: 768px) {
-    max-width: 700px;
-    height: 550px;
+    max-width: 43.75rem;
+    height: 34.375rem;
   }
 `
 
 export const ModalHeader = styled.header`
   width: 100%;
-  padding: 20px;
+  padding: 1.25rem;
   background: var(--color-brand-100);
   text-align: center;
 
@@ -28,17 +28,17 @@ export const ModalHeader = styled.header`
   }
 
   @media (min-width: 768px) {
-    border-radius: 8px 8px 0 0;
+    border-radius: .5rem .5rem 0 0;
     text-align: start;
   }
 `
 
 export const ModalForm = styled.form`
   width: 100%;
-  padding: 0 40px;
+  padding: 0 2.5rem;
 
   p {
-    margin: 10px;
+    margin: 0.625rem;
     font: var(--text-weight-300) var(--text-size-500) var(--font-family-inter);
     color: var(--color-grey-200);
   }
@@ -52,7 +52,7 @@ export const ModalForm = styled.form`
     justify-content: space-between;
 
     p {
-      width: 230px;
+      width: 14.375rem;
     }
 
     .side-left, .side-right {
@@ -70,7 +70,7 @@ export const ModalForm = styled.form`
 
 export const ModalFooter = styled.div`
   width: 100%;
-  padding: 20px 40px;
+  padding: 1.25rem 2.5rem;
   background: var(--color-grey-400);
   display: flex;
   justify-content: flex-end;
@@ -85,14 +85,14 @@ export const ModalFooter = styled.div`
   }
 
   button:nth-child(1) {
-    height: 40px;
+    height: 2.5rem;
     font: var(--text-weight-200) var(--text-button-size-200) var(--font-family-inter);
     color: var(--color-grey-100);
   }
 
   @media (min-width: 768px) {
-    border-radius: 0 0 8px 8px;
-    gap: 20px;
+    border-radius: 0 0 .5rem .5rem;
+    gap: 1.25rem;
 
     button {
       width: max-content;
