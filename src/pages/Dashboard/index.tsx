@@ -19,7 +19,6 @@ import {
   BsPencilSquare,
   BsPencilFill,
   BsFillStarFill,
- 
 } from "react-icons/bs";
 
 import { HiOutlineLogout, HiFire } from "react-icons/hi";
@@ -28,7 +27,7 @@ import avatar from "../../assets/img/avatar.svg";
 
 const Dashboard = () => {
   const { userLogout, user } = useContext(UserContext);
-console.log(user)
+
   const todayDate = new Intl.DateTimeFormat("pt-BR", {
     weekday: "long",
     month: "long",
@@ -45,14 +44,13 @@ console.log(user)
             <h3 className="username">{user.name}</h3>
             <button type="button" className="user-img">
               <img src={avatar} alt="avatar" />
-              <i  className="edit-user">
-                <BsPencilSquare className="nav-icon"/>
+              <i className="edit-user">
+                <BsPencilSquare className="nav-icon" />
               </i>
-    
             </button>
             <button className="logout-btn" onClick={() => userLogout()}>
               <i>
-                <HiOutlineLogout className="nav-icon"/>
+                <HiOutlineLogout className="nav-icon" />
               </i>
             </button>
           </nav>
@@ -86,7 +84,7 @@ console.log(user)
                     <h5>Estrelas</h5>
                     <div>
                       <span>
-                      {user.stars}
+                        {user.stars}
                         <i>
                           <BsFillStarFill />
                         </i>
@@ -97,7 +95,7 @@ console.log(user)
                     <h5>Bits</h5>
                     <div>
                       <span>
-                      {user.bits}
+                        {user.bits}
                         <img src="./icons/favicon-32x32.png" alt="bit icon" />
                       </span>
                     </div>
@@ -106,7 +104,7 @@ console.log(user)
                     <h5>Constância</h5>
                     <div>
                       <span>
-                      {user.sequence}
+                        {user.sequence}
                         <i>
                           <HiFire />
                         </i>

@@ -1,54 +1,54 @@
 import styled from "styled-components";
 
 export const StyledDashboardPage = styled.main`
-
   height: 100vh;
   width: 100%;
 
-  button, label{
+  button,
+  label {
     cursor: pointer;
   }
 
-  h2{
+  h2 {
     color: var(--color-brand-100);
     font-family: var(--font-family-racing-sans-one);
     font-weight: var(--text-weight-400);
-    font-size: var( --text-size-100);
+    font-size: var(--text-size-100);
   }
- 
-  h4{
+
+  h4 {
     font-family: var(----font-family-inter);
     font-weight: var(--text-weight-200);
-    font-size: var( --text-size-300);
+    font-size: var(--text-size-300);
     margin-bottom: 1rem;
   }
 
-  h5{
+  h5 {
     position: absolute;
     background-color: #fff;
     top: 1;
     z-index: 1;
-    padding: 0 8px;      
+    padding: 0 8px;
   }
 
-  .username{
+  .username {
     font-family: var(----font-family-inter);
     font-weight: var(--text-weight-700);
-    font-size: var( --text-size-300);
+    font-size: var(--text-size-300);
   }
 
-  .user-welcome{
-    padding: .5rem 1rem;
+  .user-welcome {
+    padding: 0.5rem 1rem;
   }
 
-  .date{
+  .date {
     color: var(--color-grey-200);
     font-size: var(--text-size-100);
     font-weight: var(--text-weight-200);
-    margin: .5rem 0;
+    margin: 0.5rem 0;
   }
- 
-  main{
+
+  main {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -57,30 +57,29 @@ export const StyledDashboardPage = styled.main`
     gap: 1.6rem;
   }
 
-  .quote{
+  .quote {
     display: none;
     font-family: var(----font-family-inter);
     font-weight: var(--text-weight-400);
-    font-size: var( --text-size-400);
+    font-size: var(--text-size-400);
     color: var(--color-grey-200);
     font-style: italic;
   }
 
-  @media (min-width: 500px){
-    main{
+  @media (min-width: 500px) {
+    main {
       flex-direction: row;
     }
 
-    .user-welcome{
+    .user-welcome {
       text-align: end;
     }
 
-    .quote{
+    .quote {
       display: block;
     }
   }
- 
-`
+`;
 export const StyledHeader = styled.header`
   width: 100%;
   height: 6rem;
@@ -89,67 +88,64 @@ export const StyledHeader = styled.header`
   justify-content: space-between;
   padding: 1.5rem 1rem;
 
-  nav{
+  nav {
     display: flex;
     gap: 1.25rem;
     align-items: center;
   }
 
-  .username{
+  .username {
     font-family: var(--font-family-inter);
     font-weight: var(--text-weight-200);
     font-size: var(--text-size-300);
     display: none;
   }
 
-  .user-img{
+  .user-img {
     width: 2.375rem;
     height: 2.375rem;
     border-radius: 11.25rem;
     border: none;
     cursor: pointer;
     position: relative;
-   
   }
 
-  .user-img img{
+  .user-img img {
     opacity: 0.4;
   }
-  
 
-  .edit-user{
+  .edit-user {
     width: 0.8rem;
     height: 1rem;
     opacity: 0;
     position: absolute;
-    top: 0.8em;;
+    top: 0.8em;
     left: 0.8em;
     z-index: 1;
   }
 
-
-  .edit-user:hover{
+  .edit-user:hover {
     opacity: 1;
   }
 
-  .nav-icon{
+  .nav-icon {
     width: 1.2rem;
     height: 1.2rem;
   }
 
-  .logout-btn{
+  .logout-btn {
     display: flex;
     align-items: center;
     background: transparent;
     border: none;
   }
 
-  @media (min-width: 550px){
-    .username{
+  @media (min-width: 550px) {
+    .username {
       display: block;
     }
   }
-`
+`;
 
 export const StyledUserInfo = styled.section`
   width: 100%;
@@ -158,11 +154,11 @@ export const StyledUserInfo = styled.section`
   padding: 1rem;
   gap: 1.25rem;
 
-  .dropdown-menu{
+  .dropdown-menu {
     position: relative;
   }
 
-  .dropdown-menu label{
+  .dropdown-menu label {
     font-size: var(--text-size-400);
     font-weight: var(--text-weight-200);
     color: var(--color-brand-100);
@@ -171,11 +167,11 @@ export const StyledUserInfo = styled.section`
     margin: 1% 30%;
   }
 
-  .dropdown-menu i{
+  .dropdown-menu i {
     color: var(--color-brand-100);
   }
 
-  .dropdown-menu [type="radio"]{
+  .dropdown-menu [type="radio"] {
     position: absolute;
     top: 0;
     left: 0;
@@ -184,14 +180,14 @@ export const StyledUserInfo = styled.section`
     opacity: 0;
   }
 
-  .status-info{
+  .status-info {
     position: absolute;
     opacity: 0;
     margin-top: 2rem;
     transition: 0.4s ease;
   }
 
-  .close-tab{
+  .close-tab {
     position: absolute;
     z-index: -1;
     top: 0;
@@ -201,35 +197,35 @@ export const StyledUserInfo = styled.section`
     height: 100%;
   }
 
-  [type='radio']:checked ~ label{
+  [type="radio"]:checked ~ label {
     z-index: 1;
     opacity: 0;
   }
 
-  [type='radio']:checked ~ i{
+  [type="radio"]:checked ~ i {
     z-index: 1;
     opacity: 0;
   }
 
-  [type='radio']:checked ~ label ~ .status-info{
+  [type="radio"]:checked ~ label ~ .status-info {
     position: relative;
     z-index: 1;
     opacity: 1;
   }
 
-  [type='radio']:checked ~ label ~ .close-tab{
+  [type="radio"]:checked ~ label ~ .close-tab {
     z-index: 3;
     opacity: 1;
   }
 
-  ul{
+  ul {
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
   }
 
-  li div{
-    border: .0625rem solid #000;
+  li div {
+    border: 0.0625rem solid #000;
     border-radius: var(--radius);
     width: max-content;
     padding: 24px 16px 16px 16px;
@@ -237,34 +233,33 @@ export const StyledUserInfo = styled.section`
     position: relative;
   }
 
-  li div span{
+  li div span {
     display: flex;
     align-items: center;
     font-size: var(--text-size-200);
     font-weight: var(--text-weight-100);
     color: var(--color-brand-100);
-    gap: .5rem;
+    gap: 0.5rem;
   }
-`
+`;
 
 export const StyledHabitsSection = styled.section`
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 0 .5rem;
+  padding: 0 0.5rem;
 
-  .habits-list-title{
+  .habits-list-title {
     display: flex;
     justify-content: space-between;
-    
   }
 
-  .habits-list-title button{
-    font-size: .75rem;
-    padding: .5rem;
+  .habits-list-title button {
+    font-size: 0.75rem;
+    padding: 0.5rem;
   }
-`
+`;
 
 export const StylesHabitsList = styled.ul`
   width: 100%;
@@ -274,10 +269,10 @@ export const StylesHabitsList = styled.ul`
 
   display: flex;
   flex-direction: column;
-  gap: .7rem;
+  gap: 0.7rem;
 
   margin-top: 1rem;
-  padding: .7rem;
+  padding: 0.7rem;
   border-radius: var(--radius);
   overflow: auto;
-`
+`;
