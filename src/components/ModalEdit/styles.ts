@@ -3,7 +3,6 @@ import { ModalBox } from "../../styles/modal";
 import { MdDelete } from "react-icons/md";
 
 export const StyledModalEdit = styled(ModalBox)`
-
   border-radius: 0.5rem;
 
   background-color: var(--color-white);
@@ -91,7 +90,6 @@ export const StyledModalEdit = styled(ModalBox)`
 
   .bottomModal {
     padding: 20px;
-
     background: var(--color-grey-400);
   }
 
@@ -105,6 +103,7 @@ export const StyledModalEdit = styled(ModalBox)`
   @media screen and (max-width: 700px) {
     display: flex;
     flex-direction: column;
+    max-width: 370px;
 
     .headerModal {
       display: flex;
@@ -115,7 +114,28 @@ export const StyledModalEdit = styled(ModalBox)`
     form {
       display: flex;
       flex-direction: column;
-      max-width: 370px;
+      width: 100%;
+    }
+
+    .formContent {
+      display: unset;
+    }
+
+    .divSelect {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .labelSelect {
+      margin: 0px 0px 10px 0px;
+    }
+
+    .divButton {
+      justify-content: center;
+    }
+
+    .bottomModal {
+      align-items: center;
     }
   }
 `;

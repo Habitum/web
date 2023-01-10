@@ -5,7 +5,7 @@ import { useContext, useState } from "react";
 
 import { ModalWrapper } from "../../styles/modal";
 import { HabitsContext } from "../../contexts/HabitsContext/HabitsContext";
-import { iEditForm } from "./types";
+import { iDeleteModal, iEditForm } from "./types";
 import { IconDelete, StyledModalEdit } from "./styles";
 import Button from "../Button";
 import Input from "../Input";
@@ -13,7 +13,7 @@ import ModalConfirmDelete from "../ModalConfirmDelete";
 
 export const ModalEditHabit = () => {
 
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState<iDeleteModal>(false)
 
   const { habitEdit } = useContext(HabitsContext);
 

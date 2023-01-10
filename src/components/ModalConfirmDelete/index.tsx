@@ -2,9 +2,9 @@ import { useContext } from "react";
 import { HabitsContext } from "../../contexts/HabitsContext/HabitsContext";
 import { ModalWrapper } from "../../styles/modal";
 import Button from "../Button";
-import { IconDelete } from "../ModalEdit/styles";
 
-import { StyledModalConfirmDelete } from "./styles";
+
+import { IconDeleteModal, StyledModalConfirmDelete } from "./styles";
 
 const ModalConfirmDelete = ({setOpen}) => {
 
@@ -13,10 +13,14 @@ const ModalConfirmDelete = ({setOpen}) => {
   return ( 
     <ModalWrapper>
         <StyledModalConfirmDelete>
-           <IconDelete/>
-           <p>Você tem certeza em excluir este hábito? Lembre-se que esta ação não poderá ser desfeita.</p>
-            <Button name='Não' onClick={setOpen(false)}/>
-            <Button name='Sim, Eu quero excluir' onClick={habitDelete}/>
+           <div className="divTop">
+             <IconDeleteModal/>
+             <p>Você tem certeza em excluir este hábito? Lembre-se que esta ação não poderá ser desfeita.</p>
+           </div>
+            <div className="divButton">
+              <Button name='Não' variant="cancel" onClick={()=>setOpen(false)}/>
+              <Button name='Sim, Eu quero excluir' variant="cancel-secondary" onClick={habitDelete}/>
+            </div>
         </StyledModalConfirmDelete>
     </ModalWrapper>
   )

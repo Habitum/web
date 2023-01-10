@@ -73,7 +73,16 @@ export const StyledButton = styled.button`
           text-transform: uppercase;
           color: var(--color-grey-100);
           border: none;
+          background: none;
         `;
+      case "cancel-secondary":
+        return css`
+          color: var(--color-alert);
+          width: 300px;
+          height: 18px;
+          border: none;
+          background: none;
+          `;
     }
   }}
 `;

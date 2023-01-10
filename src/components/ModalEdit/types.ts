@@ -10,3 +10,10 @@ export interface iEditForm {
     id: number;
     data: string;
   }
+
+  export interface iDeleteModal{
+
+    open: Boolean;
+    setOpen: (param:Boolean) => void;
+    
+    }
