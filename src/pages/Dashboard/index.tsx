@@ -84,43 +84,26 @@ const Dashboard = () => {
                   <li>
                     <h5>Estrelas</h5>
                     <div>
-                      <span>
-                        3{" "}
-                        <i>
-                          <BsFillStarFill />
-                        </i>
-                      </span>
+                      <span> 3{" "} <i><BsFillStarFill /></i></span>
                     </div>
                   </li>
                   <li>
                     <h5>Bits</h5>
                     <div>
-                      <span>
-                        615{" "}
-                        <img src="./icons/favicon-32x32.png" alt="bit icon" />
-                      </span>
+                      <span> 615{" "} <img src="./icons/favicon-32x32.png" alt="bit icon" /></span>
                     </div>
                   </li>
                   <li>
                     <h5>Constância</h5>
                     <div>
-                      <span>
-                        11 dias{" "}
-                        <i>
-                          <HiFire />
-                        </i>
+                      <span> 11 dias{" "} <i><HiFire /></i>
                       </span>
                     </div>
                   </li>
                   <li>
                     <h5>Ranking Geral</h5>
                     <div>
-                      <span>
-                        8ª posição{" "}
-                        <i>
-                          <BsFillPeopleFill />
-                        </i>
-                      </span>
+                      <span> 8ª posição{" "} <i><BsFillPeopleFill /></i> </span>
                     </div>
                   </li>
                 </ul>
@@ -139,9 +122,11 @@ const Dashboard = () => {
           <StyledHabitsSection>
             
             <div className="habits-list-title">
-              <h4>hábitos</h4>
-              <Button variant="primary" name={"+ CRIAR"} />
+              <div>
+                <h4>hábitos</h4>
+                <Button variant="primary" name={"+ CRIAR"} /></div>
             </div>
+
             <StyledHabitsList>
               {habit && habit.length > 0 ? (
                 habit.map((goal) => (

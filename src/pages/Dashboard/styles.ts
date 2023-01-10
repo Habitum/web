@@ -245,6 +245,16 @@ export const StyledHabitsSection = styled.section`
     font-size: .75rem;
     padding: .5rem;
   }
+
+  @media (min-width: 600px){
+    .habits-list-title div{
+      width: 100%;
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      align-items: center;
+  }
+  }
 `
 
 export const StyledHabitsList = styled.ul`
