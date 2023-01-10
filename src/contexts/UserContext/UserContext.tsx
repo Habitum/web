@@ -85,7 +85,6 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
     navigate("/");
   };
 
-
   const getUsersList = async () => {
     try {
       const data = await getUsers();
@@ -105,11 +104,10 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
         userLogout,
         getUsersList,
         userRegister,
-        user 
+        user,
       }}
     >
       {children}
     </UserContext.Provider>
   );
-
 };
