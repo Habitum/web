@@ -3,11 +3,12 @@ import styled from "styled-components";
 import { DefaultContainer } from "../../styles/container";
 
 export const StyledHeader = styled.header`
-  position: fixed;
   background-color: var(--color-white);
   width: 100%;
+  position: fixed;
   top: 0;
   left: 0;
+  z-index: 1;
   padding: 0 1rem;
 `;
 

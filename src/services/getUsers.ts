@@ -1,6 +1,7 @@
 import { iUser } from "../contexts/UserContext/types";
 
 import { api } from "./api";
+
 import { loginUser } from "./loginUser";
 
 export async function getUsers() {
@@ -9,7 +10,7 @@ export async function getUsers() {
     password: "Get123,",
   });
 
-  const response = await api.get<iUser>("/users/", {
+  const response = await api.get<iUser[]>("/users/", {
     headers: {
       Authorization: `Bearer ${accessToken}`,
     },
