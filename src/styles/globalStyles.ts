@@ -66,4 +66,15 @@ export const GlobalStyles = createGlobalStyle`
 
     --transition: .3s ease;
   }
+
+  ::-webkit-scrollbar {
+    height: var(--radius);
+    width: var(--radius);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--color-brand-100);
+    border-radius: var(--radius);
+    cursor: pointer;
+  }
 `;

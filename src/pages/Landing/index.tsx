@@ -15,6 +15,7 @@ import {
 
 import imageHero from "../../assets/img/image-hero.svg";
 import Ranking from "../../components/Ranking";
+import Footer from "../../components/Footer";
 
 const LandingPage = () => {
   return (
@@ -65,6 +66,8 @@ const LandingPage = () => {
           <Ranking />
         </StyledContainer>
       </StyledSectionRanking>
+
+      <Footer />
     </>
   );
 };
