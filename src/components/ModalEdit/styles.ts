@@ -6,6 +6,7 @@ export const StyledModalEdit = styled(ModalBox)`
   border-radius: 0.5rem;
 
   background-color: var(--color-white);
+  overflow: hidden;
 
   .headerModal {
     background: var(--color-brand-100);
@@ -115,16 +116,25 @@ export const StyledModalEdit = styled(ModalBox)`
       display: flex;
       flex-direction: column;
       width: 100%;
-      padding: 0px 40px;
+      overflow: hidden;
     }
 
     .formContent {
-      display: unset;
+      display: flex;
+      flex-direction: column;
+      padding: 0px 40px;
     }
 
     .divSelect {
       flex-direction: column;
-      align-items: center;
+      align-items: flex-start;
+      margin-bottom: 10px;
+      width: 100%;
+    }
+
+    .divIconDelete{
+      align-self: center;
+
     }
 
     .labelSelect {
@@ -133,6 +143,7 @@ export const StyledModalEdit = styled(ModalBox)`
 
     .divButton {
       justify-content: center;
+      gap: 36px;
     }
 
     .bottomModal {

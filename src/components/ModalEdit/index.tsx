@@ -8,7 +8,7 @@ import { iEditForm } from "./types";
 import { IconDelete, StyledModalEdit } from "./styles";
 import Button from "../Button";
 import Input from "../Input";
-import ModalConfirmDelete from "../ModalConfirmDelete";
+import ModalConfirmDelete from "../ModalDelete";
 import { modalSchema } from "./schema";
 
 export const ModalEditHabit = () => {
