@@ -1,18 +1,19 @@
 import React from "react";
-import { StyledLink } from "../../../styles/StyledLink";
-import { StyledFormHeader } from "./styles";
+
+import { StyledFormHeader } from "../../../styles/forms";
+
 import { iFormHeaderProps } from "./types";
 
-const FormHeader = ({ name, linkname, linkto } : iFormHeaderProps) => {
+import { StyledLink } from "../../../styles/StyledLink";
+
+const FormHeader = ({ name, linkname, linkto }: iFormHeaderProps) => {
   return (
-    <>
-      <StyledFormHeader>
-        <h3>{name}</h3>
-        <StyledLink to={linkto} variant="default">
-          {linkname}
-        </StyledLink>
-      </StyledFormHeader>
-    </>
+    <StyledFormHeader>
+      <h3>{name}</h3>
+      <StyledLink to={linkto} variant="default">
+        {linkname}
+      </StyledLink>
+    </StyledFormHeader>
   );
 };
 

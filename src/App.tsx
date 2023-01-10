@@ -7,6 +7,7 @@ import RoutesMain from "./routes";
 import "react-toastify/dist/ReactToastify.css";
 import { GlobalStyles } from "./styles/globalStyles";
 
+
 const App = () => {
   return (
     <>
