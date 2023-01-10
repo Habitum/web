@@ -34,6 +34,8 @@ const Dashboard = () => {
     year: "numeric",
   }).format(new Date());
 
+  const fixedDate = todayDate.charAt(0).toUpperCase() + todayDate.slice(1);
+
   return user ? (
     <StyledDashboardPage>
       <DefaultContainer>
@@ -57,7 +59,7 @@ const Dashboard = () => {
 
         <section className="user-welcome">
           <h1>Bem vindo de volta, {user.userName}</h1>
-          <p className="date">{todayDate}</p>
+          <p className="date">{fixedDate}</p>
         </section>
 
         <main>
