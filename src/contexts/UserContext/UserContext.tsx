@@ -10,6 +10,7 @@ import { iUser, iUserContext, iUserProviderProps } from "./types";
 import { getUser } from "../../services/getUser";
 import { loginUser } from "../../services/loginUser";
 import { registerUser } from "../../services/registerUser";
+import { getUsers } from "../../services/getUsers";
 
 export const UserContext = createContext({} as iUserContext);
 
@@ -84,5 +85,29 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
     navigate("/");
   };
 
-  return <UserContext.Provider value={{ globalLoading, setGlobalLoading, userLogin, userLogout, userRegister, user }}>{children}</UserContext.Provider>;
+  const getUsersList = async () => {
+    try {
+      const data = await getUsers();
+
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  return (
+    <UserContext.Provider
+      value={{
+        globalLoading,
+        setGlobalLoading,
+        userLogin,
+        userLogout,
+        getUsersList,
+        userRegister,
+        user,
+      }}
+    >
+      {children}
+    </UserContext.Provider>
+  );
 };
