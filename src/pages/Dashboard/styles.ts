@@ -92,6 +92,7 @@ export const StyledHeader = styled.header`
   nav{
     display: flex;
     gap: 1.25rem;
+    align-items: center;
   }
 
   .username{
@@ -105,17 +106,35 @@ export const StyledHeader = styled.header`
     width: 2.375rem;
     height: 2.375rem;
     border-radius: 11.25rem;
-    background: none;
     border: none;
     cursor: pointer;
+    position: relative;
+   
   }
 
-  .edit-user{
-    opacity: 0;
+  .user-img img{
+    opacity: 0.4;
   }
   
+
+  .edit-user{
+    width: 0.8rem;
+    height: 1rem;
+    opacity: 0;
+    position: absolute;
+    top: 0.8em;;
+    left: 0.8em;
+    z-index: 1;
+  }
+
+
   .edit-user:hover{
     opacity: 1;
+  }
+
+  .nav-icon{
+    width: 1.2rem;
+    height: 1.2rem;
   }
 
   .logout-btn{

@@ -21,7 +21,14 @@ export interface iUser {
   name: string;
   userName: string;
   id: string;
+<<<<<<< Updated upstream
   habits: iHabits[]
+=======
+  habits: iHabits[];
+  bits: number;
+  stars: number;
+  sequence: number;
+>>>>>>> Stashed changes
 }
 
 export interface ILoginResponse {
