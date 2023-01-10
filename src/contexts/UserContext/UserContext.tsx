@@ -15,7 +15,7 @@ import { getUsers } from "../../services/getUsers";
 export const UserContext = createContext({} as iUserContext);
 
 export const UserProvider = ({ children }: iUserProviderProps) => {
-  const [globalLoading, setGlobalLoading] = useState(false);
+  const [globalLoading, setGlobalLoading] = useState(true);
   const [user, setUser] = useState<iUser | null>(null);
 
   const token = localStorage.getItem("@TOKEN");
@@ -26,7 +26,6 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
     (async () => {
       if (token) {
         try {
-          setGlobalLoading(true);
           const response = await getUser();
           setUser(response);
           navigate("/dashboard");
@@ -36,6 +35,7 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
           setGlobalLoading(false);
         }
       }
+      setGlobalLoading(false);
     })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [token]);

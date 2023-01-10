@@ -1,35 +1,25 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 
-import { Outlet, useNavigate } from "react-router-dom";
+import { Outlet, Navigate } from "react-router-dom";
 
-// import { ImSpinner6 } from "react-icons/im";
-// import { StyledLoading } from "../../styles/loading";
+import Rolling from "../../assets/img/rolling.svg";
 
 import { UserContext } from "../../contexts/UserContext/UserContext";
+import { StyledRolling } from "../../styles/rolling";
 
 const ProtectedRoutes = () => {
-  const navigate = useNavigate();
+  const { user, globalLoading } = useContext(UserContext);
 
-  const { user } = useContext(UserContext);
+  if (globalLoading) {
+    return (
+      <StyledRolling>
+        <img src={Rolling} width="40px" alt="loading spinner" />
+        <p>Carregando...</p>
+      </StyledRolling>
+    );
+  }
 
-  useEffect(() => {
-    if (!user) {
-      navigate("/");
-    }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  return (
-    <>
-      {user ? (
-        <Outlet />
-      ) : (
-        <>
-          <h1>Loading Temporário</h1>
-        </>
-      )}
-    </>
-  );
+  return user ? <Outlet /> : <Navigate to="/" />;
 };
 
 export default ProtectedRoutes;
