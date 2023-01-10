@@ -115,6 +115,7 @@ export const StyledModalEdit = styled(ModalBox)`
       display: flex;
       flex-direction: column;
       width: 100%;
+      padding: 0px 40px;
     }
 
     .formContent {

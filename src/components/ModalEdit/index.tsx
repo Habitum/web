@@ -1,28 +1,21 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm, SubmitHandler } from "react-hook-form";
-import * as yup from "yup";
 import { useContext, useState } from "react";
 
 import { ModalWrapper } from "../../styles/modal";
 import { HabitsContext } from "../../contexts/HabitsContext/HabitsContext";
-import { iDeleteModal, iEditForm } from "./types";
+import { iEditForm } from "./types";
 import { IconDelete, StyledModalEdit } from "./styles";
 import Button from "../Button";
 import Input from "../Input";
 import ModalConfirmDelete from "../ModalConfirmDelete";
+import { modalSchema } from "./schema";
 
 export const ModalEditHabit = () => {
 
-  const [open, setOpen] = useState<iDeleteModal>(false)
+  const [open, setOpen] = useState(false);
 
   const { habitEdit } = useContext(HabitsContext);
-
-  const modalSchema = yup.object().shape({
-    title: yup.string().required("Escolha um título"),
-    description: yup.string(),
-    difficulty: yup.string().required("Escolha uma dificuldade"),
-    personal_reward: yup.string().required("É preciso haver uma recompensa"),
-  });
 
   const {
     register,
@@ -33,7 +26,9 @@ export const ModalEditHabit = () => {
     resolver: yupResolver(modalSchema),
   });
 
-  const submitEdit: SubmitHandler<iEditForm> = (data) => {};
+  const submitEdit: SubmitHandler<iEditForm> = (data) => {
+    
+  };
 
   return (
     <ModalWrapper>
@@ -103,7 +98,7 @@ export const ModalEditHabit = () => {
             </div>
           </div>
         </form>
-        {open && <ModalConfirmDelete setOpen={setOpen}/>}
+        {open && <ModalConfirmDelete setOpen={setOpen} />}
       </StyledModalEdit>
     </ModalWrapper>
   );

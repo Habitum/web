@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { ModalBox } from "../../styles/modal";
 import { MdDelete } from "react-icons/md";
 
-
 export const StyledModalConfirmDelete = styled(ModalBox)`
   width: 350px;
   height: 180px;
@@ -12,13 +11,13 @@ export const StyledModalConfirmDelete = styled(ModalBox)`
 
   padding: 20px;
 
-  .divTop{
+  .divTop {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
   }
 
-  .divButton{
+  .divButton {
     display: flex;
     justify-content: space-between;
     margin-top: 15px;
