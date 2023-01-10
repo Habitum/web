@@ -22,8 +22,9 @@ export interface iUser {
   name: string;
   userName: string;
   id: string;
-  habits: iHabits[]
-  bits: number
+  habits: iHabits[];
+  bits: number;
+}
 
 export interface ILoginResponse {
   accessToken: string;
