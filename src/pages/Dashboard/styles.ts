@@ -247,7 +247,7 @@ export const StyledHabitsSection = styled.section`
   }
 `
 
-export const StylesHabitsList = styled.ul`
+export const StyledHabitsList = styled.ul`
   width: 100%;
   height: fit-content;
   max-height: 25rem;
