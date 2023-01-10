@@ -82,30 +82,30 @@ const ModalProfileEdit = ({ setModal, profilePic,setProfile }: iModalBaseProps) 
             <img className="profile-img" src={profilePic} alt="imagem de perfil" />
             <EditIcon onClick={openPictureSelection}/>
             {openPic && <SelectPic>
-               <img src={female1} alt="" onClick={()=> changePicture(female1)}/>
-               <img src={female2} alt="" onClick={()=> changePicture(female2)}/>
-               <img src={female3} alt="" onClick={()=> changePicture(female3)}/>
-               <img src={female4} alt="" onClick={()=> changePicture(female4)}/>
-               <img src={female5} alt="" onClick={()=> changePicture(female5)}/>
-               <img src={male6} alt="" onClick={()=> changePicture(male6)}/>
-               <img src={male7} alt="" onClick={()=> changePicture(male7)}/>
-               <img src={male8} alt="" onClick={()=> changePicture(male8)}/>
-               <img src={male9} alt="" onClick={()=> changePicture(male9)}/>
-               <img src={male10} alt="" onClick={()=> changePicture(male10)}/>
-               <img src={male11} alt="" onClick={()=> changePicture(male11)}/>
-               <img src={female6} alt="" onClick={()=> changePicture(female6)}/>
-               <img src={female7} alt="" onClick={()=> changePicture(female7)}/>
-               <img src={female8} alt="" onClick={()=> changePicture(female8)}/>
-               <img src={female9} alt="" onClick={()=> changePicture(female9)}/>
-               <img src={female10} alt="" onClick={()=> changePicture(female10)}/>
-               <img src={female11} alt="" onClick={()=> changePicture(female11)}/>
-               <img src={female12} alt="" onClick={()=> changePicture(female12)}/>
-               <img src={male1} alt="" onClick={()=> changePicture(male1)}/>
-               <img src={male2} alt="" onClick={()=> changePicture(male2)}/>
-               <img src={male3} alt="" onClick={()=> changePicture(male3)}/>
-               <img src={male4} alt="" onClick={()=> changePicture(male4)}/>
-               <img src={male5} alt="" onClick={()=> changePicture(male5)}/>
-               <img src={male12} alt="" onClick={()=> changePicture(male12)}/>
+               <img src={female1} alt="avatar" onClick={()=> changePicture(female1)}/>
+               <img src={female2} alt="avatar" onClick={()=> changePicture(female2)}/>
+               <img src={female3} alt="avatar" onClick={()=> changePicture(female3)}/>
+               <img src={female4} alt="avatar" onClick={()=> changePicture(female4)}/>
+               <img src={female5} alt="avatar" onClick={()=> changePicture(female5)}/>
+               <img src={male6} alt="avatar" onClick={()=> changePicture(male6)}/>
+               <img src={male7} alt="avatar" onClick={()=> changePicture(male7)}/>
+               <img src={male8} alt="avatar" onClick={()=> changePicture(male8)}/>
+               <img src={male9} alt="avatar" onClick={()=> changePicture(male9)}/>
+               <img src={male10} alt="avatar" onClick={()=> changePicture(male10)}/>
+               <img src={male11} alt="avatar" onClick={()=> changePicture(male11)}/>
+               <img src={female6} alt="avatar" onClick={()=> changePicture(female6)}/>
+               <img src={female7} alt="avatar" onClick={()=> changePicture(female7)}/>
+               <img src={female8} alt="avatar" onClick={()=> changePicture(female8)}/>
+               <img src={female9} alt="avatar" onClick={()=> changePicture(female9)}/>
+               <img src={female10} alt="avatar" onClick={()=> changePicture(female10)}/>
+               <img src={female11} alt="avatar" onClick={()=> changePicture(female11)}/>
+               <img src={female12} alt="avatar" onClick={()=> changePicture(female12)}/>
+               <img src={male1} alt="avatar" onClick={()=> changePicture(male1)}/>
+               <img src={male2} alt="avatar" onClick={()=> changePicture(male2)}/>
+               <img src={male3} alt="avatar" onClick={()=> changePicture(male3)}/>
+               <img src={male4} alt="avatar" onClick={()=> changePicture(male4)}/>
+               <img src={male5} alt="avatar" onClick={()=> changePicture(male5)}/>
+               <img src={male12} alt="avatar" onClick={()=> changePicture(male12)}/>
             </SelectPic>}
           </div>
         </EditUser>
