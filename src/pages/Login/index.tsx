@@ -1,6 +1,6 @@
 import React from "react";
 
-import LoginForm from "../../components/LoginForm";
+import LoginForm from "../../components/Forms/LoginForm";
 import Logo from "../../components/Logo";
 import Wave from "../../components/Wave";
 

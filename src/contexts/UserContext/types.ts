@@ -1,5 +1,5 @@
-import { iLoginFormValues } from "../../components/LoginForm/types";
-import { iRegisterFormValues } from "../../components/RegisterForm/types";
+import { iLoginFormValues } from "../../components/Forms/LoginForm/types";
+import { iRegisterFormValues } from "../../components/Forms/RegisterForm/types";
 import { iHabits } from "../HabitsContext/types";
 
 export interface iUserProviderProps {
@@ -12,6 +12,7 @@ export interface iUserContext {
   userLogin: (userData: iLoginFormValues) => Promise<void>;
   userRegister: (userData: iRegisterFormValues) => Promise<void>;
   userLogout: () => void;
+  getUsersList: () => Promise<iUser[] | undefined>
   user: iUser | null;
 }
 
@@ -21,7 +22,8 @@ export interface iUser {
   name: string;
   userName: string;
   id: string;
-  habits: iHabits[]
+  habits: iHabits[];
+  bits: number;
 }
 
 export interface ILoginResponse {

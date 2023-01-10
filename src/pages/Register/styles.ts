@@ -5,8 +5,9 @@ export const StyledRegisterPage = styled.main`
   height: 100vh;
   justify-content: center;
   align-items: center;
-  gap: 192px;
+  gap: 10%;
   position: relative;
+  min-height: 750px;
 
   .wave-container {
     width: 100%;
@@ -20,5 +21,6 @@ export const StyledRegisterPage = styled.main`
   @media (width < 750px) {
     flex-direction: column;
     gap: 20px;
+    min-height: 950px;
   }
 `;

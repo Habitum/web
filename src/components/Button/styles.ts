@@ -51,6 +51,29 @@ export const StyledButton = styled.button`
             background-color: var(--color-brand-200);
           }
         `;
+      case "forms-disabled":
+        return css`
+          color: var(--color-white);
+          background-color: var(--color-brand-200);
+          width: 100%;
+          height: 3.75rem;
+          margin-top: 1rem;
+          border: none;
+          pointer-events: none;
+        `;
+      case "cancel":
+        return css`
+          width: 5.625rem;
+          height: 1.1875rem;
+          font-family: var(--font-family-inter);
+          font-style: normal;
+          font-weight: var(--text-weight-200);
+          font-size: 1rem;
+          line-height: 1.1875rem;
+          text-transform: uppercase;
+          color: var(--color-grey-100);
+          border: none;
+        `;
     }
   }}
 `;
