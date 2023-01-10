@@ -3,7 +3,7 @@ import { ModalBox } from "../../styles/modal";
 import { MdDelete } from "react-icons/md";
 
 export const StyledModalEdit = styled(ModalBox)`
-  max-width: 700px;
+  /* max-width: 700px;
   height: 550px;
 
   display: flex;
@@ -12,7 +12,7 @@ export const StyledModalEdit = styled(ModalBox)`
 
   justify-content: unset;
   align-items: unset;
-
+*/
   border-radius: 0.5rem;
 
   background-color: var(--color-white);
@@ -27,7 +27,7 @@ export const StyledModalEdit = styled(ModalBox)`
     width: 43.75rem;
     height: 4.3125rem;
     color: var(--color-grey-400);
-    
+
     font-family: var(--font-family-inter);
     font-style: normal;
     font-weight: var(--text-weight-200);
@@ -53,22 +53,22 @@ export const StyledModalEdit = styled(ModalBox)`
 
   form {
     display: flex;
-    flex-wrap: wrap;
-    max-width: 43.75rem;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
   }
 
-  .divMain {
+  .formContent {
     display: flex;
-    flex-direction: column;
-    padding: 1.25rem 2.5rem;
+    justify-content: space-between;
+    padding: 4px 40px 20px 40px;
   }
 
   .divSelect {
     display: flex;
     flex-direction: column;
-    margin-left: 12.5rem;
-    margin-top: 2.1875rem;
     align-items: flex-end;
+    padding-top: 1rem;
   }
 
   .labelSelect {
@@ -93,21 +93,40 @@ export const StyledModalEdit = styled(ModalBox)`
     width: 7.375rem;
   }
 
-  .bottomModal {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-items: center;
-    padding: 1.25rem;
-    gap: 1.25rem;
-
-    width: 43.75rem;
-    height: 5rem;
-    background: var(--color-grey-400);
-
-    margin-top: 2.5rem;
+  .FormError {
+    font-size: var(--text-size-500);
+    color: var(--color-alert);
   }
 
+  .bottomModal {
+    padding: 20px;
+
+    background: var(--color-grey-400);
+  }
+
+  .divButton {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+
+  @media screen and (max-width: 700px) {
+    display: flex;
+    flex-direction: column;
+
+    .headerModal {
+      display: flex;
+      justify-content: center;
+      max-width: 370px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      max-width: 370px;
+    }
+  }
 `;
 
 export const IconDelete = styled(MdDelete)`
