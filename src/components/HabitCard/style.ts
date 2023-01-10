@@ -15,20 +15,20 @@ export const StyledHabitCard = styled.li`
   border-radius: var(--radius);
 
   .card-info{
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
   }
 
   .card-info:first-child {
-      font-size: var(--text-size-300);
-      font-weight: var(--text-weight-300);
+    font-size: var(--text-size-300);
+    font-weight: var(--text-weight-300);
   }
 
   .constancy{
-      color: var(--color-brand-100);
-      font-size: var(--text-size-500);
+    color: var(--color-brand-100);
+    font-size: var(--text-size-500);
   }
 
   .constancy span{
