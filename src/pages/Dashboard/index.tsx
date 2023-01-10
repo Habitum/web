@@ -31,6 +31,7 @@ import avatar from "../../assets/img/avatar.svg";
 
 const Dashboard = () => {
   const { userLogout, user } = useContext(UserContext);
+  const { habit } = useContext(HabitsContext)
   const [isOpenModalCreate, setIsOpenModalCreate] = useState(false);
 
   const todayDate = new Intl.DateTimeFormat("pt-BR", {
