@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Navigate } from "react-router-dom";
 import { UserContext } from "../../contexts/UserContext/UserContext";
 
@@ -22,11 +22,13 @@ import {
 } from "react-icons/bs";
 
 import { HiOutlineLogout, HiFire } from "react-icons/hi";
+import ModalCreateHabit from "../../components/ModalCreate";
 
 import avatar from "../../assets/img/avatar.svg";
 
 const Dashboard = () => {
   const { userLogout, user } = useContext(UserContext);
+  const [isOpenModalCreate, setIsOpenModalCreate] = useState(false);
 
   const todayDate = new Intl.DateTimeFormat("pt-BR", {
     weekday: "long",
@@ -34,6 +36,8 @@ const Dashboard = () => {
     day: "2-digit",
     year: "numeric",
   }).format(new Date());
+
+  const handleModalCreate = () => setIsOpenModalCreate(!isOpenModalCreate);
 
   return user ? (
     <StyledDashboardPage>
@@ -138,7 +142,7 @@ const Dashboard = () => {
           <StyledHabitsSection>
             <div className="habits-list-title">
               <h4>hábitos</h4>
-              <Button variant="primary" name={"+ CRIAR"} />
+              <Button variant="primary" name={"+ CRIAR"} onClick={handleModalCreate} />
             </div>
 
             <StylesHabitsList>
@@ -163,6 +167,8 @@ const Dashboard = () => {
           </StyledHabitsSection>
         </main>
       </DefaultContainer>
+
+      {isOpenModalCreate && <ModalCreateHabit handleModal={handleModalCreate} />}
     </StyledDashboardPage>
   ) : (
     <Navigate to="/" />

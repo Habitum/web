@@ -9,17 +9,21 @@ export interface iHabitsProviderValue {
   setBit: React.Dispatch<React.SetStateAction<number>>;
   habit: iHabits[];
   setHabit: React.Dispatch<React.SetStateAction<iHabits[]>>;
-  habitCreate: (body:iHabits) => void;
+  habitCreate: (body: iHabitData) => Promise<boolean | undefined>;
   habitEdit: (id: number, data: iHabits) => void;
-  habitDelete: (id:number) => void;
+  habitDelete: (id: number) => void;
 }
 
-export interface iHabits {
+export interface iHabitData {
   title: string;
   description: string;
   personal_reward: string;
   dificulty: string;
+  constancy: string;
   userId: number;
+}
+
+export interface iHabits extends iHabitData {
   id: number;
 }
 
@@ -34,5 +38,5 @@ export interface iUserUpdate {
   userName: string;
   id: string;
   bits: number;
-  star:number;
+  star: number;
 }
