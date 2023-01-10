@@ -19,10 +19,11 @@ import {
   BsPencilSquare,
   BsPencilFill,
   BsFillStarFill,
-  BsPlusLg,
 } from "react-icons/bs";
-import { RiHistoryFill } from "react-icons/ri";
+
 import { HiOutlineLogout, HiFire } from "react-icons/hi";
+
+import avatar from "../../assets/img/avatar.svg";
 
 const Dashboard = () => {
   const { userLogout, user } = useContext(UserContext);
@@ -42,14 +43,14 @@ const Dashboard = () => {
           <nav>
             <h3 className="username">{user.name}</h3>
             <button type="button" className="user-img">
-              {user.img}
+              <img src={avatar} alt="avatar" />
               <i className="edit-user">
-                <BsPencilSquare />
+                <BsPencilSquare className="nav-icon" />
               </i>
             </button>
             <button className="logout-btn" onClick={() => userLogout()}>
               <i>
-                <HiOutlineLogout />
+                <HiOutlineLogout className="nav-icon" />
               </i>
             </button>
           </nav>
@@ -83,7 +84,7 @@ const Dashboard = () => {
                     <h5>Estrelas</h5>
                     <div>
                       <span>
-                        3{" "}
+                        {user.stars}
                         <i>
                           <BsFillStarFill />
                         </i>
@@ -94,7 +95,7 @@ const Dashboard = () => {
                     <h5>Bits</h5>
                     <div>
                       <span>
-                        615{" "}
+                        {user.bits}
                         <img src="./icons/favicon-32x32.png" alt="bit icon" />
                       </span>
                     </div>
@@ -103,7 +104,7 @@ const Dashboard = () => {
                     <h5>Constância</h5>
                     <div>
                       <span>
-                        11 dias{" "}
+                        {user.sequence}
                         <i>
                           <HiFire />
                         </i>
@@ -114,7 +115,7 @@ const Dashboard = () => {
                     <h5>Ranking Geral</h5>
                     <div>
                       <span>
-                        8ª posição{" "}
+                        8ª posição
                         <i>
                           <BsFillPeopleFill />
                         </i>
