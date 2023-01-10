@@ -28,7 +28,6 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
         try {
           const response = await getUser();
           setUser(response);
-          navigate("/dashboard");
         } catch (error) {
           console.log(error);
         } finally {
