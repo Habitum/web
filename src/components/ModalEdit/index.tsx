@@ -36,6 +36,8 @@ export const ModalEditHabit = ({ setModal, id }: iEditModal) => {
     data.userId = userID;
 
     habitEdit(id, data);
+
+    setModal(false)
   };
 
   return (
@@ -105,7 +107,7 @@ export const ModalEditHabit = ({ setModal, id }: iEditModal) => {
                   name="CANCELAR"
                   onClick={() => setModal(false)}
                 />
-                <Button name="Salvar" variant="primary" />
+                <Button name="Salvar" variant="primary"  />
               </div>
             </div>
           </div>

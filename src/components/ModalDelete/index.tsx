@@ -20,6 +20,8 @@ const ModalDelete = ({ setOpen, id }: iDeleteModal) => {
     };
 
     habitDelete(id, data);
+
+    setOpen(false)
   };
 
   return (
