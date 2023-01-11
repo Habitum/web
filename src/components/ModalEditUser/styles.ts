@@ -51,18 +51,19 @@ export const ModalBaseStyled = styled(ModalBox)`
 
   .button-div {
     width: 100%;
-    height: 8.625rem;
+    height: 140px;
     margin-top: 6.5625rem;
     padding: 2.6875rem;
     background-color: var(--color-grey-400);
     display: flex;
     justify-content: center;
     gap: 2.1875rem;
-    border-radius: 1rem;
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
 
     @media (min-width: 43.75rem) {
       height: 6.25rem;
-      margin-top: 1rem;
+      margin-top: 18px;
       padding: 1.5rem;
     }
     button:first-child {
@@ -71,6 +72,9 @@ export const ModalBaseStyled = styled(ModalBox)`
       font-weight: var(--text-weight-200);
       margin-bottom: 0.5625rem;
       border: none;
+      :hover{
+        text-decoration: underline;
+      }
     }
   }
 `;
@@ -122,7 +126,8 @@ export const SelectPic = styled.div`
   transform: translateX(-50%);
   bottom: -9.25rem;
   z-index: 3;
-  border-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+  border-top-left-radius: 1rem;
   display: flex;
   gap: 0.625rem;
   flex-wrap: wrap;
