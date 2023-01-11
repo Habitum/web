@@ -6,6 +6,7 @@ import Register from "../pages/Register";
 import Dashboard from "../pages/Dashboard";
 import Devs from "../pages/AdditionalPages/Devs";
 import ProtectedRoutes from "./ProtectedRoutes";
+import Project from "../pages/AdditionalPages/Project";
 
 const RoutesMain = () => {
   return (
@@ -14,6 +15,7 @@ const RoutesMain = () => {
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/devs" element={<Devs />} />
+      <Route path="/project" element={<Project />} />
 
       <Route path="/" element={<ProtectedRoutes />}>
         <Route index path="/dashboard" element={<Dashboard />} />
