@@ -12,7 +12,7 @@ import { loginUser } from "../../services/loginUser";
 import { registerUser } from "../../services/registerUser";
 import { getUsers } from "../../services/getUsers";
 
-import avatar from "../../assets/img/male_2 6.svg"
+import avatar from "../../assets/profilePics/male_2 6.svg"
 
 export const UserContext = createContext({} as iUserContext);
 

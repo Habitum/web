@@ -38,7 +38,7 @@ import male8 from "../../assets/profilePics/male_2 2.svg";
 import male9 from "../../assets/profilePics/male_2 3.svg";
 import male10 from "../../assets/profilePics/male_2 4.svg";
 import male11 from "../../assets/profilePics/male_2 5.svg";
-import male12 from "../../assets/img/male_2 6.svg";
+import male12 from "../../assets/profilePics/male_2 6.svg";
 
 const ModalProfileEdit = ({ setModal, profilePic,setProfile }: iModalBaseProps) => {
 
