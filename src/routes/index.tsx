@@ -4,6 +4,7 @@ import LandingPage from "../pages/Landing";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import Dashboard from "../pages/Dashboard";
+import Devs from "../pages/AdditionalPages/Devs";
 import ProtectedRoutes from "./ProtectedRoutes";
 
 const RoutesMain = () => {
@@ -12,6 +13,7 @@ const RoutesMain = () => {
       <Route path="/" element={<LandingPage />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
+      <Route path="/devs" element={<Devs />} />
 
       <Route path="/" element={<ProtectedRoutes />}>
         <Route index path="/dashboard" element={<Dashboard />} />
