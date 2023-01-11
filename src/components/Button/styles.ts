@@ -26,11 +26,10 @@ export const StyledButton = styled.button`
   ${({ variant }: iButtonStyles) => {
     switch (variant) {
       default:
-      case "primary":
+      case "teste":
         return css`
-          color: var(--color-white);
-          border: none;
           background-color: var(--color-brand-100);
+          color: var(--color-white);
           :hover {
             background-color: var(--color-brand-200);
           }

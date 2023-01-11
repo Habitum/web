@@ -5,8 +5,8 @@ import { useForm, SubmitHandler } from "react-hook-form";
 
 import Button from "../Button";
 import Input from "../Input";
-import { ModalWrapper } from "../../styles/modal";
 import ModalDelete from "../ModalDelete";
+import { ModalWrapper } from "../../styles/modal";
 import { HabitsContext } from "../../contexts/HabitsContext/HabitsContext";
 
 import { iEditModal } from "./types";
@@ -16,7 +16,7 @@ import { modalSchema } from "./schema";
 import { IconDelete, StyledModalEdit } from "./styles";
 import { iHabits } from "../../contexts/HabitsContext/types";
 
-export const ModalEditHabit = ({setModal, id} : iEditModal) => {
+export const ModalEditHabit = ({ setModal, id }: iEditModal) => {
   const [open, setOpen] = useState(false);
 
   const { habitEdit } = useContext(HabitsContext);
@@ -30,18 +30,13 @@ export const ModalEditHabit = ({setModal, id} : iEditModal) => {
     resolver: yupResolver(modalSchema),
   });
 
-  
   const submitEdit: SubmitHandler<iHabits> = (data) => {
-    
-    const userID = localStorage.getItem('@USER_ID')
+    const userID = localStorage.getItem("@USER_ID");
 
-    data.userId = userID
+    data.userId = userID;
 
-    habitEdit(id,data)
-     
-    
+    habitEdit(id, data);
   };
-
 
   return (
     <ModalWrapper>
@@ -105,8 +100,12 @@ export const ModalEditHabit = ({setModal, id} : iEditModal) => {
             </div>
             <div className="bottomModal">
               <div className="divButton">
-                <Button variant="cancel" name="CANCELAR" onClick={() => setModal(false)}/>
-                <Button name="Salvar" variant="primary"/>
+                <Button
+                  variant="cancel"
+                  name="CANCELAR"
+                  onClick={() => setModal(false)}
+                />
+                <Button name="Salvar" variant="primary" />
               </div>
             </div>
           </div>
