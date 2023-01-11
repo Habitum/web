@@ -3,6 +3,8 @@ import Button from "../../../components/Button";
 import { StyledContainer, StyledMain, StyledSection } from "./styles";
 
 const Project = () => {
+  window.scrollTo(0, 0);
+
   return (
     <StyledMain>
       <StyledContainer>

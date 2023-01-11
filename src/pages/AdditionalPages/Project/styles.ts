@@ -16,6 +16,7 @@ export const StyledContainer = styled.section`
   flex-flow: row wrap;
   justify-content: space-between;
   align-items: center;
+  animation: ContainerShow .8s forwards;
 
   h1 {
     margin: 1.25rem 2.5rem;
@@ -26,6 +27,17 @@ export const StyledContainer = styled.section`
   > a {
     margin: 1.25rem;
   }
+
+  @keyframes ContainerShow {
+    from {
+      transform: scale(0);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
 `;
 
 export const StyledSection = styled.section`
@@ -33,7 +45,7 @@ export const StyledSection = styled.section`
   padding: 1.25rem;
   background: var(--color-white);
   border-radius: 0 0 .5rem .5rem;
-  border-bottom: .75rem solid var(--color-brand-200);
+  border-bottom: .75rem solid var(--color-brand-100);
   display: flex;
   flex-direction: column;
   gap: 2.15rem;
