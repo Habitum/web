@@ -51,19 +51,19 @@ export const ModalBaseStyled = styled(ModalBox)`
 
   .button-div {
     width: 100%;
-    height: 140px;
+    height: 8.75rem;
     margin-top: 6.5625rem;
     padding: 2.6875rem;
     background-color: var(--color-grey-400);
     display: flex;
     justify-content: center;
     gap: 2.1875rem;
-    border-bottom-left-radius: 16px;
-    border-bottom-right-radius: 16px;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
 
     @media (min-width: 43.75rem) {
       height: 6.25rem;
-      margin-top: 18px;
+      margin-top: 1.125rem;
       padding: 1.5rem;
     }
     button:first-child {
