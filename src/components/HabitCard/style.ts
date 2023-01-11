@@ -40,7 +40,7 @@ export const StyledHabitCard = styled.li`
     font-size: var(--text-size-500);
   }
 
-  button{
+  .edit-icon, .check-icon, .history-icon{
     border: none;
     background: transparent;
   }

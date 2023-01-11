@@ -89,6 +89,11 @@ export const StyledButton = styled.button`
           border: none;
           background: none;
           `;
+      case "icon":
+        return css`
+          border: none;
+          background: transparent;
+        `
     }
   }}
 `;

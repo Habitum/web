@@ -39,7 +39,7 @@ const Dashboard = () => {
   const fixedDate = todayDate.charAt(0).toUpperCase() + todayDate.slice(1);
 
   const token = localStorage.getItem("@TOKEN");
-  
+
   useEffect(() => {
     (async () => {
       if (token) {
@@ -51,9 +51,7 @@ const Dashboard = () => {
         }
       }})();
 
-  }, [habit]);
-
-  console.log(habit)
+  }, []);
 
   return user ? (
     <StyledDashboardPage>
@@ -118,13 +116,13 @@ const Dashboard = () => {
                   <li>
                     <h5>Sequência</h5>
                     <div>
-                      <span>11 dias{" "} <i><HiFire /></i></span>
+                      <span>11 dias<i><HiFire /></i></span>
                     </div>
                   </li>
                   <li>
                     <h5>Ranking Geral</h5>
                     <div>
-                      <span>8ª posição{" "}<i><BsFillPeopleFill /></i></span>
+                      <span>8ª posição<i><BsFillPeopleFill /></i></span>
                     </div>
                   </li>
                 </ul>

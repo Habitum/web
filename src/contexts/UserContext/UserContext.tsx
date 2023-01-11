@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -13,10 +13,13 @@ import { registerUser } from "../../services/registerUser";
 import { getUsers } from "../../services/getUsers";
 
 import avatar from "../../assets/profilePics/male_2 6.svg"
+import { HabitsContext } from "../HabitsContext/HabitsContext";
 
 export const UserContext = createContext({} as iUserContext);
 
 export const UserProvider = ({ children }: iUserProviderProps) => {
+  const { habit } = useContext(HabitsContext);
+
   const [globalLoading, setGlobalLoading] = useState(true);
   const [user, setUser] = useState<iUser | null>(null);
 
