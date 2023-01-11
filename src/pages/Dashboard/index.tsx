@@ -35,6 +35,7 @@ const Dashboard = () => {
   const handleModalCreate = () => setIsOpenModalCreate(!isOpenModalCreate);
 
   const fixedDate = todayDate.charAt(0).toUpperCase() + todayDate.slice(1);
+  
   console.log(habit)
 
   return user ? (
