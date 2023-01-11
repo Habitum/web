@@ -10,18 +10,32 @@ import { iHabitCardProps } from "./types";
 
 import { StyledHabitCard } from "./style"
 import { ModalEditHabit } from "../ModalEdit";
+import { UserContext } from "../../contexts/UserContext/UserContext";
 
 export const HabitsCard = ({id} : iHabitCardProps) => {
   const [editModal, setEditModal] = useState(false)
   const [checkHabit, setCheckHabit] = useState(false)
 
+  const { setUser, user } = useContext(UserContext)
   const { habit } = useContext(HabitsContext);
 
   const goal = habit.find(currentHabit => currentHabit.id === id);
   
-  const finishHabit = () => {
+  const addBits = () => {
     setCheckHabit(!checkHabit);
-  }
+      if(user === null){
+        return
+      };
+    setUser({...user, bits: user.bits +5 });
+  };
+
+  const decreaseBits = () => {
+    setCheckHabit(!checkHabit);
+    if(user === null){
+      return
+    };
+    setUser({...user, bits: user.bits -5 });
+  };
 
   if(goal == null){
     return null;
@@ -41,9 +55,9 @@ export const HabitsCard = ({id} : iHabitCardProps) => {
       <div className="card-edit-box">
         <button type="button" onClick={() => setEditModal(true)} className="edit-icon"><i><BsPencilFill/></i></button>        
         <div className="checkbox-container">
-          <button type="button" onClick={finishHabit} className="check-icon"> <i><BsCheckSquareFill/></i></button>
+          <button type="button" onClick={addBits} className="check-icon"> <i><BsCheckSquareFill/></i></button>
         </div>  
-          <button type="button" onClick={finishHabit} className="history-icon"><i><RiHistoryFill/></i></button>
+          <button type="button" onClick={decreaseBits} className="history-icon"><i><RiHistoryFill/></i></button>
       </div>
     </StyledHabitCard>
   )

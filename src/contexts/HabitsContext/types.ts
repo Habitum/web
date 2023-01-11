@@ -5,8 +5,6 @@ export interface iHabitsProviderProps {
 export interface iHabitsProviderValue {
   star: number;
   setStar: React.Dispatch<React.SetStateAction<number>>;
-  bit: number;
-  setBit: React.Dispatch<React.SetStateAction<number>>;
   habit: iHabits[];
   setHabit: React.Dispatch<React.SetStateAction<iHabits[]>>;
   habitCreate: (body: iHabitData) => Promise<boolean | undefined>;

@@ -16,10 +16,8 @@ export const HabitsContext = createContext({} as iHabitsProviderValue);
 export const HabitsProvider = ({ children }: iHabitsProviderProps) => {
 
   const { user,setUser } = useContext(UserContext);
+
   const [star, setStar] = useState(0);
-
-  const [bit, setBit] = useState(0);
-
   const [habit, setHabit] = useState([] as iHabits[]);
 
   useEffect(() => {
@@ -76,14 +74,12 @@ export const HabitsProvider = ({ children }: iHabitsProviderProps) => {
       value={{
         star,
         setStar,
-        bit,
-        setBit,
         habit,
         setHabit,
         habitCreate,
         habitEdit,
         habitDelete,
-        userEdit
+        userEdit,
       }}
     >
       {children}

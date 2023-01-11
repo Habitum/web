@@ -40,6 +40,8 @@ const Dashboard = () => {
 
   const token = localStorage.getItem("@TOKEN");
 
+  console.log(user)
+
   useEffect(() => {
     (async () => {
       if (token) {
@@ -115,6 +117,7 @@ const Dashboard = () => {
                   </li>
                   <li>
                     <h5>Sequência</h5>
+                    <span>{user.sequence}</span>
                     <div>
                       <span>11 dias<i><HiFire /></i></span>
                     </div>
