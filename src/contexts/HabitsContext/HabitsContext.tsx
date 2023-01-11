@@ -37,7 +37,8 @@ export const HabitsProvider = ({ children }: iHabitsProviderProps) => {
     }else{
       toast.error("Algo deu errado");
     }
-  }
+  };
+
   const habitCreate = async (body: iHabitData) => {
     const response = await createHabit(body);
 

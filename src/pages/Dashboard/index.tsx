@@ -2,11 +2,7 @@ import React, { useContext, useState } from "react";
 
 import { FiChevronDown, FiChevronUp } from "react-icons/fi";
 import { HiOutlineLogout, HiFire } from "react-icons/hi";
-import {
-  BsFillPeopleFill,
-  BsPencilSquare,
-  BsFillStarFill,
-} from "react-icons/bs";
+import { BsFillPeopleFill, BsPencilSquare, BsFillStarFill } from "react-icons/bs";
 import { Navigate } from "react-router-dom";
 
 import { UserContext } from "../../contexts/UserContext/UserContext";
@@ -16,19 +12,11 @@ import Button from "../../components/Button";
 import Logo from "../../components/Logo";
 
 import { HabitsCard } from "../../components/HabitCard";
-import {
-  StyledDashboardPage,
-  StyledHeader,
-  StyledUserInfo,
-  StyledHabitsSection,
-  StyledHabitsList,
-} from "./styles";
+import { StyledDashboardPage, StyledHeader, StyledUserInfo, StyledHabitsSection, StyledHabitsList } from "./styles";
 import { DefaultContainer } from "../../styles/container";
 
 import ModalCreateHabit from "../../components/ModalCreate";
 import ModalProfileEdit from "../../components/ModalEditUser";
-
-
 
 const Dashboard = () => {
   const { userLogout, user } = useContext(UserContext);
@@ -47,11 +35,14 @@ const Dashboard = () => {
   const handleModalCreate = () => setIsOpenModalCreate(!isOpenModalCreate);
 
   const fixedDate = todayDate.charAt(0).toUpperCase() + todayDate.slice(1);
+  console.log(habit)
 
   return user ? (
     <StyledDashboardPage>
       <DefaultContainer>
       {modalOn && <ModalProfileEdit setModal={setModalOn} profilePic={profilePic} setProfile={setProfilePic}/>}
+      {isOpenModalCreate && <ModalCreateHabit handleModal={handleModalCreate} />}
+
         <StyledHeader>
           <Logo variant={"primary"} />
           <nav>
@@ -97,43 +88,25 @@ const Dashboard = () => {
                   <li>
                     <h5>Estrelas</h5>
                     <div>
-                      <span>
-                        {user.stars}
-                        <i>
-                          <BsFillStarFill />
-                        </i>
-                      </span>
+                      <span>{user.stars}<i><BsFillStarFill /></i></span>
                     </div>
                   </li>
                   <li>
                     <h5>Bits</h5>
                     <div>
-                      <span>
-                        {user.bits}
-                        <img src="./icons/favicon-32x32.png" alt="bit icon" />
-                      </span>
+                      <span>{user.bits} <img src="./icons/favicon-32x32.png" alt="bit icon"/></span>
                     </div>
                   </li>
                   <li>
-                    <h5>Constância</h5>
+                    <h5>Sequência</h5>
                     <div>
-                      <span>
-                        11 dias{" "}
-                        <i>
-                          <HiFire />
-                        </i>
-                      </span>
+                      <span>11 dias{" "} <i><HiFire /></i></span>
                     </div>
                   </li>
                   <li>
                     <h5>Ranking Geral</h5>
                     <div>
-                      <span>
-                        8ª posição{" "}
-                        <i>
-                          <BsFillPeopleFill />
-                        </i>
-                      </span>
+                      <span>8ª posição{" "}<i><BsFillPeopleFill /></i></span>
                     </div>
                   </li>
                 </ul>
@@ -152,7 +125,7 @@ const Dashboard = () => {
           <StyledHabitsSection>
             <div className="habits-list-title">
               <h4>hábitos</h4>
-              <Button variant="primary" name={"+ CRIAR"} />
+              <Button variant="primary" name={"+ CRIAR"} onClick={()=> setIsOpenModalCreate(true)}/>
             </div>
             <StyledHabitsList>
               {habit && habit.length > 0 ? (
@@ -169,7 +142,6 @@ const Dashboard = () => {
         </main>
       </DefaultContainer>
 
-      {isOpenModalCreate && <ModalCreateHabit handleModal={handleModalCreate} />}
     </StyledDashboardPage>
   ) : (
     <Navigate to="/" />

@@ -26,8 +26,8 @@ const ModalCreateHabit = ({ handleModal }: iModalProps) => {
 
   const { handleSubmit, register, formState: { errors } } = useForm<iModalForm>({
     mode: "onChange",
-    resolver: yupResolver(formModalSchema)
-  })
+    resolver: yupResolver(formModalSchema),
+  });
 
   const submit: SubmitHandler<iModalForm> = async (data) => {
     if (user) {
@@ -35,7 +35,7 @@ const ModalCreateHabit = ({ handleModal }: iModalProps) => {
 
       await habitCreate(body) && handleModal();
     }
-  }
+  };
 
   return (
     <ModalWrapper>
@@ -99,6 +99,6 @@ const ModalCreateHabit = ({ handleModal }: iModalProps) => {
       </Modal>
     </ModalWrapper>
   )
-}
+};
 
 export default ModalCreateHabit;

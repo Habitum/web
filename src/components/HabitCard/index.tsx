@@ -24,7 +24,7 @@ export const HabitsCard = ({id} : iHabitCardProps) => {
       <div className="card-info">
         <p><span className="checksquare"></span>{goal.title}</p>
         <p className="constancy">
-          <i><HiFire/></i> Constância: <span>{} dia</span>
+          <i><HiFire/></i> Sequência: <span>{} dia</span>
         </p>
       </div>
 
