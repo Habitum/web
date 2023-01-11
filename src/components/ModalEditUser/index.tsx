@@ -40,7 +40,7 @@ import male10 from "../../assets/profilePics/male_2 4.svg";
 import male11 from "../../assets/profilePics/male_2 5.svg";
 import male12 from "../../assets/img/male_2 6.svg";
 
-const ModalProfileEdit = ({ setModal, profilePic,setProfile }: iModalBaseProps) => {
+const ModalProfileEdit = ({ setModal, profilePic, setProfile }: iModalBaseProps) => {
 
   const [openPic, setOpenPic] = useState(false);
 
@@ -58,15 +58,15 @@ const ModalProfileEdit = ({ setModal, profilePic,setProfile }: iModalBaseProps) 
   };
 
   const changePicture = (img : string) => {
-
       setProfile(img);
       setOpenPic(false);
       const body ={
-        img: img
+        img: img,
       };
       userEdit(body);
       
   };
+  
   const openPictureSelection = () => {
      if(!openPic){
        setOpenPic(true);

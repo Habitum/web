@@ -79,47 +79,17 @@ export const StyledHabitCard = styled.li`
             display: none;
           }
 
+          .check-icon{
+            color: var(--color-okay);
+          }
+
           .checkbox-container{
             display: block;
             position: relative;
-            font-size: 22px;
-            user-select: none;
             padding-left: 2px;
             cursor: pointer;
           }
 
-          .checkbox-container input{
-            opacity: 0;
-          }
-
-          .checkmark{
-            position:absolute;
-            left:0;
-            margin-top: .3rem;
-            height: 1rem;
-            width: 1rem;
-            background-color: var(--color-okay);
-          }
-
-          .checkmark::after{
-            content: "";
-            position: absolute;
-            display: none;
-          }
-
-          .checkbox-container input:checked ~ .checkmark::after{
-            display: block;
-          }
-
-          .checkbox-container .checkmark::after{
-            left: .3rem;
-            top: .1rem;
-            width: .2rem;
-            height: .5rem;
-            border: solid white;
-            border-width: 0 3px 3px 0;
-            transform: rotate(45deg);
-          }
         `;
         case "done":
           return css`
@@ -130,11 +100,12 @@ export const StyledHabitCard = styled.li`
           span{
             color: var(--color-grey-300);
           }
+
           .constancy{
             color: var(--color-white);
           }
 
-          .card-edit-box button{
+          .edit-icon{
             color: var(--color-white);
           }
 
@@ -142,9 +113,8 @@ export const StyledHabitCard = styled.li`
             display: none;
           }
 
-          .card-edit-box:nth-child(2){
+          .history-icon{
             color: var(--color-alert);
-            cursor: pointer;
           }
           
         `;
