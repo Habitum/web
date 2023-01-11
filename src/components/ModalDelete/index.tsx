@@ -9,7 +9,7 @@ import { iDeleteModal } from "./types";
 
 import { IconDeleteModal, StyledModalConfirmDelete } from "./styles";
 
-const ModalDelete = ({ setOpen }: iDeleteModal) => {
+const ModalDelete = ({ setOpen, id }: iDeleteModal) => {
   const { habitDelete } = useContext(HabitsContext);
 
   return (
@@ -27,7 +27,7 @@ const ModalDelete = ({ setOpen }: iDeleteModal) => {
           <Button
             name="Sim, Eu quero excluir"
             variant="cancel-secondary"
-            onClick={() => habitDelete}
+            onClick={() => habitDelete(id)}
           />
         </div>
       </StyledModalConfirmDelete>

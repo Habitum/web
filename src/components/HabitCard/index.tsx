@@ -29,7 +29,7 @@ export const HabitsCard = ({id} : iHabitCardProps) => {
 
   return(
     <StyledHabitCard variant={checkHabit? "done" : "to-do"} key={goal.id}>
-      {editModal && <ModalEditHabit setModal={setEditModal}/>}
+      {editModal && <ModalEditHabit id={id} setModal={setEditModal}/>}
       
       <div className="card-info">
         <p><span className="checksquare"></span>{goal.title}</p>

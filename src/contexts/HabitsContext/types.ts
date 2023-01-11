@@ -21,7 +21,7 @@ export interface iHabitData {
   personal_reward: string;
   dificulty: string;
   constancy: string;
-  userId: number;
+  userId: number | string | null;
 }
 
 export interface iHabits extends iHabitData {

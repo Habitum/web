@@ -53,11 +53,15 @@ export const HabitsProvider = ({ children }: iHabitsProviderProps) => {
 
   const habitEdit = async (id: number, data: iHabits) => {
     const response = await editHabit(id, data);
+    console.log(response);
 
     if (response) {
       toast.success("Hábito editado com sucesso!");
+      
     } else {
       toast.error("Algo deu errado");
+      
+      
     }
   };
 
