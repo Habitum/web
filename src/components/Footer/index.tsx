@@ -46,9 +46,6 @@ const Footer = () => {
         </LinksGroups>
         <LinksGroups>
           <h3>Dúvidas</h3>
-          <StyledLink to="/doubts" variant="link-footer">
-            Dúvidas frequentes
-          </StyledLink>
           <StyledLink to="/faq" variant="link-footer">
             FAQ
           </StyledLink>
