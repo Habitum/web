@@ -6,7 +6,7 @@ export const createHabit = async (body: iHabitData) => {
   try {
     await api.post("/habits", body, {
       headers: {
-        authorization: `Bearer ${localStorage.getItem("@USER_ID")}`
+        authorization: `Bearer ${localStorage.getItem("@TOKEN")}`
       }
     });
 

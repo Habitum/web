@@ -9,13 +9,13 @@ import { ModalWrapper } from "../../styles/modal";
 import ModalDelete from "../ModalDelete";
 import { HabitsContext } from "../../contexts/HabitsContext/HabitsContext";
 
-import { iEditForm } from "./types";
+import { iEditForm, iEditModal } from "./types";
 
 import { modalSchema } from "./schema";
 
 import { IconDelete, StyledModalEdit } from "./styles";
 
-export const ModalEditHabit = () => {
+export const ModalEditHabit = ({setModal} : iEditModal) => {
   const [open, setOpen] = useState(false);
 
   const { habitEdit } = useContext(HabitsContext);
@@ -29,7 +29,9 @@ export const ModalEditHabit = () => {
     resolver: yupResolver(modalSchema),
   });
 
-  const submitEdit: SubmitHandler<iEditForm> = (data) => {};
+  const submitEdit: SubmitHandler<iEditForm> = (data) => {
+    setOpen(false);
+  };
 
   return (
     <ModalWrapper>
@@ -95,7 +97,7 @@ export const ModalEditHabit = () => {
             </div>
             <div className="bottomModal">
               <div className="divButton">
-                <Button variant="cancel" name="CANCELAR" />
+                <Button variant="cancel" name="CANCELAR" onClick={() => setModal(false)}/>
                 <Button name="Salvar" variant="primary" />
               </div>
             </div>
