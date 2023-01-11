@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import { FaUserAlt } from "react-icons/fa";
 
@@ -18,14 +18,28 @@ import Ranking from "../../components/Ranking";
 import Footer from "../../components/Footer";
 
 const LandingPage = () => {
+  const [token, setToken] = useState("");
+
+  useEffect(() => {
+    const tokenLS = localStorage.getItem("@TOKEN");
+
+    tokenLS && setToken(tokenLS);
+  }, [token]);
+
   return (
     <>
       <Header>
         <ul>
           <li>
-            <StyledLink to={"/login"} variant="icon-text">
-              <FaUserAlt /> Login
-            </StyledLink>
+            {token ? (
+              <StyledLink to={"/dashboard"} variant="icon-text">
+                <FaUserAlt /> Dashboard
+              </StyledLink>
+            ) : (
+              <StyledLink to={"/login"} variant="icon-text">
+                <FaUserAlt /> Login
+              </StyledLink>
+            )}
           </li>
           <li>
             <StyledLink to={"/register"} variant="button">
