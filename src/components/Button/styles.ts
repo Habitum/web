@@ -26,7 +26,7 @@ export const StyledButton = styled.button`
   ${({ variant }: iButtonStyles) => {
     switch (variant) {
       default:
-      case "teste":
+      case "primary":
         return css`
           background-color: var(--color-brand-100);
           color: var(--color-white);
