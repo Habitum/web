@@ -3,7 +3,17 @@ import styled from "styled-components";
 export const StyledMain = styled.main`
   width: 100%;
   padding: 2.5rem 1.25rem;
-  background: linear-gradient(180deg, var(--color-grey-100), var(--color-brand-200)) ;
+  background: var(--color-white);
+  position: relative;
+  
+  .background-purple {
+    width: 100%;
+    height: 50%;
+    background: var(--color-brand-100);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
 `;
 
 export const StyledContainer = styled.section`
@@ -43,9 +53,9 @@ export const StyledContainer = styled.section`
 export const StyledSection = styled.section`
   width: 100%;
   padding: 1.25rem;
-  background: var(--color-white);
+  background: var(--color-grey-400);
   border-radius: 0 0 .5rem .5rem;
-  border-bottom: .75rem solid var(--color-brand-100);
+  border-bottom: .75rem solid var(--color-brand-200);
   display: flex;
   flex-direction: column;
   gap: 2.15rem;

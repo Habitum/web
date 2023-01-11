@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import Button from "../../../components/Button";
+import Wave from "../../../components/Wave";
 import { StyledContainer, StyledMain, StyledSection } from "./styles";
 
 const Project = () => {
@@ -7,6 +8,10 @@ const Project = () => {
 
   return (
     <StyledMain>
+      <div className="background-purple">
+        <Wave />
+      </div>
+
       <StyledContainer>
         <h1>habitum</h1>
 
