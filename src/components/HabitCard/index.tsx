@@ -13,22 +13,28 @@ import { ModalEditHabit } from "../ModalEdit";
 
 export const HabitsCard = ({id} : iHabitCardProps) => {
   const [editModal, setEditModal] = useState(false)
+  const [checkHabit, setCheckHabit] = useState(false)
 
   const { habit } = useContext(HabitsContext);
 
   const goal = habit.find(currentHabit => currentHabit.id === id);
+  
+  const finishHabit = () => {
+    setCheckHabit(!checkHabit);
+  }
 
   if(goal == null){
     return null;
   }
 
   return(
-    <StyledHabitCard variant="to-do" key={goal.id}>
+    <StyledHabitCard variant={checkHabit? "done" : "to-do"} key={goal.id}>
       {editModal && <ModalEditHabit setModal={setEditModal}/>}
+      
       <div className="card-info">
         <p><span className="checksquare"></span>{goal.title}</p>
         <p className="constancy">
-          <i><HiFire/></i> Sequência: <span>{} dia</span>
+          <i><HiFire/></i> Sequência: <span>{goal.constancy}</span>
         </p>
       </div>
 
@@ -39,6 +45,7 @@ export const HabitsCard = ({id} : iHabitCardProps) => {
           <span className="checkmark"></span>
         </div>  
           <i className="history-icon"><RiHistoryFill/></i>
+          <button type="button" onClick={finishHabit}> Teste</button>
       </div>
     </StyledHabitCard>
   )
