@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 import { FiChevronDown, FiChevronUp } from "react-icons/fi";
 import { HiOutlineLogout, HiFire } from "react-icons/hi";
@@ -17,10 +17,12 @@ import { DefaultContainer } from "../../styles/container";
 
 import ModalCreateHabit from "../../components/ModalCreate";
 import ModalProfileEdit from "../../components/ModalEditUser";
+import { getUser } from "../../services/getUser";
 
 const Dashboard = () => {
-  const { userLogout, user } = useContext(UserContext);
+  const { userLogout, user, setUser } = useContext(UserContext);
   const { habit } = useContext(HabitsContext)
+
   const [isOpenModalCreate, setIsOpenModalCreate] = useState(false);
   const [modalOn, setModalOn ] = useState(false)
   const [profilePic, setProfilePic ] = useState(user?.img)
@@ -35,7 +37,22 @@ const Dashboard = () => {
   const handleModalCreate = () => setIsOpenModalCreate(!isOpenModalCreate);
 
   const fixedDate = todayDate.charAt(0).toUpperCase() + todayDate.slice(1);
+
+  const token = localStorage.getItem("@TOKEN");
   
+  useEffect(() => {
+    (async () => {
+      if (token) {
+        try {
+          const response = await getUser();
+          setUser(response);
+        } catch (error) {
+          console.log(error);
+        }
+      }})();
+
+  }, [habit]);
+
   console.log(habit)
 
   return user ? (
