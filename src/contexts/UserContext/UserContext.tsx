@@ -18,7 +18,6 @@ import { HabitsContext } from "../HabitsContext/HabitsContext";
 export const UserContext = createContext({} as iUserContext);
 
 export const UserProvider = ({ children }: iUserProviderProps) => {
-  const { habit } = useContext(HabitsContext);
 
   const [globalLoading, setGlobalLoading] = useState(true);
   const [user, setUser] = useState<iUser | null>(null);

@@ -8,11 +8,15 @@ import { ModalWrapper } from "../../styles/modal";
 import { iDeleteModal } from "./types";
 
 import { IconDeleteModal, StyledModalConfirmDelete } from "./styles";
+import { getUser } from "../../services/getUser";
+import { UserContext } from "../../contexts/UserContext/UserContext";
 
 const ModalDelete = ({ setOpen, id }: iDeleteModal) => {
+
+  const { setUser } = useContext(UserContext);
   const { habitDelete } = useContext(HabitsContext);
 
-  const deleteInfo = (id: number) => {
+  const deleteInfo = async (id: number) => {
     const userID = localStorage.getItem("@USER_ID");
 
     const data = {
@@ -20,6 +24,9 @@ const ModalDelete = ({ setOpen, id }: iDeleteModal) => {
     };
 
     habitDelete(id, data);
+
+    const response = await getUser();
+    setUser(response);
 
     setOpen(false)
   };

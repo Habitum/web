@@ -10,6 +10,7 @@ import { editHabit } from "../../services/editHabit";
 
 import { UserContext } from "../UserContext/UserContext";
 import { editUser } from "../../services/editUser";
+import { getUser } from "../../services/getUser";
 
 export const HabitsContext = createContext({} as iHabitsProviderValue);
 
@@ -43,26 +44,25 @@ export const HabitsProvider = ({ children }: iHabitsProviderProps) => {
     if (response) {
       toast.success("Hábito criado com sucesso!");
 
-      setHabit(response)
-
     } else {
       toast.error("Algo deu errado");
     }
 
     return response;
   };
-
+  
   const habitEdit = async (id: number, data: iHabits) => {
     const response = await editHabit(id, data);
-
+    
     if (response) {
       toast.success("Hábito editado com sucesso!");
 
-      setHabit(response)
+      const response = await getUser();
+      setUser(response);
+
       
     } else {
       toast.error("Algo deu errado");
-      
     }
   };
 

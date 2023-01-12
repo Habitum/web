@@ -21,11 +21,11 @@ import { getUser } from "../../services/getUser";
 
 const Dashboard = () => {
   const { userLogout, user, setUser } = useContext(UserContext);
-  const { habit } = useContext(HabitsContext)
+  const { habit } = useContext(HabitsContext);
 
   const [isOpenModalCreate, setIsOpenModalCreate] = useState(false);
-  const [modalOn, setModalOn ] = useState(false)
-  const [profilePic, setProfilePic ] = useState(user?.img)
+  const [modalOn, setModalOn ] = useState(false);
+  const [profilePic, setProfilePic ] = useState(user?.img);
 
   const todayDate = new Intl.DateTimeFormat("pt-BR", {
     weekday: "long",
@@ -37,23 +37,7 @@ const Dashboard = () => {
   const handleModalCreate = () => setIsOpenModalCreate(!isOpenModalCreate);
 
   const fixedDate = todayDate.charAt(0).toUpperCase() + todayDate.slice(1);
-
-  const token = localStorage.getItem("@TOKEN");
-
-
-  useEffect(() => {
-    (async () => {
-      if (token) {
-        try {
-          const response = await getUser();
-          setUser(response);
-        } catch (error) {
-          console.log(error);
-        }
-      }})();
-
-  }, []);
-
+  
   return user ? (
     <StyledDashboardPage>
       <DefaultContainer>
@@ -99,7 +83,7 @@ const Dashboard = () => {
                 <label htmlFor="close-tab">Fechar status</label>
               </div>
               <div className="status-info">
-                <h4>status geral</h4>
+                <h4>Status geral</h4>
 
                 <ul>
                   <li>
@@ -142,12 +126,12 @@ const Dashboard = () => {
 
           <StyledHabitsSection>
             <div className="habits-list-title">
-              <h4>hábitos</h4>
+              <h4>Hábitos</h4>
               <Button variant="primary" name={"+ CRIAR"} onClick={()=> setIsOpenModalCreate(true)}/>
             </div>
             <StyledHabitsList>
-              {habit && habit.length > 0 ? (
-                habit.map((goal) => (
+              {user.habits && user.habits.length > 0 ? (
+                user.habits.map((goal) => (
                   <HabitsCard key={goal.id} {...goal}/>
                 ))
               ) : (
