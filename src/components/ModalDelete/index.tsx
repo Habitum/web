@@ -2,15 +2,27 @@ import { useContext } from "react";
 
 import { HabitsContext } from "../../contexts/HabitsContext/HabitsContext";
 
-import { ModalWrapper } from "../../styles/modal";
 import Button from "../Button";
+import { ModalWrapper } from "../../styles/modal";
 
 import { iDeleteModal } from "./types";
 
 import { IconDeleteModal, StyledModalConfirmDelete } from "./styles";
 
-const ModalDelete = ({ setOpen }: iDeleteModal) => {
+const ModalDelete = ({ setOpen, id }: iDeleteModal) => {
   const { habitDelete } = useContext(HabitsContext);
+
+  const deleteInfo = (id: number) => {
+    const userID = localStorage.getItem("@USER_ID");
+
+    const data = {
+      userId: Number(userID),
+    };
+
+    habitDelete(id, data);
+
+    setOpen(false)
+  };
 
   return (
     <ModalWrapper>
@@ -27,7 +39,7 @@ const ModalDelete = ({ setOpen }: iDeleteModal) => {
           <Button
             name="Sim, Eu quero excluir"
             variant="cancel-secondary"
-            onClick={() => habitDelete}
+            onClick={() => deleteInfo(id)}
           />
         </div>
       </StyledModalConfirmDelete>

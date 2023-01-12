@@ -5,17 +5,18 @@ import { useForm, SubmitHandler } from "react-hook-form";
 
 import Button from "../Button";
 import Input from "../Input";
-import { ModalWrapper } from "../../styles/modal";
 import ModalDelete from "../ModalDelete";
+import { ModalWrapper } from "../../styles/modal";
 import { HabitsContext } from "../../contexts/HabitsContext/HabitsContext";
 
-import { iEditForm, iEditModal } from "./types";
+import { iEditModal } from "./types";
 
 import { modalSchema } from "./schema";
 
 import { IconDelete, StyledModalEdit } from "./styles";
+import { iHabits } from "../../contexts/HabitsContext/types";
 
-export const ModalEditHabit = ({setModal} : iEditModal) => {
+export const ModalEditHabit = ({ setModal, id }: iEditModal) => {
   const [open, setOpen] = useState(false);
 
   const { habitEdit } = useContext(HabitsContext);
@@ -24,13 +25,19 @@ export const ModalEditHabit = ({setModal} : iEditModal) => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<iEditForm>({
+  } = useForm<iHabits>({
     mode: "onBlur",
     resolver: yupResolver(modalSchema),
   });
 
-  const submitEdit: SubmitHandler<iEditForm> = (data) => {
-    setOpen(false);
+  const submitEdit: SubmitHandler<iHabits> = (data) => {
+    const userID = localStorage.getItem("@USER_ID");
+
+    data.userId = userID;
+
+    habitEdit(id, data);
+
+    setModal(false)
   };
 
   return (
@@ -60,9 +67,10 @@ export const ModalEditHabit = ({setModal} : iEditModal) => {
                   variant="secondary"
                   label="Descrição (opcional)"
                   register={register("description")}
-                  rows={8}
-                  cols={5}
                 />
+                {errors.description?.message && (
+                  <p className="FormError">{errors.description.message}</p>
+                )}
 
                 <Input
                   type="text"
@@ -80,14 +88,11 @@ export const ModalEditHabit = ({setModal} : iEditModal) => {
                 <label htmlFor="difficulty" className="labelSelect">
                   Dificuldade
                 </label>
-                <select id="difficulty" {...register("difficulty")}>
+                <select id="dificulty" {...register("dificulty")}>
                   <option value="Fácil">Fácil</option>
                   <option value="Médio">Médio</option>
                   <option value="Difícil">Difícil</option>
                 </select>
-                {errors.difficulty?.message && (
-                  <p className="FormError">{errors.difficulty.message}</p>
-                )}
 
                 <div className="divIconDelete" onClick={() => setOpen(true)}>
                   <IconDelete />
@@ -97,13 +102,17 @@ export const ModalEditHabit = ({setModal} : iEditModal) => {
             </div>
             <div className="bottomModal">
               <div className="divButton">
-                <Button variant="cancel" name="CANCELAR" onClick={() => setModal(false)}/>
-                <Button name="Salvar" variant="primary" />
+                <Button
+                  variant="cancel"
+                  name="CANCELAR"
+                  onClick={() => setModal(false)}
+                />
+                <Button name="Salvar" variant="primary"  />
               </div>
             </div>
           </div>
         </form>
-        {open && <ModalDelete setOpen={setOpen} />}
+        {open && <ModalDelete id={id} setOpen={setOpen} />}
       </StyledModalEdit>
     </ModalWrapper>
   );

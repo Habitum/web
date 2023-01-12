@@ -4,13 +4,13 @@ import { iHabitData } from "../contexts/HabitsContext/types";
 
 export const createHabit = async (body: iHabitData) => {
   try {
-    await api.post("/habits", body, {
+    const response = await api.post("/habits", body, {
       headers: {
         authorization: `Bearer ${localStorage.getItem("@TOKEN")}`
       }
     });
 
-    return true;
+    return response.data
   } catch (err) {
     console.error(err);
   }
