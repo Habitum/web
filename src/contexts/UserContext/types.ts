@@ -12,8 +12,8 @@ export interface iUserContext {
   userLogin: (userData: iLoginFormValues) => Promise<void>;
   userRegister: (userData: iRegisterFormValues) => Promise<void>;
   userLogout: () => void;
-  getUsersList: () => Promise<iUser[] | undefined>
-  userGet: () => Promise<iUser | null>
+  getUsersList: () => Promise<iUser[] | undefined>;
+  userGet: () => Promise<iUser | null>;
   user: iUser | null;
   setUser: React.Dispatch<React.SetStateAction<iUser | null>>;
 }
@@ -23,11 +23,11 @@ export interface iUser {
   name: string;
   userName: string;
   id: string;
-  habits: iHabits[]
+  habits: iHabits[];
   bits: number;
   stars: number;
   sequence: number;
-  img:string;
+  img: string;
 }
 
 export interface ILoginResponse {

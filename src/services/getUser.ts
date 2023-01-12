@@ -1,7 +1,7 @@
 import { api } from "./api";
 
-const token = localStorage.getItem("@TOKEN");
 const userID = localStorage.getItem("@USER_ID");
+const token = localStorage.getItem("@TOKEN");
 
 export async function getUser() {
   const response = await api.get("/users/" + userID + "?_embed=habits", {
