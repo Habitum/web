@@ -1,13 +1,21 @@
 import React from "react";
 
-const App = () => {
-  const person = {
-    name: "Leandro",
-    age: 27
-  }
+import { ToastContainer } from "react-toastify";
 
-  console.log(person)
-  return <></>;
+import RoutesMain from "./routes";
+
+import "react-toastify/dist/ReactToastify.css";
+import { GlobalStyles } from "./styles/globalStyles";
+
+
+const App = () => {
+  return (
+    <>
+      <ToastContainer position="top-right" autoClose={3000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover theme="light" />
+      <GlobalStyles />
+      <RoutesMain />
+    </>
+  );
 };
 
 export default App;
