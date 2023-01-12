@@ -18,7 +18,7 @@ export const HabitsCard = ({id} : iHabitCardProps) => {
   const { habit } = useContext(HabitsContext);
 
   const goal = habit.find(currentHabit => currentHabit.id === id);
-  
+
   const finishHabit = () => {
     setCheckHabit(!checkHabit);
   }
