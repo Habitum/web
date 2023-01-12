@@ -15,11 +15,15 @@ import { modalSchema } from "./schema";
 
 import { IconDelete, StyledModalEdit } from "./styles";
 import { iHabits } from "../../contexts/HabitsContext/types";
+import { useOutClick } from "../../hooks/useOutClick";
 
 export const ModalEditHabit = ({ setModal, id }: iEditModal) => {
   const [open, setOpen] = useState(false);
 
-  const { habitEdit } = useContext(HabitsContext);
+  const { habitEdit, setModalOn } = useContext(HabitsContext);
+
+
+  const modalRef = useOutClick(() => setModalOn(null));
 
   const {
     register,
@@ -40,9 +44,11 @@ export const ModalEditHabit = ({ setModal, id }: iEditModal) => {
     setModal(false)
   };
 
+
+
   return (
     <ModalWrapper>
-      <StyledModalEdit>
+      <StyledModalEdit ref={modalRef}>
         <div className="headerModal">
           <h2>Editar Hábito</h2>
         </div>
