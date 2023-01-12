@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 import { FiChevronDown, FiChevronUp } from "react-icons/fi";
 import { HiOutlineLogout, HiFire } from "react-icons/hi";
@@ -17,14 +17,18 @@ import { DefaultContainer } from "../../styles/container";
 
 import ModalCreateHabit from "../../components/ModalCreate";
 import ModalProfileEdit from "../../components/ModalEditUser";
+import { getUser } from "../../services/getUser";
 
 const Dashboard = () => {
-  const { userLogout, user } = useContext(UserContext);
+
+  const { userLogout, user, setUser } = useContext(UserContext);
+  
+  const [isOpenModalCreate, setIsOpenModalCreate] = useState(false);
+  const [modalOn, setModalOn ] = useState(false);
+  const [profilePic, setProfilePic ] = useState(user?.img);
+
   const { habit, setIsOpenModalCreate, isOpenModalCreate } = useContext(HabitsContext)
  
-  const [modalOn, setModalOn ] = useState(false)
-  const [profilePic, setProfilePic ] = useState(user?.img)
-
   const todayDate = new Intl.DateTimeFormat("pt-BR", {
     weekday: "long",
     month: "long",
@@ -81,7 +85,7 @@ const Dashboard = () => {
                 <label htmlFor="close-tab">Fechar status</label>
               </div>
               <div className="status-info">
-                <h4>status geral</h4>
+                <h4>Status geral</h4>
 
                 <ul>
                   <li>
@@ -98,14 +102,15 @@ const Dashboard = () => {
                   </li>
                   <li>
                     <h5>Sequência</h5>
+                    <span>{user.sequence}</span>
                     <div>
-                      <span>11 dias{" "} <i><HiFire /></i></span>
+                      <span>11 dias<i><HiFire /></i></span>
                     </div>
                   </li>
                   <li>
                     <h5>Ranking Geral</h5>
                     <div>
-                      <span>8ª posição{" "}<i><BsFillPeopleFill /></i></span>
+                      <span>8ª posição<i><BsFillPeopleFill /></i></span>
                     </div>
                   </li>
                 </ul>
@@ -123,12 +128,12 @@ const Dashboard = () => {
 
           <StyledHabitsSection>
             <div className="habits-list-title">
-              <h4>hábitos</h4>
+              <h4>Hábitos</h4>
               <Button variant="primary" name={"+ CRIAR"} onClick={()=> setIsOpenModalCreate(true)}/>
             </div>
             <StyledHabitsList>
-              {habit && habit.length > 0 ? (
-                habit.map((goal) => (
+              {user.habits && user.habits.length > 0 ? (
+                user.habits.map((goal) => (
                   <HabitsCard key={goal.id} {...goal}/>
                 ))
               ) : (

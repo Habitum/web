@@ -10,7 +10,7 @@ export const createHabit = async (body: iHabitData) => {
       }
     });
 
-    return response.data
+    return response.data;
   } catch (err) {
     console.error(err);
   }

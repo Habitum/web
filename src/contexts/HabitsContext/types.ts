@@ -5,8 +5,6 @@ export interface iHabitsProviderProps {
 export interface iHabitsProviderValue {
   star: number;
   setStar: React.Dispatch<React.SetStateAction<number>>;
-  bit: number;
-  setBit: React.Dispatch<React.SetStateAction<number>>;
   habit: iHabits[];
   setHabit: React.Dispatch<React.SetStateAction<iHabits[]>>;
   habitCreate: (body: iHabitData) => Promise<boolean | undefined>;
@@ -26,6 +24,16 @@ export interface iHabitData {
   dificulty: string;
   constancy: string;
   userId: number | string | null;
+}
+
+export interface iHabitResponse {
+  title: string;
+  description: string;
+  personal_reward: string;
+  dificulty: string;
+  constancy: string;
+  userId: number;
+  id: number;
 }
 
 export interface iHabits extends iHabitData {
@@ -54,7 +62,5 @@ export interface iUserEdit{
 }
 
 export interface iDeleteHabit {
-
-userId: null | number
-
+  userId: null | number;
 }
