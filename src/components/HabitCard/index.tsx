@@ -17,7 +17,7 @@ export const HabitsCard = ({id} : iHabitCardProps) => {
   const [checkHabit, setCheckHabit] = useState(false)
 
   const { setUser, user } = useContext(UserContext)
-  const { habit } = useContext(HabitsContext);
+  const { setHabit, habit } = useContext(HabitsContext);
 
   const goal = habit.find(currentHabit => currentHabit.id === id);
   
@@ -48,7 +48,7 @@ export const HabitsCard = ({id} : iHabitCardProps) => {
       <div className="card-info">
         <p><span className="checksquare"></span>{goal.title}</p>
         <p className="constancy">
-          <i><HiFire/></i> Sequência: <span>{goal.constancy}</span>
+          <i><HiFire/></i> Sequência:<span>{goal.constancy}</span>
         </p>
       </div>
 

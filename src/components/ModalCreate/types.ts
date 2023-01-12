@@ -3,7 +3,7 @@ export interface iModalForm {
   description: string,
   personal_reward: string,
   dificulty: "fácil" | "médio" | "difícil",
-  constancy: string
+  constancy: string,
 }
 
 export interface iModalProps {

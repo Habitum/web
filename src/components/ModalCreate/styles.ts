@@ -7,6 +7,7 @@ export const Modal = styled(ModalBox)`
   background: var(--color-white);
   border-radius: var(--radius);
   justify-content: flex-start;
+  overflow:auto;
   position: relative;
 
   @media (min-width: 768px) {
@@ -75,9 +76,6 @@ export const ModalFooter = styled.div`
   display: flex;
   justify-content: flex-end;
   gap: 10px;
-  position: absolute;
-  bottom: 0;
-  left: 0;
 
   button {
     width: 50%;
