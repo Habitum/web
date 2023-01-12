@@ -21,11 +21,10 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
   const [globalLoading, setGlobalLoading] = useState(true);
   const [user, setUser] = useState<iUser | null>(null);
 
-  const token = localStorage.getItem("@TOKEN");
-
   const navigate = useNavigate();
 
   useEffect(() => {
+    const token = localStorage.getItem("@TOKEN");
     (async () => {
       if (token) {
         try {
@@ -40,7 +39,7 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
       setGlobalLoading(false);
     })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [token]);
+  }, []);
 
   const userLogin = async (userLoginData: iLoginFormValues) => {
     setUser(null);
