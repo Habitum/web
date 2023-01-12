@@ -9,7 +9,7 @@ export interface iHabitsProviderValue {
   setHabit: React.Dispatch<React.SetStateAction<iHabits[]>>;
   habitCreate: (body: iHabitData) => Promise<boolean | undefined>;
   habitEdit: (id: number, data: iHabits) => void;
-  habitDelete: (id: number) => void;
+  habitDelete: (id:number, data:iDeleteHabit) => void;
   userEdit: (body: iUserEdit) => void;
 }
 
@@ -19,7 +19,7 @@ export interface iHabitData {
   personal_reward: string;
   dificulty: string;
   constancy: string;
-  userId: number;
+  userId: number | string | null;
 }
 
 export interface iHabits extends iHabitData {
@@ -45,4 +45,10 @@ export interface iUserEdit{
   userName?:string;
   email?:string;
   img?: string;
+}
+
+export interface iDeleteHabit {
+
+userId: null | number
+
 }

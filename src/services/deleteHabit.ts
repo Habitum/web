@@ -1,18 +1,13 @@
+import { iDeleteHabit } from "../contexts/HabitsContext/types";
 import { api } from "./api";
 
-export const deleteHabit = async (id: number) => {
+export const deleteHabit = async (id: number, data: iDeleteHabit) => {
   const token = localStorage.getItem("@TOKEN");
-
-  const userId = localStorage.getItem("@USER_ID");
-
-  const body = {
-    userId: userId,
-  };
 
   try {
     api.defaults.headers.Authorization = `Bearer ${token}`;
 
-    await api.delete(`/habits/${id}`, { data: body });
+    await api.delete(`/habits/${id}`, { data: data });
 
     return true;
   } catch (err) {

@@ -7,9 +7,9 @@ export const editHabit = async (id: number, data: iHabits) => {
 
   try {
     api.defaults.headers.Authorization = `Bearer ${token}`;
-    await api.put(`/habits/${id}`, data);
+    const response = await api.patch(`/habits/${id}`, data);
 
-    return true;
+    return response.data;
   } catch (err) {
     console.error(err);
   }

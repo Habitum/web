@@ -2,7 +2,7 @@ import { createContext, useState, useContext, useEffect } from "react";
 
 import { toast } from "react-toastify";
 
-import { iHabits, iHabitData, iHabitsProviderProps, iHabitsProviderValue, iUserEdit } from "./types";
+import { iHabits, iHabitData, iHabitsProviderProps, iHabitsProviderValue, iUserEdit, iDeleteHabit } from "./types";
 
 import { deleteHabit } from "../../services/deleteHabit";
 import { createHabit } from "../../services/createHabit";
@@ -44,6 +44,9 @@ export const HabitsProvider = ({ children }: iHabitsProviderProps) => {
     if (response) {
       // setHabit({...habit, response});
       toast.success("Hábito criado com sucesso!");
+
+      setHabit(response)
+
     } else {
       toast.error("Algo deu errado");
     }
@@ -56,13 +59,17 @@ export const HabitsProvider = ({ children }: iHabitsProviderProps) => {
 
     if (response) {
       toast.success("Hábito editado com sucesso!");
+
+      setHabit(response)
+      
     } else {
       toast.error("Algo deu errado");
+      
     }
   };
 
-  const habitDelete = async (id: number) => {
-    const response = await deleteHabit(id);
+  const habitDelete = async (id :number, data:iDeleteHabit) => {
+    const response = await deleteHabit(id, data);
 
     if (response) {
       toast.success("Hábito deletado com sucesso!");
