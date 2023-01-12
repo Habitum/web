@@ -97,6 +97,16 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
     }
   };
 
+  const userGet = async () => {
+    try {
+      const response = await getUser()
+
+      return response
+    } catch(error) {
+      console.log(error)
+    }
+  }
+
   return (
     <UserContext.Provider
       value={{
@@ -105,6 +115,7 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
         userLogin,
         userLogout,
         getUsersList,
+        userGet,
         userRegister,
         user,
         setUser

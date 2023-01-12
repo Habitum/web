@@ -13,6 +13,7 @@ export interface iUserContext {
   userRegister: (userData: iRegisterFormValues) => Promise<void>;
   userLogout: () => void;
   getUsersList: () => Promise<iUser[] | undefined>
+  userGet: () => Promise<iUser | null>
   user: iUser | null;
   setUser: React.Dispatch<React.SetStateAction<iUser | null>>;
 }

@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useContext, useEffect, useState } from "react";
 
 import { FaUserAlt } from "react-icons/fa";
 
@@ -16,22 +17,28 @@ import {
 import imageHero from "../../assets/img/image-hero.svg";
 import Ranking from "../../components/Ranking";
 import Footer from "../../components/Footer";
+import { UserContext } from "../../contexts/UserContext/UserContext";
 
 const LandingPage = () => {
-  const [token, setToken] = useState("");
+  const { userGet } = useContext(UserContext);
+  const [valitadion, setValidation] = useState(false);
 
   useEffect(() => {
-    const tokenLS = localStorage.getItem("@TOKEN");
+    async function verifyUser() {
+      const user = await userGet()
 
-    tokenLS && setToken(tokenLS);
-  }, [token]);
+      user ? setValidation(true) : setValidation(false)
+    }
+
+    verifyUser()
+  }, []);
 
   return (
     <>
       <Header>
         <ul>
           <li>
-            {token ? (
+            {valitadion ? (
               <StyledLink to={"/dashboard"} variant="icon-text">
                 <FaUserAlt /> Dashboard
               </StyledLink>
