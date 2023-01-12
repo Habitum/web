@@ -43,6 +43,7 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
   }, [token]);
 
   const userLogin = async (userLoginData: iLoginFormValues) => {
+    setUser(null);
     try {
       setGlobalLoading(true);
 
