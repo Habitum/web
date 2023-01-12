@@ -40,9 +40,19 @@ const Dashboard = () => {
 
   const token = localStorage.getItem("@TOKEN");
 
-  useEffect(() => {
 
-  }, [user]);
+  useEffect(() => {
+    (async () => {
+      if (token) {
+        try {
+          const response = await getUser();
+          setUser(response);
+        } catch (error) {
+          console.log(error);
+        }
+      }})();
+
+  }, []);
 
   return user ? (
     <StyledDashboardPage>

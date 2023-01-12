@@ -21,12 +21,17 @@ export const HabitsCard = ({id} : iHabitCardProps) => {
 
   const goal = habit.find(currentHabit => currentHabit.id === id);
   
-  const addBits = () => {
+  if(goal == null){
+    return null;
+  }
+
+  const addBits = () => {    
     setCheckHabit(!checkHabit);
       if(user === null){
         return
       };
     setUser({...user, bits: user.bits +5 });
+
   };
 
   const decreaseBits = () => {
@@ -36,10 +41,6 @@ export const HabitsCard = ({id} : iHabitCardProps) => {
     };
     setUser({...user, bits: user.bits -5 });
   };
-
-  if(goal == null){
-    return null;
-  }
 
   return(
     <StyledHabitCard variant={checkHabit? "done" : "to-do"} key={goal.id}>

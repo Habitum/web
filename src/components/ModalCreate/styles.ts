@@ -91,6 +91,8 @@ export const ModalFooter = styled.div`
   @media (min-width: 768px) {
     border-radius: 0 0 .5rem .5rem;
     gap: 1.25rem;
+    position: absolute;
+    bottom: 0;
 
     button {
       width: max-content;
