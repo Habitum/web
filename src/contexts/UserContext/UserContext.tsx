@@ -102,7 +102,10 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
     try {
       const data = await getUsers();
 
-      return data;
+      const ranking = data.sort((a ,b) => (a.bits > b.bits) ? 1 : -1);
+      console.log(ranking)
+      return ranking;
+
     } catch (error) {
       console.log(error);
     }
