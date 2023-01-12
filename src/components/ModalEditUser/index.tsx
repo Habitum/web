@@ -39,6 +39,7 @@ import male9 from "../../assets/profilePics/male_2 3.svg";
 import male10 from "../../assets/profilePics/male_2 4.svg";
 import male11 from "../../assets/profilePics/male_2 5.svg";
 import male12 from "../../assets/profilePics/male_2 6.svg";
+import defaultUser from "../../assets/img/default-user.svg";
 
 const ModalProfileEdit = ({ setModal, profilePic, setProfile }: iModalBaseProps) => {
 
@@ -81,7 +82,7 @@ const ModalProfileEdit = ({ setModal, profilePic, setProfile }: iModalBaseProps)
       <ModalBaseStyled>
         <EditUser>
           <div>
-            <img className="profile-img" src={profilePic} alt="imagem de perfil" />
+            <img className="profile-img" src={defaultUser} alt="imagem de perfil" />
             <EditIcon onClick={openPictureSelection}/>
             {openPic && <SelectPic>
                <img src={female1} alt="avatar" onClick={()=> changePicture(female1)}/>

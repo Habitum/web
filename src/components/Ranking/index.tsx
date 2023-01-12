@@ -31,7 +31,7 @@ const Ranking = () => {
         {users &&
           users?.map((user) => (
             <li key={user.id}>
-              <img src={user.img ? user.img : defaultUser} alt={user.name} />
+              <img src={defaultUser} alt={user.name} />
               <p>{user.name}</p>
               <div>
                 <span>{user.bits}</span>
