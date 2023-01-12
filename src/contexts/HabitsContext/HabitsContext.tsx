@@ -10,7 +10,6 @@ import { editHabit } from "../../services/editHabit";
 
 import { UserContext } from "../UserContext/UserContext";
 import { editUser } from "../../services/editUser";
-import { getUser } from "../../services/getUser";
 
 export const HabitsContext = createContext({} as iHabitsProviderValue);
 
@@ -42,7 +41,7 @@ export const HabitsProvider = ({ children }: iHabitsProviderProps) => {
     const response = await createHabit(body);
 
     if (response) {
-      // setHabit({...habit, response});
+      setHabit({...habit, response});
       toast.success("Hábito criado com sucesso!");
 
       setHabit(response)
