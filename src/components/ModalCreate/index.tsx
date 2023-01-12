@@ -22,15 +22,18 @@ import { getUser } from "../../services/getUser";
 import { useOutClick } from "../../hooks/useOutClick";
 
 const ModalCreateHabit = ({ handleModal }: iModalProps) => {
-  
-  const { user, setUser} = useContext(UserContext);
-  
+  const { user, setUser } = useContext(UserContext);
+
   const { habitCreate, setIsOpenModalCreate } = useContext(HabitsContext);
 
   const dificulties = ["fácil", "médio", "difícil"];
   const constancies = ["7 dias seguidos", "14 dias seguidos", "21 dias seguidos"];
 
-  const { handleSubmit, register, formState: { errors } } = useForm<iModalForm>({
+  const {
+    handleSubmit,
+    register,
+    formState: { errors },
+  } = useForm<iModalForm>({
     mode: "onChange",
     resolver: yupResolver(formModalSchema),
   });
@@ -39,7 +42,7 @@ const ModalCreateHabit = ({ handleModal }: iModalProps) => {
     if (user) {
       const body: iHabitData = { ...data, userId: +user.id };
 
-      await habitCreate(body) && handleModal();
+      (await habitCreate(body)) && handleModal();
 
       const response = await getUser();
       setUser(response);
@@ -56,60 +59,33 @@ const ModalCreateHabit = ({ handleModal }: iModalProps) => {
         </ModalHeader>
 
         <ModalForm onSubmit={handleSubmit(submit)}>
-          <div className="side-left">
-            <Input
-              label="Título"
-              name="title"
-              type="text"
-              placeholder="Insira o título para o hábito"
-              register={register("title")}
-            />
-            <p className="FormError">
-              <>{errors.title?.message}</>
-            </p>
-            <Input
-              label="Descrição (opcional)"
-              name="description"
-              type="textarea"
-              placeholder="Insira uma descrição"
-              register={register("description")}
-            />
-            <Input
-              label="Recompensa"
-              name="personal_reward"
-              type="text"
-              placeholder="Qual a recompensa deste hábito?"
-              register={register("personal_reward")}
-            />
-            <p className="FormError">
-              <>{errors.personal_reward?.message}</>
-            </p>
-          </div>
+          <div className="FormContainer">
+            <div className="side-left">
+              <Input label="Título" name="title" type="text" placeholder="Insira o título para o hábito" register={register("title")} />
+              <p className="FormError">
+                <>{errors.title?.message}</>
+              </p>
+              <Input label="Descrição (opcional)" name="description" type="textarea" placeholder="Insira uma descrição" register={register("description")} />
+              <Input label="Recompensa" name="personal_reward" type="text" placeholder="Qual a recompensa deste hábito?" register={register("personal_reward")} />
+              <p className="FormError">
+                <>{errors.personal_reward?.message}</>
+              </p>
+            </div>
 
-          <div className="side-right">
-            <Select
-              label="Dificuldade"
-              name="dificulty"
-              options={dificulties}
-              register={register("dificulty")}
-            />
-            <Select
-              label="Meta de constância"
-              name="constancy"
-              options={constancies}
-              register={register("constancy")}
-            />
-            <p>Não será possível alterar a meta de constância após o hábito ser criado</p>
+            <div className="side-right">
+              <Select label="Dificuldade" name="dificulty" options={dificulties} register={register("dificulty")} />
+              <Select label="Meta de constância" name="constancy" options={constancies} register={register("constancy")} />
+              <p>Não será possível alterar a meta de constância após o hábito ser criado</p>
+            </div>
           </div>
-
-          <ModalFooter className="form-footer">
-            <Button name='cancelar' variant="cancel" onClick={handleModal} />
-            <Button name='CRIAR' variant="primary" />
+          <ModalFooter>
+            <Button name="cancelar" variant="cancel" onClick={handleModal} />
+            <Button name="CRIAR" variant="primary" />
           </ModalFooter>
         </ModalForm>
       </Modal>
     </ModalWrapper>
-  )
+  );
 };
 
 export default ModalCreateHabit;

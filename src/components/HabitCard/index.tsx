@@ -4,8 +4,6 @@ import { BsPencilFill, BsCheckSquareFill } from "react-icons/bs"
 import { HiFire } from "react-icons/hi"
 import { RiHistoryFill } from "react-icons/ri";
 
-import { HabitsContext } from "../../contexts/HabitsContext/HabitsContext";
-
 import { iHabitCardProps } from "./types";
 
 import { StyledHabitCard } from "./style"
