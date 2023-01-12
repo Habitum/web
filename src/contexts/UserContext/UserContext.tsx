@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -12,13 +12,12 @@ import { loginUser } from "../../services/loginUser";
 import { registerUser } from "../../services/registerUser";
 import { getUsers } from "../../services/getUsers";
 
-import avatar from "../../assets/profilePics/male_2 6.svg"
-import { HabitsContext } from "../HabitsContext/HabitsContext";
+import avatar from "../../assets/profilePics/male_2 6.svg";
+import { api } from "../../services/api";
 
 export const UserContext = createContext({} as iUserContext);
 
 export const UserProvider = ({ children }: iUserProviderProps) => {
-
   const [globalLoading, setGlobalLoading] = useState(true);
   const [user, setUser] = useState<iUser | null>(null);
 
@@ -49,10 +48,20 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
 
       const response = await loginUser(userLoginData);
 
+      const userID = response.user.id + "";
+
+      const token = response.accessToken;
+
       localStorage.setItem("@TOKEN", response.accessToken);
       localStorage.setItem("@USER_ID", response.user.id + "");
 
-      setUser(response.user);
+      const getUserHabits = await api.get("/users/" + userID + "?_embed=habits", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      setUser(getUserHabits.data);
 
       navigate("/dashboard");
     } catch (error) {
@@ -71,7 +80,7 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
       userRegisterData.stars = 0;
       userRegisterData.bits = 0;
       userRegisterData.sequence = 0;
-      userRegisterData.img = avatar
+      userRegisterData.img = avatar;
 
       await registerUser(userRegisterData);
 
@@ -101,13 +110,13 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
 
   const userGet = async () => {
     try {
-      const response = await getUser()
+      const response = await getUser();
 
-      return response
-    } catch(error) {
-      console.log(error)
+      return response;
+    } catch (error) {
+      console.log(error);
     }
-  }
+  };
 
   return (
     <UserContext.Provider
@@ -120,7 +129,7 @@ export const UserProvider = ({ children }: iUserProviderProps) => {
         userGet,
         userRegister,
         user,
-        setUser
+        setUser,
       }}
     >
       {children}

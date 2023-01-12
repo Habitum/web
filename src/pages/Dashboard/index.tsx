@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 
 import { FiChevronDown, FiChevronUp } from "react-icons/fi";
 import { HiOutlineLogout, HiFire } from "react-icons/hi";
@@ -17,19 +17,17 @@ import { DefaultContainer } from "../../styles/container";
 
 import ModalCreateHabit from "../../components/ModalCreate";
 import ModalProfileEdit from "../../components/ModalEditUser";
-import { getUser } from "../../services/getUser";
 
 import defaultUser from "../../assets/img/default-user.svg";
 
 const Dashboard = () => {
 
-  const { userLogout, user, setUser } = useContext(UserContext);
+  const { userLogout, user } = useContext(UserContext);
   
-  const [isOpenModalCreate, setIsOpenModalCreate] = useState(false);
   const [modalOn, setModalOn ] = useState(false);
   const [profilePic, setProfilePic ] = useState(user?.img);
 
-  const { habit, setIsOpenModalCreate, isOpenModalCreate } = useContext(HabitsContext)
+  const { setIsOpenModalCreate, isOpenModalCreate } = useContext(HabitsContext)
  
   const todayDate = new Intl.DateTimeFormat("pt-BR", {
     weekday: "long",
