@@ -17,10 +17,12 @@ export const HabitsProvider = ({ children }: iHabitsProviderProps) => {
 
   const { user,setUser } = useContext(UserContext);
   const [star, setStar] = useState(0);
-
   const [bit, setBit] = useState(0);
-
   const [habit, setHabit] = useState([] as iHabits[]);
+  const [isOpenModalCreate, setIsOpenModalCreate] = useState<boolean | null>(null);
+  const [modalOn, setModalOn ] = useState<boolean | null>(null);
+
+
 
   useEffect(() => {
     if (user?.habits) {
@@ -90,7 +92,10 @@ export const HabitsProvider = ({ children }: iHabitsProviderProps) => {
         habitCreate,
         habitEdit,
         habitDelete,
-        userEdit
+        userEdit,
+        isOpenModalCreate,
+        setIsOpenModalCreate,
+        modalOn, setModalOn 
       }}
     >
       {children}

@@ -20,8 +20,8 @@ import ModalProfileEdit from "../../components/ModalEditUser";
 
 const Dashboard = () => {
   const { userLogout, user } = useContext(UserContext);
-  const { habit } = useContext(HabitsContext)
-  const [isOpenModalCreate, setIsOpenModalCreate] = useState(false);
+  const { habit, setIsOpenModalCreate, isOpenModalCreate } = useContext(HabitsContext)
+ 
   const [modalOn, setModalOn ] = useState(false)
   const [profilePic, setProfilePic ] = useState(user?.img)
 
@@ -35,8 +35,6 @@ const Dashboard = () => {
   const handleModalCreate = () => setIsOpenModalCreate(!isOpenModalCreate);
 
   const fixedDate = todayDate.charAt(0).toUpperCase() + todayDate.slice(1);
-  
-  console.log(habit)
 
   return user ? (
     <StyledDashboardPage>

@@ -16,9 +16,10 @@ import { formModalSchema } from "./formModalSchema";
 
 import { Modal, ModalHeader, ModalForm, ModalFooter } from "./styles";
 import { ModalWrapper } from "../../styles/modal";
+import { useOutClick } from "../../hooks/useOutClick";
 
 const ModalCreateHabit = ({ handleModal }: iModalProps) => {
-  const { habitCreate } = useContext(HabitsContext);
+  const { habitCreate, setIsOpenModalCreate } = useContext(HabitsContext);
   const { user } = useContext(UserContext);
 
   const dificulties = ["fácil", "médio", "difícil"];
@@ -37,9 +38,11 @@ const ModalCreateHabit = ({ handleModal }: iModalProps) => {
     }
   };
 
+  const modalRef = useOutClick(() => setIsOpenModalCreate(null));
+
   return (
     <ModalWrapper>
-      <Modal>
+      <Modal ref={modalRef}>
         <ModalHeader>
           <h4>Criar hábito</h4>
         </ModalHeader>
