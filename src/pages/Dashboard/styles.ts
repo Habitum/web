@@ -53,8 +53,9 @@ export const StyledDashboardPage = styled.main`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     gap: 1.6rem;
+    margin-top: 3rem;
   }
 
   .quote {
@@ -255,15 +256,14 @@ export const StyledHabitsSection = styled.section`
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   padding: 0 0.5rem;
 
   .habits-list-title{
     width: 100%;
     display: flex;
-    flex-direction: row-reverse;
-    align-items: center;
-    justify-content: space-between;
+    align-items: baseline;
+    justify-content: end;
+    gap: 2rem;
   }
 
   .habits-list-title button {
@@ -283,13 +283,12 @@ export const StyledHabitsList = styled.ul`
   height: fit-content;
   max-height: 25rem;
   background-color: var(--color-grey-400);
-
   display: flex;
   flex-direction: column;
   gap: 0.7rem;
-
   margin-top: 1rem;
   padding: 0.7rem;
   border-radius: var(--radius);
   overflow: auto;
+  align-items: start;
 `;
