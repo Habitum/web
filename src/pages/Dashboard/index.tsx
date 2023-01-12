@@ -19,6 +19,8 @@ import ModalCreateHabit from "../../components/ModalCreate";
 import ModalProfileEdit from "../../components/ModalEditUser";
 import { getUser } from "../../services/getUser";
 
+import defaultUser from "../../assets/img/default-user.svg";
+
 const Dashboard = () => {
 
   const { userLogout, user, setUser } = useContext(UserContext);
@@ -51,7 +53,7 @@ const Dashboard = () => {
           <nav>
             <h3 className="username">{user.name}</h3>
             <button type="button" className="user-img">
-              <img src={user.img} alt="avatar" />
+              <img src={defaultUser} alt="avatar" />
               <i className="edit-user">
                 <BsPencilSquare className="nav-icon" onClick={()=> setModalOn(true)}/>
               </i>
