@@ -23,6 +23,9 @@ export const StyledModalConfirmDelete = styled(ModalBox)`
     margin-top: 0.9375rem;
     width: 100%;
   }
+  .Warning {
+    color: #000000;
+  }
 `;
 
 export const IconDeleteModal = styled(MdDelete)`

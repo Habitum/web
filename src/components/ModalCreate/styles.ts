@@ -7,14 +7,14 @@ export const Modal = styled(ModalBox)`
   background: var(--color-white);
   border-radius: var(--radius);
   justify-content: flex-start;
-  overflow:auto;
+  overflow: auto;
   position: relative;
 
   @media (min-width: 768px) {
     max-width: 43.75rem;
     height: 34.375rem;
   }
-`
+`;
 
 export const ModalHeader = styled.header`
   width: 100%;
@@ -29,45 +29,49 @@ export const ModalHeader = styled.header`
   }
 
   @media (min-width: 768px) {
-    border-radius: .5rem .5rem 0 0;
+    border-radius: 0.5rem 0.5rem 0 0;
     text-align: start;
   }
-`
+`;
 
 export const ModalForm = styled.form`
   width: 100%;
-  padding: 0 2.5rem;
 
-  p {
-    margin: 0.625rem;
-    font: var(--text-weight-300) var(--text-size-500) var(--font-family-inter);
-    color: var(--color-grey-200);
-  }
-
-  .FormError {
-    color: var(--color-alert);
-  }
-
-  @media (min-width: 768px) {
-    display: flex;
-    justify-content: space-between;
+  .FormContainer {
+    padding: 0 2.5rem;
 
     p {
-      width: 14.375rem;
+      margin: 0.625rem;
+      font: var(--text-weight-300) var(--text-size-500) var(--font-family-inter);
+      color: var(--color-grey-200);
     }
 
-    .side-left, .side-right {
-      width: 50%;
+    .FormError {
+      color: var(--color-alert);
     }
 
-    .side-right {
+    @media (min-width: 768px) {
       display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      text-align: end;
+      justify-content: space-between;
+
+      p {
+        width: 14.375rem;
+      }
+
+      .side-left,
+      .side-right {
+        width: 50%;
+      }
+
+      .side-right {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        text-align: end;
+      }
     }
   }
-`
+`;
 
 export const ModalFooter = styled.div`
   width: 100%;
@@ -89,7 +93,7 @@ export const ModalFooter = styled.div`
   }
 
   @media (min-width: 768px) {
-    border-radius: 0 0 .5rem .5rem;
+    border-radius: 0 0 0.5rem 0.5rem;
     gap: 1.25rem;
     position: absolute;
     bottom: 0;
@@ -98,4 +102,4 @@ export const ModalFooter = styled.div`
       width: max-content;
     }
   }
-`
+`;
