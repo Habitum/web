@@ -41,7 +41,6 @@ export const HabitsProvider = ({ children }: iHabitsProviderProps) => {
     const response = await createHabit(body);
 
     if (response) {
-      setHabit({...habit, response});
       toast.success("Hábito criado com sucesso!");
 
       setHabit(response)
