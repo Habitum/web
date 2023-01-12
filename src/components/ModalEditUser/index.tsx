@@ -44,7 +44,7 @@ const ModalProfileEdit = ({ setModal, profilePic, setProfile }: iModalBaseProps)
 
   const [openPic, setOpenPic] = useState(false);
 
-  const { userEdit } = useContext(HabitsContext);
+  const { userEdit, setModalOn } = useContext(HabitsContext);
 
   const {
     handleSubmit,
@@ -54,7 +54,7 @@ const ModalProfileEdit = ({ setModal, profilePic, setProfile }: iModalBaseProps)
 
   const onHandleSubmit: SubmitHandler<iEditForm> = (data) => {
     userEdit(data);
-    setModal(false);
+    setModalOn(false);
   };
 
   const changePicture = (img : string) => {

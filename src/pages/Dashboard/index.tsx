@@ -20,13 +20,15 @@ import ModalProfileEdit from "../../components/ModalEditUser";
 import { getUser } from "../../services/getUser";
 
 const Dashboard = () => {
-  const { userLogout, user, setUser } = useContext(UserContext);
-  const { habit } = useContext(HabitsContext);
 
+  const { userLogout, user, setUser } = useContext(UserContext);
+  
   const [isOpenModalCreate, setIsOpenModalCreate] = useState(false);
   const [modalOn, setModalOn ] = useState(false);
   const [profilePic, setProfilePic ] = useState(user?.img);
 
+  const { habit, setIsOpenModalCreate, isOpenModalCreate } = useContext(HabitsContext)
+ 
   const todayDate = new Intl.DateTimeFormat("pt-BR", {
     weekday: "long",
     month: "long",
@@ -37,7 +39,7 @@ const Dashboard = () => {
   const handleModalCreate = () => setIsOpenModalCreate(!isOpenModalCreate);
 
   const fixedDate = todayDate.charAt(0).toUpperCase() + todayDate.slice(1);
-  
+
   return user ? (
     <StyledDashboardPage>
       <DefaultContainer>

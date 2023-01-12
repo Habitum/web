@@ -11,6 +11,10 @@ export interface iHabitsProviderValue {
   habitEdit: (id: number, data: iHabits) => void;
   habitDelete: (id:number, data:iDeleteHabit) => void;
   userEdit: (body: iUserEdit) => void;
+  isOpenModalCreate:boolean | null;
+  setIsOpenModalCreate:React.Dispatch<React.SetStateAction<boolean | null>>;
+  modalOn: boolean | null;
+  setModalOn:React.Dispatch<React.SetStateAction<boolean | null>>;
 }
 
 export interface iHabitData {
