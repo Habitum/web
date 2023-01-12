@@ -7,7 +7,9 @@ export const StyledRanking = styled.div`
   justify-content: center;
   width: 100%;
   max-width: 34.375rem;
-  
+  height: 25rem;
+  overflow: auto;
+
   @media (min-width: 850px) {
     width: 50%;
     transform: translateX(-2.6875rem);
@@ -37,13 +39,19 @@ export const StyledRanking = styled.div`
   ul {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    overflow: auto;
     gap: 0.625rem;
     padding: 0.625rem;
     background-color: var(--color-white);
     width: 100%;
     border-radius: var(--radius);
+
+    .LoadingRank {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 23rem;
+    }
 
     li {
       display: flex;

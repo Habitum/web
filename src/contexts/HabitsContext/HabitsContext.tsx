@@ -15,29 +15,27 @@ import { getUser } from "../../services/getUser";
 export const HabitsContext = createContext({} as iHabitsProviderValue);
 
 export const HabitsProvider = ({ children }: iHabitsProviderProps) => {
-
-  const { user,setUser } = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
 
   const [star, setStar] = useState(0);
 
   const [habit, setHabit] = useState([] as iHabits[]);
   const [isOpenModalCreate, setIsOpenModalCreate] = useState<boolean | null>(null);
-  const [modalOn, setModalOn ] = useState<boolean | null>(null);
-
+  const [modalOn, setModalOn] = useState<boolean | null>(null);
 
   useEffect(() => {
     if (user?.habits) {
       setHabit(user.habits);
-    };
+    }
   }, [user, habit]);
 
   const userEdit = async (body: iUserEdit) => {
-    const response = await editUser(body)
+    const response = await editUser(body);
 
-    if(response){
+    if (response) {
       toast.success("Usuário editado com sucesso!");
-      setUser(response)
-    }else{
+      setUser(response);
+    } else {
       toast.error("Algo deu errado");
     }
   };
@@ -47,30 +45,27 @@ export const HabitsProvider = ({ children }: iHabitsProviderProps) => {
 
     if (response) {
       toast.success("Hábito criado com sucesso!");
-
     } else {
       toast.error("Algo deu errado");
     }
 
     return response;
   };
-  
+
   const habitEdit = async (id: number, data: iHabits) => {
     const response = await editHabit(id, data);
-    
+
     if (response) {
       toast.success("Hábito editado com sucesso!");
 
       const response = await getUser();
       setUser(response);
-
-      
     } else {
       toast.error("Algo deu errado");
     }
   };
 
-  const habitDelete = async (id :number, data:iDeleteHabit) => {
+  const habitDelete = async (id: number, data: iDeleteHabit) => {
     const response = await deleteHabit(id, data);
 
     if (response) {
@@ -78,6 +73,9 @@ export const HabitsProvider = ({ children }: iHabitsProviderProps) => {
     } else {
       toast.error("Algo deu errado");
     }
+
+    const getUserHabits = await getUser();
+    setUser(getUserHabits);
   };
 
   return (
@@ -93,8 +91,8 @@ export const HabitsProvider = ({ children }: iHabitsProviderProps) => {
         userEdit,
         isOpenModalCreate,
         setIsOpenModalCreate,
-        modalOn, 
-        setModalOn 
+        modalOn,
+        setModalOn,
       }}
     >
       {children}
