@@ -1,8 +1,4 @@
-#Projeto Habitum
-
-<h1 align="center>
-Habitum
-</h1>
+# <h1 align="center"> Projeto Habitum </h1>
 
 <div align="center"><img width="750" height="200" src="https://github.com/Habitum/web/blob/develop/src/assets/readme/github-header-image.png"></div>
 
