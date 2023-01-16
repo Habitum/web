@@ -60,7 +60,7 @@ Desta forma, o usuário será capaz de se auto-monitorar, receber motivação a 
 
 # 💻 Desenvoldores:
 
-⭐  Maikol Santos 
+⭐ Maikol Santos 
  * [GitHub](https://github.com/MaikolSantos)
  * [LinkedIn](https://www.linkedin.com/in/maikol-lourencon/)
 
@@ -78,7 +78,8 @@ Desta forma, o usuário será capaz de se auto-monitorar, receber motivação a 
                                                                                                                  
 ⭐ Murilo Sena
 * [GitHub](https://github.com/Murilo517)
-* [LinkedIn](https://www.linkedin.com/in/murilo-sena-rocha-640280246/)                                                                                                              
+* [LinkedIn](https://www.linkedin.com/in/murilo-sena-rocha-640280246/)
+
 ⭐ Leandro Veloso
 * [GitHub](https://github.com/leandrovsk)
 * [LinkedIn](https://www.linkedin.com/in/leandro-veloso-de-siqueira-143430128/) 
