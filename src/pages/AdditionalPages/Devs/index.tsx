@@ -61,7 +61,7 @@ const Devs = () => {
             linkedin='https://www.linkedin.com/in/jacqueline-kajiya-83b359111/'
           />
           <DevCard
-            img='https://media.licdn.com/dms/image/C4D03AQFAJ_iGdcL6jA/profile-displayphoto-shrink_800_800/0/1661393967215?e=1678924800&v=beta&t=-_P2ag2ddPk-cbo65loxurjzWlxDlsZG66gHpJUIfGg'
+            img='https://ca.slack-edge.com/TQZR39SET-U03JYQPPRSA-d156c65b29f5-512'
             name='Maikol Santos'
             github='https://github.com/MaikolSantos'
             linkedin='https://www.linkedin.com/in/maikol-lourencon/'
